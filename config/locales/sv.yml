@@ -1,0 +1,20 @@
+sv:
+  layouts:
+    decidim:
+      footer:
+        feedback_link: Ge feedback
+  placeholder:
+    title: Boendebudget
+    description: Boendebudget kommer 1.4.2020
+    explanation: Staden kommer att genomföra de vinnande planerna 2021.
+    sign_up_disabled: Registreringen inaktiveras tillfälligt, du kan använda ett befintligt konto för att komma åt.
+    steps:
+      step1:
+        when: april
+        what: Föreslå
+      step2:
+        when: maj-juni
+        what: Utveckla
+      step3:
+        when: september
+        what: Rösta

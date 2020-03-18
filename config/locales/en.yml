@@ -1,0 +1,20 @@
+en:
+  layouts:
+    decidim:
+      footer:
+        feedback_link: Give feedback
+  placeholder:
+    title: Resident Budget
+    description: Resident Budget comes 1.4.2020
+    explanation: The city will implement the winning plans in 2021.
+    sign_up_disabled: Sign up is disabled temporarily, you can use an existing account to access.
+    steps:
+      step1:
+        when: April
+        what: Suggest
+      step2:
+        when: May-June
+        what: Develop
+      step3:
+        when: September
+        what: Vote

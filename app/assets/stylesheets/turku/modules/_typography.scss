@@ -1,0 +1,20 @@
+@import "turku/requirements";
+
+a,
+.link{
+  font-weight: $anchor-font-weight;
+}
+
+.lead{
+  font-weight: $lead-font-weight;
+}
+
+.section-heading{
+  &::before{
+    display: none;
+  }
+}
+
+.page-title-wrapper{
+  text-align: left;
+}

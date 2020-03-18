@@ -1,0 +1,18 @@
+@import "turku/requirements";
+
+.button{
+  font-weight: $button-font-weight;
+
+  &.clear.secondary{
+    color: $anchor-color;
+
+    &:hover,
+    &:focus{
+      color: darken($anchor-color, 10%);
+    }
+  }
+}
+
+a.button{
+  text-decoration: none;
+}

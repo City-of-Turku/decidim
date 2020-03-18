@@ -1,0 +1,20 @@
+fi:
+  layouts:
+    decidim:
+      footer:
+        feedback_link: Anna palautetta
+  placeholder:
+    title: Asukasbudjetti
+    description: Asukasbudjetti tulee 1.4.2020
+    explanation: Kaupunki toteuttaa voittoisat suunnitelmat vuoden 2021 aikana.
+    sign_up_disabled: Rekisteröityminen on toistaiseksi poistettu käytöstä, voit kirjautua olemassaolevalla käyttäjätilillä.
+    steps:
+      step1:
+        when: huhtikuu
+        what: Ehdota
+      step2:
+        when: touko-kesäkuu
+        what: Kehitä
+      step3:
+        when: syyskuu
+        what: Äänestä

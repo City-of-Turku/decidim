@@ -1,0 +1,50 @@
+@import "turku/requirements";
+
+$card-bg: $white !default;
+
+$card-margin-bottom: map-get($grid-column-gutter, medium);
+
+$card-border: none;
+$card-border-top: $border;
+$card-border-radius: $global-radius;
+$card-border-top-width: 8px;
+$card-secondary-bg: $turku-light-grey;
+
+/* Cards */
+.card{
+  margin-bottom: $card-margin-bottom;
+  background: $card-bg;
+  border: $card-border;
+  border-top: $card-border-top;
+  border-radius: $card-border-radius;
+  overflow: hidden;
+
+  @include modifiers(border-top-color, (muted: rgba($muted, .3))){
+    border-top-width: $card-border-top-width;
+  }
+
+  &:hover{
+    @include modifiers(border-color, (muted: rgba($muted, .3)));
+  }
+}
+
+a.card{
+  text-decoration: none;
+}
+
+.card--secondary,
+.card__datetime,
+.card--list__data,
+.card__extra{
+  background: $card-secondary-bg;
+}
+
+.card--widget{
+  .card-data{
+    .card-data__item{
+      &:first-child{
+        background-color: $card-secondary-bg;
+      }
+    }
+  }
+}

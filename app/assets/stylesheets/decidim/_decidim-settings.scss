@@ -1,0 +1,41 @@
+// Import the Turku variables because this is also loaded for the admin panel
+// as the decidim-core gem's utils/settings.scss gets a priority for the admin
+// panel as well.
+@import "turku-variables";
+
+// Base
+$black: $turku-black;
+$white: $turku-white;
+$body-background: $white;
+$body-font-color: $black;
+$global-radius: 4px;
+
+// Typography
+$body-font-family: Arial, sans-serif;
+$header-font-family: $body-font-family;
+$muted: lighten($turku-grey, 20) !default;
+$anchor-color: $turku-dark-blue;
+$anchor-text-decoration: none;
+$anchor-text-decoration-hover: underline;
+$anchor-font-weight: 600;
+$lead-font-size: 150%;
+$lead-font-weight: normal;
+
+// Titlebar
+$titlebar-background: $white;
+$titlebar-color: $body-font-color;
+
+// Button
+$button-border: 2px solid transparent;
+$button-hollow-border-width: 2px;
+$button-radius: $global-radius;
+$button-shadow: 0 2px 0 rgba(0, 0, 0, .2);
+$button-font-weight: 600;
+
+// Inputs
+$input-border: 1px solid $black;
+$input-placeholder-color: $turku-dark-grey;
+
+// Pagination
+$pagination-item-background-current: $turku-rubine-red;
+$pagination-item-color: $anchor-color;
