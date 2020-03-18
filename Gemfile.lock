@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/mainio/decidim.git
-  revision: 534dd888f12b4a8b76e1c6127c2db2396855b716
+  revision: 52d95f319aa4f45dc2f80401013df228e14ab487
   branch: accessibility/202003
   specs:
     decidim (0.22.0.dev)
