@@ -1,2 +1,0 @@
-# decidim
-Osallistuvan budjetoinnin projekti
