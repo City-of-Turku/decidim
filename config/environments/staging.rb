@@ -96,6 +96,9 @@ Rails.application.configure do
     :openssl_verify_mode => 'none'
   }
 
+  # Sending address for mails
+  config.mailer_sender = "no-reply@testiasukasbudjetti.turku.fi"
+
   # Default URL for application (Devise)
   config.action_controller.default_url_options = {
     # protocol: "https", # Breaks login redirection
