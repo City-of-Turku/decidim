@@ -40,7 +40,12 @@
 
   .timeline__date{
     padding-right: 0;
+    color: $body-font-color;
   }
+}
+
+.timeline__item{
+  padding-bottom: 3em;
 }
 
 @include breakpoint(medium){
@@ -58,7 +63,7 @@
         top: auto;
         bottom: 0;
         left: 0;
-        width: 50%;
+        width: 51%;
         height: 10px;
       }
 
@@ -68,7 +73,7 @@
 
       &::after{
         left: auto;
-        right: 0;
+        right: -1%;
       }
 
       &:first-of-type{
@@ -79,7 +84,7 @@
 
       &:last-of-type{
         &::before{
-          width: 50%;
+          width: 51%;
         }
 
         &::after{

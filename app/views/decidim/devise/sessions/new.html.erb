@@ -1,71 +1,7 @@
 <% add_decidim_page_title(t("devise.sessions.new.sign_in")) %>
 
 <% unless current_organization.sign_up_enabled? %>
-  <div class="wrapper">
-    <div class="row collapse">
-      <div class="row collapse">
-        <div class="columns large-8 large-centered text-center page-title">
-          <h1><%= t("placeholder.title") %></h1>
-
-          <p class="lead">
-            <%= t("placeholder.description") %>
-          </p>
-        </div>
-      </div>
-
-      <ol class="timeline timeline-horizontal">
-        <li class="timeline__item">
-          <div class="timeline__phase">
-            <span class="timeline__phase__number">1</span>
-          </div>
-          <div class="timeline__info">
-            <div class="timeline__description">
-              <h4 class="timeline__title">
-                <%= t("placeholder.steps.step1.what") %>
-              </h4>
-              <span class="timeline__date text-small">
-                <%= t("placeholder.steps.step1.when") %>
-              </span>
-            </div>
-          </div>
-        </li>
-        <li class="timeline__item ">
-          <div class="timeline__phase">
-            <span class="timeline__phase__number">2</span>
-          </div>
-          <div class="timeline__info">
-            <div class="timeline__description">
-              <h4 class="timeline__title">
-                <%= t("placeholder.steps.step2.what") %>
-              </h4>
-              <span class="timeline__date text-small">
-                <%= t("placeholder.steps.step2.when") %>
-              </span>
-            </div>
-          </div>
-        </li>
-        <li class="timeline__item ">
-          <div class="timeline__phase">
-            <span class="timeline__phase__number">3</span>
-          </div>
-          <div class="timeline__info">
-            <div class="timeline__description">
-              <h4 class="timeline__title">
-                <%= t("placeholder.steps.step3.what") %>
-              </h4>
-              <span class="timeline__date text-small">
-                <%= t("placeholder.steps.step3.when") %>
-              </span>
-            </div>
-          </div>
-        </li>
-      </ol>
-
-      <div class="description text-center">
-        <p><strong><%= t("placeholder.explanation") %></strong></p>
-      </div>
-    </div>
-  </div>
+  <%= render "placeholder/timeline" %>
 <% end %>
 
 <div class="wrapper">
