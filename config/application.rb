@@ -19,7 +19,7 @@ module DecidimTurku
     config.address_suffix = "Turku, Finland"
 
     # Sending address for mails
-    config.mailer_sender = "no-reply@asukasbudjetti.turku.fi"
+    config.mailer_sender = "noreply@turku.fi"
 
     config.search_indexing = true
 

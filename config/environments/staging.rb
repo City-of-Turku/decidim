@@ -83,8 +83,7 @@ Rails.application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
-  #config.action_mailer.delivery_method = :smtp
-  config.action_mailer.delivery_method = :sendmail
+  config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     :address        => Rails.application.secrets.smtp_address,
     :port           => Rails.application.secrets.smtp_port,
@@ -95,9 +94,6 @@ Rails.application.configure do
     :enable_starttls_auto => Rails.application.secrets.smtp_starttls_auto,
     :openssl_verify_mode => 'none'
   }
-
-  # Sending address for mails
-  config.mailer_sender = "no-reply@testiasukasbudjetti.turku.fi"
 
   # Default URL for application (Devise)
   config.action_controller.default_url_options = {
