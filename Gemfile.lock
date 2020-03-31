@@ -1,4 +1,23 @@
 GIT
+  remote: https://github.com/mainio/decidim-module-antivirus.git
+  revision: 002283db842a6f5ac2bc5cdb77c1a9b1a7580293
+  branch: develop
+  specs:
+    decidim-antivirus (0.22.0)
+      decidim-core (~> 0.22.0.dev)
+      ratonvirus (~> 0.1.0)
+      ratonvirus-clamby (~> 0.1.0)
+
+GIT
+  remote: https://github.com/mainio/decidim-module-term_customizer.git
+  revision: 4eef44ef66337c407075752b3a3856e708611377
+  branch: develop
+  specs:
+    decidim-term_customizer (0.22.0)
+      decidim-admin (~> 0.22.0.dev)
+      decidim-core (~> 0.22.0.dev)
+
+GIT
   remote: https://github.com/mainio/decidim-module-tunnistamo.git
   revision: 5a1206f6d49b7bc7594d0cb02d15b6ae6c7c42f2
   specs:
@@ -318,6 +337,7 @@ GEM
       cells (>= 4.1.6, < 5.0.0)
     charlock_holmes (0.7.7)
     childprocess (3.0.0)
+    clamby (1.6.2)
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
     coffee-rails (5.0.0)
@@ -641,6 +661,11 @@ GEM
       activerecord (>= 5.0)
       activesupport (>= 5.0)
       i18n
+    ratonvirus (0.1.1)
+      activesupport (~> 5.0)
+    ratonvirus-clamby (0.1.0)
+      clamby (~> 1.6)
+      ratonvirus (~> 0.1.0)
     rb-fsevent (0.10.3)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
@@ -841,7 +866,9 @@ DEPENDENCIES
   byebug (~> 11.0)
   database_cleaner
   decidim!
+  decidim-antivirus!
   decidim-dev (= 0.22.0.dev)
+  decidim-term_customizer!
   decidim-tunnistamo!
   dotenv-rails (~> 2.1, >= 2.1.1)
   faker (~> 1.9)

@@ -11,6 +11,8 @@ gem "decidim", DECIDIM_VERSION
 # gem "decidim-consultations", DECIDIM_VERSION
 # gem "decidim-initiatives", DECIDIM_VERSION
 
+gem "decidim-antivirus", github: "mainio/decidim-module-antivirus", branch: "develop"
+gem "decidim-term_customizer", github: "mainio/decidim-module-term_customizer", branch: "develop"
 gem "decidim-tunnistamo", github: "mainio/decidim-module-tunnistamo"
 gem "omniauth-tunnistamo", github: "mainio/omniauth-tunnistamo"
 
