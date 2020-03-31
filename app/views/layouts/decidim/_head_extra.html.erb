@@ -1,3 +1,5 @@
 <% unless Rails.application.config.search_indexing %>
   <meta name="robots" content="noindex,nofollow">
 <% end %>
+
+<%= render partial: "decidim/tunnistamo/shared/tunnistamo_sign_out" %>

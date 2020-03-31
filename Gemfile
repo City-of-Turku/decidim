@@ -11,6 +11,9 @@ gem "decidim", DECIDIM_VERSION
 # gem "decidim-consultations", DECIDIM_VERSION
 # gem "decidim-initiatives", DECIDIM_VERSION
 
+gem "decidim-tunnistamo", github: "mainio/decidim-module-tunnistamo"
+gem "omniauth-tunnistamo", github: "mainio/omniauth-tunnistamo"
+
 gem "bootsnap", "~> 1.3"
 
 gem "puma", "~> 4.3.3"
