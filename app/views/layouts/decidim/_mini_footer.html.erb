@@ -1,3 +1,14 @@
+<%
+feedback_link = case current_locale
+when "sv"
+  "https://opaskartta.turku.fi/eFeedback/sv/Feedback/30-S%C3%A4hk%C3%B6iset%20asiointipalvelut"
+when "en"
+  "https://opaskartta.turku.fi/eFeedback/en/Feedback/30-S%C3%A4hk%C3%B6iset%20asiointipalvelut"
+else
+  "https://opaskartta.turku.fi/eFeedback/fi/Feedback/30-S%C3%A4hk%C3%B6iset%20asiointipalvelut"
+end
+%>
+
 <div class="mini-footer">
   <div class="row">
     <div class="medium-7 large-8 column">
@@ -9,6 +20,9 @@
       <%= t("layouts.decidim.footer.made_with_open_source").html_safe %>
     </div>
     <div class="medium-3 large-2 column">
+      <div class="decidim-logo">
+        <a href="<%= feedback_link %>" target="_blank" rel="noopener"><%= t("layouts.decidim.footer.feedback_link") %></a>
+      </div>
     </div>
   </div>
 </div>
