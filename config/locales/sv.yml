@@ -1,4 +1,13 @@
 sv:
+  devise:
+    shared:
+      links:
+        sign_in_with:
+          developer: Logga in med utvecklarkontot
+          facebook: Logga in med Facebook
+          google_oauth2: Logga in med Google
+          tunnistamo: Logga in med bibliotekskort
+          twitter: Logga in med Twitter
   layouts:
     decidim:
       footer:

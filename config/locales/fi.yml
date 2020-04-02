@@ -1,4 +1,13 @@
 fi:
+  devise:
+    shared:
+      links:
+        sign_in_with:
+          developer: Kirjaudu sisään kehittäjätunnuksella
+          facebook: Kirjaudu sisään Facebook-tunnuksella
+          google_oauth2: Kirjaudu sisään Google-tunnuksella
+          tunnistamo: Kirjaudu sisään kirjastokortilla
+          twitter: Kirjaudu sisään Twitter-tunnuksella
   layouts:
     decidim:
       footer:

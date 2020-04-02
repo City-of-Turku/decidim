@@ -1,4 +1,13 @@
 en:
+  devise:
+    shared:
+      links:
+        sign_in_with:
+          developer: Sign in with developer account
+          facebook: Sign in with Facebook
+          google_oauth2: Sign in with Google
+          tunnistamo: Sign in with library card
+          twitter: Sign in with Twitter
   layouts:
     decidim:
       footer:
