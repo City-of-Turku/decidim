@@ -1,6 +1,9 @@
 # Turku - Decidim
 
-Turku Decidim instance for the "Asukasbudjetti" service.
+Turku Decidim instance for the "Asukasbudjetti" service. You can find the live
+service from this domain:
+
+https://asukasbudjetti.turku.fi/
 
 The platform is based on [Decidim](https://github.com/decidim/decidim).
 
