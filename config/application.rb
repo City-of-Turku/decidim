@@ -27,5 +27,17 @@ module DecidimTurku
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
+
+    # See:
+    # https://guides.rubyonrails.org/configuring.html#initialization-events
+    #
+    # Run before every request in development.
+    config.to_prepare do
+      # Controller extensions
+      ::Decidim::Proposals::ProposalsController.send(
+        :include,
+        ProposalsExtensions
+      )
+    end
   end
 end
