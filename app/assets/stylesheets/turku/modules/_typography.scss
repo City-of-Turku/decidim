@@ -10,9 +10,20 @@ a,
 }
 
 .section-heading{
+  letter-spacing: normal;
+
   &::before{
     display: none;
   }
+}
+
+.subheading1{
+  text-align: left;
+  margin: 0;
+}
+
+.page-title{
+  margin-bottom: 1rem;
 }
 
 .page-title-wrapper{
