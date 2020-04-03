@@ -12,16 +12,16 @@ end
 <div class="mini-footer">
   <div class="row">
     <div class="medium-7 large-8 column">
-      <a rel="license" class="cc-badge"
+      <a rel="license noopener" class="cc-badge"
          href="http://creativecommons.org/licenses/by-sa/4.0/"
-         target="_blank" rel="noopener">
+         target="_blank">
         <%= image_tag("decidim/cc-badge.png", alt: "Creative Commons License" ) %>
       </a>
       <%= t("layouts.decidim.footer.made_with_open_source").html_safe %>
     </div>
     <div class="medium-3 large-2 column">
       <div class="decidim-logo">
-        <a href="<%= feedback_link %>" target="_blank" rel="noopener"><%= t("layouts.decidim.footer.feedback_link") %></a>
+        <a href="<%= feedback_link %>" target="_blank" rel="decidim noopener"><%= t("layouts.decidim.footer.feedback_link") %></a>
       </div>
     </div>
   </div>
