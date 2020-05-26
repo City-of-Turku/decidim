@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_01_000273) do
+ActiveRecord::Schema.define(version: 2020_05_26_061209) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -153,8 +153,6 @@ ActiveRecord::Schema.define(version: 2020_04_01_000273) do
     t.integer "children_count", default: 0
     t.jsonb "purpose_of_action"
     t.jsonb "composition"
-    t.string "assembly_type"
-    t.jsonb "assembly_type_other"
     t.date "creation_date"
     t.string "created_by"
     t.jsonb "created_by_other"
@@ -177,6 +175,12 @@ ActiveRecord::Schema.define(version: 2020_04_01_000273) do
     t.index ["decidim_organization_id"], name: "index_decidim_assemblies_on_decidim_organization_id"
     t.index ["decidim_scope_id"], name: "index_decidim_assemblies_on_decidim_scope_id"
     t.index ["parent_id"], name: "decidim_assemblies_assemblies_on_parent_id"
+  end
+
+  create_table "decidim_assemblies_settings", force: :cascade do |t|
+    t.boolean "enable_organization_chart", default: true
+    t.bigint "decidim_organization_id"
+    t.index ["decidim_organization_id"], name: "index_decidim_assemblies_settings_on_decidim_organization_id"
   end
 
   create_table "decidim_assemblies_types", force: :cascade do |t|
@@ -389,16 +393,17 @@ ActiveRecord::Schema.define(version: 2020_04_01_000273) do
   create_table "decidim_content_blocks", force: :cascade do |t|
     t.integer "decidim_organization_id", null: false
     t.string "manifest_name", null: false
-    t.string "scope", null: false
+    t.string "scope_name", null: false
     t.jsonb "settings"
     t.datetime "published_at"
     t.integer "weight"
     t.jsonb "images", default: {}
-    t.index ["decidim_organization_id", "scope", "manifest_name"], name: "idx_dcdm_content_blocks_uniq_org_id_scope_manifest_name", unique: true
+    t.integer "scoped_resource_id"
+    t.index ["decidim_organization_id", "scope_name", "scoped_resource_id", "manifest_name"], name: "idx_decidim_content_blocks_org_id_scope_scope_id_manifest"
     t.index ["decidim_organization_id"], name: "index_decidim_content_blocks_on_decidim_organization_id"
     t.index ["manifest_name"], name: "index_decidim_content_blocks_on_manifest_name"
     t.index ["published_at"], name: "index_decidim_content_blocks_on_published_at"
-    t.index ["scope"], name: "index_decidim_content_blocks_on_scope"
+    t.index ["scope_name"], name: "index_decidim_content_blocks_on_scope_name"
   end
 
   create_table "decidim_contextual_help_sections", force: :cascade do |t|
@@ -460,6 +465,7 @@ ActiveRecord::Schema.define(version: 2020_04_01_000273) do
     t.integer "position"
     t.jsonb "body"
     t.text "custom_body"
+    t.integer "decidim_question_matrix_row_id"
     t.index ["decidim_answer_id"], name: "index_decidim_forms_answer_choices_answer_id"
     t.index ["decidim_answer_option_id"], name: "index_decidim_forms_answer_choices_answer_option_id"
   end
@@ -485,6 +491,14 @@ ActiveRecord::Schema.define(version: 2020_04_01_000273) do
     t.index ["decidim_user_id"], name: "index_decidim_forms_answers_on_decidim_user_id"
     t.index ["ip_hash"], name: "index_decidim_forms_answers_on_ip_hash"
     t.index ["session_token"], name: "index_decidim_forms_answers_on_session_token"
+  end
+
+  create_table "decidim_forms_question_matrix_rows", force: :cascade do |t|
+    t.bigint "decidim_question_id"
+    t.integer "position"
+    t.jsonb "body"
+    t.index ["decidim_question_id"], name: "index_decidim_forms_question_matrix_questionnaire_id"
+    t.index ["position"], name: "index_decidim_forms_question_matrix_rows_on_position"
   end
 
   create_table "decidim_forms_questionnaires", id: :serial, force: :cascade do |t|
@@ -720,7 +734,6 @@ ActiveRecord::Schema.define(version: 2020_04_01_000273) do
 
   create_table "decidim_newsletters", id: :serial, force: :cascade do |t|
     t.jsonb "subject"
-    t.jsonb "body"
     t.integer "organization_id"
     t.integer "author_id"
     t.integer "total_recipients"
@@ -960,7 +973,7 @@ ActiveRecord::Schema.define(version: 2020_04_01_000273) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "decidim_author_type", null: false
-    t.index "decidim_proposal_id, decidim_author_id, (COALESCE(decidim_user_group_id, ('-1'::integer)::bigint))", name: "decidim_proposals_proposal_endorsmt_proposal_auth_ugroup_uniq", unique: true
+    t.index "decidim_proposal_id, decidim_author_id, COALESCE(decidim_user_group_id, ('-1'::integer)::bigint)", name: "decidim_proposals_proposal_endorsmt_proposal_auth_ugroup_uniq", unique: true
     t.index ["decidim_author_id", "decidim_author_type"], name: "index_decidim_proposals_proposal_endorsements_on_decidim_author"
     t.index ["decidim_proposal_id"], name: "decidim_proposals_proposal_endorsement_proposal"
     t.index ["decidim_user_group_id"], name: "decidim_proposals_proposal_endorsement_user_group"
@@ -1404,6 +1417,7 @@ ActiveRecord::Schema.define(version: 2020_04_01_000273) do
   add_foreign_key "decidim_areas", "decidim_area_types", column: "area_type_id"
   add_foreign_key "decidim_areas", "decidim_organizations"
   add_foreign_key "decidim_assemblies", "decidim_assemblies_types"
+  add_foreign_key "decidim_assemblies_settings", "decidim_organizations"
   add_foreign_key "decidim_attachments", "decidim_attachment_collections", column: "attachment_collection_id", name: "fk_decidim_attachments_attachment_collection_id", on_delete: :nullify
   add_foreign_key "decidim_authorizations", "decidim_users"
   add_foreign_key "decidim_categorizations", "decidim_categories"

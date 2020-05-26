@@ -5,7 +5,7 @@ git_source(:github) { |repo_name| "https://github.com/#{repo_name}.git" }
 
 ruby RUBY_VERSION
 
-DECIDIM_VERSION = { github: "mainio/decidim", branch: "accessibility/202003" }
+DECIDIM_VERSION = { github: "mainio/decidim", branch: "accessibility/deploy" }
 
 gem "decidim", DECIDIM_VERSION
 # gem "decidim-consultations", DECIDIM_VERSION
