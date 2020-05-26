@@ -17,6 +17,12 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
   color: $white;
 }
 
+.logo-wrapper{
+   img{
+    width: 113px;
+  }
+}
+
 .main-nav__link{
   a{
     color: $navbar-color;
