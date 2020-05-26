@@ -27,7 +27,7 @@ GIT
 
 GIT
   remote: https://github.com/mainio/decidim.git
-  revision: 613e728f540d32e05f6c1f21fe732ca8bf172b8d
+  revision: 3dd26e912c9135b7400c0f135d32079909891aae
   branch: accessibility/deploy
   specs:
     decidim (0.22.0.dev)
