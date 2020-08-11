@@ -1,4 +1,9 @@
 en:
+  decidim:
+    tunnistamo:
+      omniauth_callbacks:
+        failure:
+          security_denial: Your identity cannot be verified electronically. You can vote at the polling stations announced separately by showing an ID.
   devise:
     shared:
       links:
