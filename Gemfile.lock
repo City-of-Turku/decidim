@@ -19,7 +19,7 @@ GIT
 
 GIT
   remote: https://github.com/mainio/decidim-module-tunnistamo.git
-  revision: f96ab91b411490073170f1285971ff945cb0d2fa
+  revision: 448a9766401b40f32e00183d633a8714ed74791b
   specs:
     decidim-tunnistamo (0.22.0)
       decidim-core (~> 0.22.0.dev)
@@ -226,7 +226,7 @@ GIT
 
 GIT
   remote: https://github.com/mainio/omniauth-tunnistamo.git
-  revision: a730c842e086870a72a648d8afed5c2d8c63e633
+  revision: 9cf42234cfb7ab499717b3bbf73169a1d1827b8f
   specs:
     omniauth-tunnistamo (0.1.1)
       omniauth_openid_connect (~> 0.3, >= 0.3.5)
@@ -282,7 +282,7 @@ GEM
       activerecord (>= 3.0)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
-    aes_key_wrap (1.0.1)
+    aes_key_wrap (1.1.0)
     anchored (1.1.0)
     arel (9.0.0)
     ast (2.4.0)
@@ -307,7 +307,7 @@ GEM
       html_tokenizer (~> 0.0.6)
       parser (>= 2.4)
       smart_properties
-    bindata (2.4.7)
+    bindata (2.4.8)
     bindex (0.8.1)
     bootsnap (1.4.6)
       msgpack (~> 1.0)
@@ -613,7 +613,7 @@ GEM
       rack (>= 1.0, < 3)
     rack-cors (1.1.1)
       rack (>= 2.0.0)
-    rack-oauth2 (1.14.0)
+    rack-oauth2 (1.16.0)
       activesupport
       attr_required
       httpclient
@@ -895,4 +895,4 @@ RUBY VERSION
    ruby 2.6.5p114
 
 BUNDLED WITH
-   2.0.2
+   2.1.4
