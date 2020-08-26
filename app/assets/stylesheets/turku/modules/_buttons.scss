@@ -1,7 +1,14 @@
 @import "turku/requirements";
 
 .button{
+  box-shadow: $button-shadow;
   font-weight: $button-font-weight;
+
+  &.active,
+  &:active{
+    top: $button-vertical-push-active;
+    box-shadow: $button-shadow-active;
+  }
 
   &.clear.secondary{
     color: $anchor-color;
@@ -15,4 +22,8 @@
 
 a.button{
   text-decoration: none;
+}
+
+.button--sc{
+  text-transform: none;
 }

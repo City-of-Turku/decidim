@@ -2,8 +2,6 @@ $turku-black: #000;
 $turku-black-rgb: 0,0,0;
 $turku-white: #fff;
 $turku-white-rgb: 255,255,255;
-$turku-highlight: #00375e;
-$turku-highlight-rgb: 0,55,94;
 
 $turku-grey: #c3c4b7;
 $turku-grey-rgb: 195,196,183;
@@ -28,3 +26,8 @@ $turku-green: #01835e; // Differs from brand because of accessibility
 $turku-green-rgb: 1,131,94; // Differs from brand because of accessibility
 $turku-light-green: #7dcdc8;
 $turku-light-green-rgb: 125,205,200;
+
+$turku-highlight: #00375e;
+$turku-highlight-rgb: 0,55,94;
+$turku-highlight-alternative: $turku-orange;
+$turku-highlight-alternative-rgb: $turku-orange-rgb;

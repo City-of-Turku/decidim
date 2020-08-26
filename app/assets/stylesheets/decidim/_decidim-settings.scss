@@ -18,6 +18,7 @@ $anchor-color: $turku-dark-blue;
 $anchor-text-decoration: none;
 $anchor-text-decoration-hover: underline;
 $anchor-font-weight: 600;
+$anchor-outline-focus: 2px solid $turku-highlight;
 $lead-font-size: 150%;
 $lead-font-weight: normal;
 
@@ -29,7 +30,11 @@ $titlebar-color: $body-font-color;
 $button-border: 2px solid transparent;
 $button-hollow-border-width: 2px;
 $button-radius: $global-radius;
+$button-outline-focus: $anchor-outline-focus;
 $button-shadow: 0 2px 0 rgba(0, 0, 0, .2);
+$button-shadow-active: inset 0 0 14px -2px $black;
+$button-shadow-focus: none;
+$button-vertical-push-active: 2px;
 $button-font-weight: 600;
 
 // Inputs
