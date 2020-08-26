@@ -18,7 +18,7 @@ module Turku
     private
 
     def has_security_denial?
-      oauth_raw_info.dig(:address, :turvakielto) == "1"
+      oauth_raw_info[:non_disclosure] == "1"
     end
   end
 end
