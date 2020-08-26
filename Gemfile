@@ -5,15 +5,15 @@ git_source(:github) { |repo_name| "https://github.com/#{repo_name}.git" }
 
 ruby RUBY_VERSION
 
-DECIDIM_VERSION = { github: "mainio/decidim", branch: "accessibility/deploy" }
+DECIDIM_VERSION = { github: "decidim/decidim", branch: "release/0.22-stable" }
 
 gem "decidim", DECIDIM_VERSION
 # gem "decidim-consultations", DECIDIM_VERSION
 # gem "decidim-initiatives", DECIDIM_VERSION
 
-gem "decidim-antivirus", github: "mainio/decidim-module-antivirus", branch: "develop"
-gem "decidim-term_customizer", github: "mainio/decidim-module-term_customizer", branch: "develop"
-gem "decidim-tunnistamo", github: "mainio/decidim-module-tunnistamo"
+gem "decidim-antivirus", github: "mainio/decidim-module-antivirus", branch: "master"
+gem "decidim-term_customizer", github: "mainio/decidim-module-term_customizer", branch: "master"
+gem "decidim-tunnistamo", github: "mainio/decidim-module-tunnistamo", branch: "master"
 gem "omniauth-tunnistamo", github: "mainio/omniauth-tunnistamo"
 
 gem "bootsnap", "~> 1.3"
@@ -26,7 +26,7 @@ gem "faker", "~> 1.9"
 group :development, :test do
   gem "byebug", "~> 11.0", platform: :mri
 
-  gem "decidim-dev", "0.22.0.dev"
+  gem "decidim-dev", DECIDIM_VERSION
 end
 
 group :development do
