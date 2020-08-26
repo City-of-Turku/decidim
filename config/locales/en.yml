@@ -11,7 +11,7 @@ en:
           developer: Sign in with developer account
           facebook: Sign in with Facebook
           google_oauth2: Sign in with Google
-          tunnistamo: Sign in with library card
+          tunnistamo: Sign in and identify yourself to vote
           twitter: Sign in with Twitter
   layouts:
     decidim:

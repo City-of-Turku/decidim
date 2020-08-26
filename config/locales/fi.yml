@@ -11,7 +11,7 @@ fi:
           developer: Kirjaudu sisään kehittäjätunnuksella
           facebook: Kirjaudu sisään Facebook-tunnuksella
           google_oauth2: Kirjaudu sisään Google-tunnuksella
-          tunnistamo: Kirjaudu sisään kirjastokortilla
+          tunnistamo: Kirjaudu sisään ja tunnistaudu äänestämään
           twitter: Kirjaudu sisään Twitter-tunnuksella
   layouts:
     decidim:
