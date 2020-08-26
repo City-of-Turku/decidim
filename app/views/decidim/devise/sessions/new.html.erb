@@ -13,22 +13,9 @@
         <% else %>
           <h2><%= t("devise.sessions.new.sign_in") %></h2>
         <% end %>
-        <% if current_organization.sign_up_enabled? %>
-          <p>
-            <%= t(".are_you_new?") %>
-            <%= link_to t(".register"), new_user_registration_path %>
-          </p>
-        <% elsif current_organization.sign_in_enabled? %>
-          <p>
-            <%= t("placeholder.sign_up_disabled") %>
-          </p>
-        <% else %>
-          <p>
-            <%= t(".sign_in_disabled") %>
-          </p>
-        <% end %>
       </div>
     </div>
+
     <%= render "decidim/devise/shared/omniauth_buttons" %>
 
     <% if current_organization.sign_in_enabled? %>
@@ -36,6 +23,19 @@
         <div class="columns large-6 medium-centered">
           <div class="card">
             <div class="card__content">
+              <div class="text-center">
+                <% if current_organization.sign_up_enabled? %>
+                  <p>
+                    <%= t(".are_you_new?") %>
+                    <%= link_to t(".register"), new_user_registration_path %>
+                  </p>
+                <% else %>
+                  <p>
+                    <%= t("placeholder.sign_up_disabled") %>
+                  </p>
+                <% end %>
+              </div>
+
               <%= decidim_form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "register-form new_user" }) do |f| %>
                 <div>
                   <div class="field">

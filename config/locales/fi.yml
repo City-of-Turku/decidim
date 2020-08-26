@@ -1,5 +1,8 @@
 fi:
   decidim:
+    shared:
+      login_modal:
+        sign_in_with_account: Kirjaudu sisään sähköpostilla ja salasanalla
     tunnistamo:
       omniauth_callbacks:
         failure:
@@ -7,12 +10,14 @@ fi:
   devise:
     shared:
       links:
+        sign_in_and_authorize: Tunnistaudu ja kirjaudu sisään äänestämään
         sign_in_with:
           developer: Kirjaudu sisään kehittäjätunnuksella
           facebook: Kirjaudu sisään Facebook-tunnuksella
           google_oauth2: Kirjaudu sisään Google-tunnuksella
-          tunnistamo: Kirjaudu sisään ja tunnistaudu äänestämään
+          tunnistamo: Tunnistaudu ja kirjaudu äänestämään
           twitter: Kirjaudu sisään Twitter-tunnuksella
+        sign_in_with_omniauth: Kirjaudu tilillesi sosiaalisen median tunnuksilla (äänestys ei ole mahdollista)
   layouts:
     decidim:
       footer:

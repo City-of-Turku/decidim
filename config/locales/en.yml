@@ -1,5 +1,8 @@
 en:
   decidim:
+    shared:
+      login_modal:
+        sign_in_with_account: Sign in with email and password
     tunnistamo:
       omniauth_callbacks:
         failure:
@@ -7,12 +10,14 @@ en:
   devise:
     shared:
       links:
+        sign_in_and_authorize: Verify your identity and sign in to vote
         sign_in_with:
           developer: Sign in with developer account
           facebook: Sign in with Facebook
           google_oauth2: Sign in with Google
-          tunnistamo: Sign in and identify yourself to vote
+          tunnistamo: Identify yourself and sign in to vote
           twitter: Sign in with Twitter
+        sign_in_with_omniauth: Sign in with your social media account (not possible to vote)
   layouts:
     decidim:
       footer:

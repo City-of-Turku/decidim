@@ -1,0 +1,67 @@
+<% if Devise.mappings[:user].omniauthable? && current_organization.enabled_omniauth_providers.any? %>
+  <%
+  strong_providers = [:tunnistamo]
+  other_providers = current_organization.enabled_omniauth_providers.keys.without(*strong_providers)
+  %>
+
+  <% unless strong_providers.empty? %>
+    <%= wrapper.call do %>
+      <div class="text-center">
+        <p><%= t("devise.shared.links.sign_in_and_authorize") %> </p>
+      </div>
+
+      <div class="row">
+        <div class="columns medium-8 medium-centered">
+          <%- strong_providers.each do |provider| %>
+            <div class="social-register">
+              <%= link_to decidim.send("user_#{provider}_omniauth_authorize_path"), class: "button button--social button--#{normalize_provider_name(provider)}", method: :post do %>
+                <span class="button--social__icon">
+                  <%= oauth_icon provider %>
+                </span>
+                <span class="button--social__text">
+                  <%= t("devise.shared.links.sign_in_with.#{provider}") %>
+                </span>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+
+    <% unless other_providers.empty? %>
+      <span class="register__separator">
+        <span class="register__separator__text"><%= t("decidim.devise.shared.omniauth_buttons.or") %></span>
+      </span>
+    <% end %>
+  <% end %>
+
+  <% unless other_providers.empty? %>
+    <%= wrapper.call do %>
+      <div class="text-center">
+        <p><%= t("devise.shared.links.sign_in_with_omniauth") %> </p>
+      </div>
+      <div class="row">
+        <div class="columns medium-8 medium-centered">
+          <%- other_providers.each do |provider| %>
+            <div class="social-register">
+              <%= link_to decidim.send("user_#{provider}_omniauth_authorize_path"), class: "button button--social button--#{normalize_provider_name(provider)}", method: :post do %>
+                <span class="button--social__icon">
+                  <%= oauth_icon provider %>
+                </span>
+                <span class="button--social__text">
+                  <%= t("devise.shared.links.sign_in_with.#{provider}") %>
+                </span>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+
+  <%- if current_organization.sign_in_enabled? %>
+    <span class="register__separator">
+      <span class="register__separator__text"><%= t("decidim.devise.shared.omniauth_buttons.or") %></span>
+    </span>
+  <%- end %>
+<% end %>

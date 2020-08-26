@@ -1,5 +1,8 @@
 sv:
   decidim:
+    shared:
+      login_modal:
+        sign_in_with_account: Logga in med e-post och lösenord
     tunnistamo:
       omniauth_callbacks:
         failure:
@@ -7,12 +10,14 @@ sv:
   devise:
     shared:
       links:
+        sign_in_and_authorize: Verifiera din identitet och logga in för att rösta
         sign_in_with:
           developer: Logga in med utvecklarkontot
           facebook: Logga in med Facebook
           google_oauth2: Logga in med Google
-          tunnistamo: Logga in och identifiera dig själv för att rösta
+          tunnistamo: Identifiera dig själv och logga in för att rösta
           twitter: Logga in med Twitter
+        sign_in_with_omniauth: Logga in med ditt sociala mediekonto (inte möjligt att rösta)
   layouts:
     decidim:
       footer:
