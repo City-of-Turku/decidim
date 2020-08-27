@@ -56,7 +56,7 @@ class MoveBudgetsToOwnModel < ActiveRecord::Migration[5.2]
 
     Budget.create!(
       decidim_component_id: component.id,
-      total_budget: component_total_budget,
+      total_budget: component_total_budget || 100000000,
       title: component.name
     )
   end
