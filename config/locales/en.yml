@@ -1,5 +1,30 @@
 en:
+  activemodel:
+    attributes:
+      turku_documents_authorization_handler:
+        document_type: Identity document type
+        first_name: First name
+        last_name: Last name
+        pin: Personal identity number (HETU)
+        postal_code: Postal code
+    errors:
+      models:
+        turku_documents_authorization_handler:
+          attributes:
+            pin:
+              invalid_pin: invalid personal identity number
+              used: the personal identity number is already in use
   decidim:
+    authorization_handlers:
+      turku_documents_authorization_handler:
+        explanation: Identify yourself at a physical location.
+        document_types:
+          drivers_license: Driver's license
+          idcard: ID card
+          kela_card: KELA card
+          passport: Passport
+        name: Identity document at an office
+        user_explanation: Go to a physical location to identify yourself with an identity document.
     shared:
       login_modal:
         sign_in_with_account: Sign in with email and password

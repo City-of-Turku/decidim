@@ -23,6 +23,9 @@ gem "uglifier", "~> 4.1"
 
 gem "faker", "~> 1.9"
 
+# For the documents authorization handler
+gem "henkilotunnus"
+
 group :development, :test do
   gem "byebug", "~> 11.0", platform: :mri
 

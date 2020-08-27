@@ -1,5 +1,30 @@
 sv:
+  activemodel:
+    attributes:
+      turku_documents_authorization_handler:
+        document_type: Typ av identitetsdokument
+        first_name: Förnamn
+        last_name: Efternamn
+        pin: Personnummer (HETU)
+        postal_code: Postnummer
+    errors:
+      models:
+        turku_documents_authorization_handler:
+          attributes:
+            pin:
+              invalid_pin: ogiltigt personnummer
+              used: personnummer har redan använts
   decidim:
+    authorization_handlers:
+      turku_documents_authorization_handler:
+        explanation: Identifiera dig själv på en fysisk plats.
+        document_types:
+          drivers_license: Körkort
+          idcard: Identitetskort
+          kela_card: FPA-kort
+          passport: Pass
+        name: Identity document at an office
+        user_explanation: Gå till en fysisk plats för att identifiera dig med ett identitetsdokument.
     shared:
       login_modal:
         sign_in_with_account: Logga in med e-post och lösenord

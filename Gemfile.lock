@@ -449,6 +449,8 @@ GEM
     graphql (1.11.4)
     hashdiff (1.0.1)
     hashie (4.1.0)
+    henkilotunnus (1.1.0)
+      activemodel (>= 4.2)
     highline (2.0.3)
     html_tokenizer (0.0.7)
     htmlentities (4.3.4)
@@ -894,6 +896,7 @@ DEPENDENCIES
   decidim-tunnistamo!
   dotenv-rails (~> 2.1, >= 2.1.1)
   faker (~> 1.9)
+  henkilotunnus
   letter_opener_web (~> 1.3)
   listen (~> 3.1)
   omniauth-tunnistamo!
