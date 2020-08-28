@@ -45,6 +45,12 @@ module DecidimTurku
         :include,
         ProposalsExtensions
       )
+
+      # Authorizer extensions
+      ::Decidim::ActionAuthorizer::AuthorizationStatusCollection.send(
+        :include,
+        AuthorizationStatusCollectionExtensions
+      )
     end
   end
 end
