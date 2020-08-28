@@ -19,7 +19,7 @@ GIT
 
 GIT
   remote: https://github.com/mainio/decidim-module-tunnistamo.git
-  revision: fa3b15a863310941469f5c17facee167b2260fd7
+  revision: c26774fb1ef12d5307067ab3ee9d380e2de2ade5
   branch: develop
   specs:
     decidim-tunnistamo (0.23.0)
@@ -230,7 +230,7 @@ GIT
 
 GIT
   remote: https://github.com/mainio/omniauth-tunnistamo.git
-  revision: 9cf42234cfb7ab499717b3bbf73169a1d1827b8f
+  revision: 867bf5b96bc4e44ebf1fb4c985070fde3507cf6b
   specs:
     omniauth-tunnistamo (0.1.1)
       omniauth_openid_connect (~> 0.3, >= 0.3.5)
