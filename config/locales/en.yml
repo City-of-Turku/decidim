@@ -16,6 +16,14 @@ en:
               used: the personal identity number is already in use
   decidim:
     authorization_handlers:
+      tunnistamo_idp:
+        fields:
+          allow_suomifi: Allow Suomi.fi
+          allow_opasid: Allow OpasID
+          allow_library_card: Allow library card
+          opasid_role: OpasID roles
+          suomifi_municipalities: Suomi.fi municipality codes
+          minimum_age: Age at least
       turku_documents_authorization_handler:
         explanation: Identify yourself at a physical location.
         document_types:
@@ -62,3 +70,9 @@ en:
       step3:
         when: September
         what: Vote
+  turku_tunnistamo_action_authorizer:
+    restrictions:
+      disallowed_opasid_role: Voting is limited to Turku students only. Please sign out and sign in again using Suomi.fi.
+      disallowed_service: In order to vote, you need to prove your identity using a strong identity service. Please sign out and sign in again using Suomi.fi or Turku student identity.
+      disallowed_municipality: Voting is limited only to Turku residents.
+      too_young: You are too young to vote.

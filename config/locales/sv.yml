@@ -16,6 +16,14 @@ sv:
               used: personnummer har redan använts
   decidim:
     authorization_handlers:
+      tunnistamo_idp:
+        fields:
+          allow_suomifi: Tillåt Suomi.fi
+          allow_opasid: Tillåt OpasID
+          allow_library_card: Tillåt bibliotekskort
+          opasid_role: OpasID roller
+          suomifi_municipalities: Suomi.fi kommun koda
+          minimum_age: Ålder åtminstone
       turku_documents_authorization_handler:
         explanation: Identifiera dig själv på en fysisk plats.
         document_types:
@@ -62,3 +70,9 @@ sv:
       step3:
         when: september
         what: Rösta
+  turku_tunnistamo_action_authorizer:
+    restrictions:
+      disallowed_opasid_role: Röstningen är begränsad till Åbo studenter. Logga ut och logga in igen med Suomi.fi.
+      disallowed_service: För att kunna rösta måste du bevisa din identitet med en stark identitetstjänst. Logga ut och logga in igen med Suomi.fi eller Åbo studentidentitet.
+      disallowed_municipality: Röstningen är endast begränsad till invånare i Åbo.
+      too_young: Du är för ung för att rösta.

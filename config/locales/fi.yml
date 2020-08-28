@@ -16,6 +16,14 @@ fi:
               used: henkilötunnus on jo käytössä
   decidim:
     authorization_handlers:
+      tunnistamo_idp:
+        fields:
+          allow_suomifi: Salli Suomi.fi
+          allow_opasid: Salli OpasID
+          allow_library_card: Salli kirjastokortti
+          opasid_role: OpasID-roolit
+          suomifi_municipalities: Suomi.fi-kuntakoodit
+          minimum_age: Ikä vähintään
       turku_documents_authorization_handler:
         explanation: Varmenna itsesi fyysisessä toimipisteessä.
         document_types:
@@ -62,3 +70,9 @@ fi:
       step3:
         when: syyskuu
         what: Äänestä
+  turku_tunnistamo_action_authorizer:
+    restrictions:
+      disallowed_opasid_role: Äänestys on rajattu vain Turun koulun oppilaille. Kirjaudu ulos ja tunnistaudu uudestaan Suomi.fi-tunnistuksella.
+      disallowed_service: Äänestääksesi sinun tulee tunnistautua vahvalla tunnistautumistavalla. Kirjaudu ulos ja kirjaudu uudestaan sisään käyttäen Suomi.fi-tunnistusta tai Turun koululaisten kirjautumista.
+      disallowed_municipality: Äänestys on rajattu vain Turun asukkaille.
+      too_young: Olet liian nuori äänestääksesi.
