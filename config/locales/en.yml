@@ -38,6 +38,9 @@ en:
         budget: Budget
         show: Show
         vote: Vote
+      project_list_item:
+        more_info: Read more about this plan
+        more_info_with_title: Read more about %{title}
       projects:
         index:
           back_to_budgets: Show all budgets

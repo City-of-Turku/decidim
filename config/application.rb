@@ -49,6 +49,10 @@ module DecidimTurku
         :include,
         BudgetInformationModalExtensions
       )
+      ::Decidim::Budgets::ProjectListItemCell.send(
+        :include,
+        ProjectListItemCellExtensions
+      )
 
       # Controller extensions
       ::Decidim::Proposals::ProposalsController.send(
