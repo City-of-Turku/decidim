@@ -47,7 +47,7 @@ sv:
         voted_on: Du har röstat på %{links}
       limit_announcement:
         cant_vote: Du kan inte rösta om denna budget. <a href="%{landing_path}">Försök med en annan budget</a>.
-        limit_reached: Du har aktiva röster i %{links}. För att rösta om denna budget måste du <a href="%{landing_path}">ta bort din röst och börja om igen</a>.
+        limit_reached: Du har ännu röstat eller börjat rösta i %{links}. För att rösta om denna budget måste du <a href="%{landing_path}">ta bort din röst och börja om igen</a>.
       models:
         budget:
           fields:

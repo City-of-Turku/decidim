@@ -33,6 +33,14 @@ sv:
           passport: Pass
         name: Identity document at an office
         user_explanation: Gå till en fysisk plats för att identifiera dig med ett identitetsdokument.
+    budgets:
+      budget_list_item:
+        budget: Budget
+        show: Visa
+        vote: Rösta
+      projects:
+        index:
+          back_to_budgets: Visa alla budgetar
     shared:
       login_modal:
         sign_in_with_account: Logga in med e-post och lösenord

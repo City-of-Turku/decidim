@@ -33,6 +33,14 @@ en:
           passport: Passport
         name: Identity document at an office
         user_explanation: Go to a physical location to identify yourself with an identity document.
+    budgets:
+      budget_list_item:
+        budget: Budget
+        show: Show
+        vote: Vote
+      projects:
+        index:
+          back_to_budgets: Show all budgets
     shared:
       login_modal:
         sign_in_with_account: Sign in with email and password

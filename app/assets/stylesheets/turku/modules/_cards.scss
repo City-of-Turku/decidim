@@ -9,6 +9,8 @@ $card-border-top: $border;
 $card-border-radius: $global-radius;
 $card-border-top-width: 8px;
 $card-secondary-bg: $turku-light-grey;
+$card-padding-small: 1rem;
+$card-padding: 1.5rem;
 
 /* Cards */
 .card{
@@ -53,6 +55,61 @@ a.card{
   &.creation_date_status{
     strong{
       text-transform: none;
+    }
+  }
+}
+
+.card--list.card--list--budgets{
+  display: flex;
+  flex-direction: column;
+  border: 0;
+
+  .card--list__item{
+    flex-direction: column;
+    border: $border;
+    border-radius: $card-border-radius;
+    margin-top: 1rem;
+    padding-left: 0;
+
+    @include breakpoint(medium){
+      flex-direction: row;
+    }
+
+    &:first-child{
+      margin-top: 0;
+    }
+
+    .card--list__data{
+      flex-basis: 30%;
+
+      @include breakpoint(large){
+        flex-basis: 20%;
+      }
+    }
+  }
+
+  .card--list__text{
+    flex-direction: column;
+    place-items: stretch;
+    padding-left: $card-padding-small;
+
+    @include breakpoint(medium){
+      padding-left: $card-padding;
+    }
+
+    .card--list__heading{
+      .card--list__check{
+        display: inline-block;
+        top: -2px;
+      }
+    }
+
+    .card-list__description{
+      p{
+        &:last-child{
+          margin-bottom: 0;
+        }
+      }
     }
   }
 }

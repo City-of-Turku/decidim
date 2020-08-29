@@ -40,6 +40,16 @@ module DecidimTurku
     #
     # Run before every request in development.
     config.to_prepare do
+      # Cell extensions
+      ::Decidim::Budgets::BudgetListItemCell.send(
+        :include,
+        BudgetListItemCellExtensions
+      )
+      ::Decidim::Budgets::BudgetInformationModalCell.send(
+        :include,
+        BudgetInformationModalExtensions
+      )
+
       # Controller extensions
       ::Decidim::Proposals::ProposalsController.send(
         :include,

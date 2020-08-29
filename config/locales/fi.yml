@@ -33,6 +33,14 @@ fi:
           passport: Passi
         name: Henkilöllisyystodistus toimipisteessä
         user_explanation: Käy fyysisessä toimipisteessä varmentamassa itsesi henkilöllisyystodistuksen avulla.
+    budgets:
+      budget_list_item:
+        budget: Budjetti
+        show: Näytä
+        vote: Äänestä
+      projects:
+        index:
+          back_to_budgets: Näytä kaikki budjetit
     shared:
       login_modal:
         sign_in_with_account: Kirjaudu sisään sähköpostilla ja salasanalla

@@ -44,10 +44,10 @@ fi:
         highlighted_cta: Äänestä budjetista %{name}
         if_change_opinion: Jos muutit mielesi, voit
         my_budgets: Omat budjettini
-        voted_on: Olet äänestänyt budjeteissa %{links}
+        voted_on: Olet äänestänyt budjetissa %{links}
       limit_announcement:
         cant_vote: Et voi äänestää tässä budjetissa. <a href="%{landing_path}">Yritä toista budjettia</a>.
-        limit_reached: Sinulla on aktiivisa ääniä budjeteissa %{links}. Äänestääksesi tässä budjetissa, sinun täytyy <a href="%{landing_path}">poistaa äänesi ja aloittaa alusta</a>.
+        limit_reached: 'Olet jo äänestänyt tai aloittanut äänestyksen budjetissa %{links}. Äänestääksesi tässä budjetissa, sinun täytyy <a href="%{landing_path}">poistaa äänesi ja aloittaa alusta</a>.'
       models:
         budget:
           fields:
