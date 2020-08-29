@@ -7,6 +7,8 @@ module BudgetListItemCellExtensions
   include ActionView::Helpers::NumberHelper
 
   included do
+    delegate :current_settings, to: :parent_controller
+
     property :description, :total_budget
   end
 
@@ -19,6 +21,7 @@ module BudgetListItemCellExtensions
   end
 
   def can_vote?
+    return false unless current_settings.votes_enabled?
     return false if voted?
 
     current_workflow.vote_allowed?(budget)
