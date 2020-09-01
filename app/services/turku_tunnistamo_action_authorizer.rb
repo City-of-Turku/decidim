@@ -91,7 +91,7 @@ class TurkuTunnistamoActionAuthorizer < Decidim::Verifications::DefaultActionAut
         key: "disallowed_service",
         params: {
           scope: "turku_tunnistamo_action_authorizer.restrictions",
-          service: I18n.t("turku_tunnistamo_action_authorizer.service.axiell_aurora")
+          service: I18n.t("turku_tunnistamo_action_authorizer.service.other")
         }
       }
     end
