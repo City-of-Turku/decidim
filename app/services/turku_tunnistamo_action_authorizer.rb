@@ -84,6 +84,16 @@ class TurkuTunnistamoActionAuthorizer < Decidim::Verifications::DefaultActionAut
           }
         }
       end
+    else
+      # Turku employees / Tunnistamo other authorizations.
+      status_code = :unauthorized
+      data[:extra_explanation] = {
+        key: "disallowed_service",
+        params: {
+          scope: "turku_tunnistamo_action_authorizer.restrictions",
+          service: I18n.t("turku_tunnistamo_action_authorizer.service.axiell_aurora")
+        }
+      }
     end
 
     # In case reauthorization is allowed (i.e. no votes have been casted),
