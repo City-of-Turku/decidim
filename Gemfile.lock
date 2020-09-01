@@ -230,7 +230,7 @@ GIT
 
 GIT
   remote: https://github.com/mainio/omniauth-tunnistamo.git
-  revision: 867bf5b96bc4e44ebf1fb4c985070fde3507cf6b
+  revision: d00be7af9c6f1530340ca7be3be342459e90eb5f
   specs:
     omniauth-tunnistamo (0.1.1)
       omniauth_openid_connect (~> 0.3, >= 0.3.5)
@@ -539,7 +539,7 @@ GEM
     mini_magick (4.10.1)
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
-    minitest (5.14.1)
+    minitest (5.14.2)
     mixlib-cli (2.1.8)
     mixlib-config (3.0.9)
       tomlrb
