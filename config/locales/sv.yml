@@ -87,3 +87,8 @@ sv:
       disallowed_service: För att kunna rösta måste du bevisa din identitet med en stark identitetstjänst. Logga ut och logga in igen med Suomi.fi eller Åbo studentidentitet.
       disallowed_municipality: Röstningen är endast begränsad till invånare i Åbo.
       too_young: Du är för ung för att rösta.
+    service:
+      axiell_aurora: Bibliotekskort
+      opas_adfs: OpasID
+      other: Tunnistamo
+      turku_suomifi: Suomi.fi

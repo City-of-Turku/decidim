@@ -87,3 +87,8 @@ en:
       disallowed_service: In order to vote, you need to prove your identity using a strong identity service. Please sign out and sign in again using Suomi.fi or Turku student identity.
       disallowed_municipality: Voting is limited only to Turku residents.
       too_young: You are too young to vote.
+    service:
+      axiell_aurora: Library card
+      opas_adfs: OpasID
+      other: Tunnistamo
+      turku_suomifi: Suomi.fi

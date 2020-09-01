@@ -87,3 +87,8 @@ fi:
       disallowed_service: Äänestääksesi sinun tulee tunnistautua vahvalla tunnistautumistavalla. Kirjaudu ulos ja kirjaudu uudestaan sisään käyttäen Suomi.fi-tunnistusta tai Turun koululaisten kirjautumista.
       disallowed_municipality: Äänestys on rajattu vain Turun asukkaille.
       too_young: Olet liian nuori äänestääksesi.
+    service:
+      axiell_aurora: Kirjastokortti
+      opas_adfs: OpasID
+      other: Tunnistamo
+      turku_suomifi: Suomi.fi
