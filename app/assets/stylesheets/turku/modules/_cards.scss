@@ -119,4 +119,10 @@ a.card{
   .card-list__description{
     margin-bottom: 0;
   }
+
+  .budget-list__text{
+    // Without this, some of the items could be unclicable in mobile.
+    word-wrap: break-word;
+    overflow-wrap: anywhere;
+  }
 }
