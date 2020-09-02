@@ -92,9 +92,11 @@ a.card{
     flex-direction: column;
     place-items: stretch;
     padding-left: $card-padding-small;
+    width: 100%;
 
     @include breakpoint(medium){
       padding-left: $card-padding;
+      width: auto;
     }
 
     .card--list__heading{
