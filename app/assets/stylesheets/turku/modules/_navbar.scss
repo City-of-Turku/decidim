@@ -128,20 +128,49 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
   }
 }
 
-.topbar__dropmenu > ul > li > a{
-  color: $topbar-link-color;
+.topbar__dropmenu{
+  > ul > li > a{
+    color: $topbar-link-color;
 
-  &:hover{
-    text-decoration: underline;
+    &:hover{
+      text-decoration: underline;
+    }
+
+    &:hover,
+    &:focus{
+      color: $topbar-link-color-hover;
+    }
+
+    &::after{
+      border-top-color: $topbar-link-color !important;
+    }
   }
 
-  &:hover,
-  &:focus{
-    color: $topbar-link-color-hover;
-  }
+  &.language-choose{
+    > ul > li > a{
+      color: $white;
 
-  &::after{
-    border-top-color: $topbar-link-color !important;
+      @include breakpoint(medium){
+        color: $topbar-link-color;
+      }
+
+      &::after{
+        border-top-color: $white !important;
+
+        @include breakpoint(medium){
+          border-top-color: $topbar-link-color !important;
+        }
+      }
+
+      &:hover,
+      &:focus{
+        color: $white;
+
+        @include breakpoint(medium){
+          color: $topbar-link-color-hover;
+        }
+      }
+    }
   }
 }
 
