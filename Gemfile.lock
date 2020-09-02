@@ -19,7 +19,7 @@ GIT
 
 GIT
   remote: https://github.com/mainio/decidim-module-tunnistamo.git
-  revision: c26774fb1ef12d5307067ab3ee9d380e2de2ade5
+  revision: 3a191b844e1ff64f07a877d2411cbe4ea5601687
   branch: develop
   specs:
     decidim-tunnistamo (0.23.0)
@@ -857,8 +857,8 @@ GEM
       coercible (~> 1.0)
       descendants_tracker (~> 0.0, >= 0.0.3)
       equalizer (~> 0.0, >= 0.0.9)
-    warden (1.2.8)
-      rack (>= 2.0.6)
+    warden (1.2.9)
+      rack (>= 2.0.9)
     web-console (3.7.0)
       actionview (>= 5.0)
       activemodel (>= 5.0)
