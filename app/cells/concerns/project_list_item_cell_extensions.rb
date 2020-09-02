@@ -11,6 +11,12 @@ module ProjectListItemCellExtensions
   end
 
   def resource_description_teaser
-    truncate strip_tags(resource_description), length: 200
+    truncate(
+      # Add a new line in-between the closing and opening tags for the text to
+      # have spaces when the tags are removed. Otherwise the text would wrap as
+      # the same long word.
+      strip_tags(resource_description.gsub(%r{(</[^>]+>)(<[^>]+>)}, "\\1\n\\2")),
+      length: 200
+    )
   end
 end
