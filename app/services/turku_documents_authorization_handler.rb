@@ -62,7 +62,7 @@ class TurkuDocumentsAuthorizationHandler < Decidim::AuthorizationHandler
       first_name: first_name,
       last_name: last_name,
       postal_code: postal_code,
-      municipality: "091"
+      municipality: "853"
     )
   end
 
