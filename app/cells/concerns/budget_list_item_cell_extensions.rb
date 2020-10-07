@@ -21,7 +21,7 @@ module BudgetListItemCellExtensions
   end
 
   def can_vote?
-    return false unless current_settings.votes_enabled?
+    return false unless current_settings.votes == "enabled"
     return false if voted?
 
     current_workflow.vote_allowed?(budget)
