@@ -9,7 +9,7 @@
       <% if current_organization %>
         <div class="main-footer__logo">
           <%= link_to decidim.root_url(host: current_organization.host), title: t("logo", scope: "decidim.accessibility", organization: current_organization.name) do %>
-            <%= image_tag "turku/logo-white.svg", alt: t("logo", scope: "decidim.accessibility", organization: current_organization.name) %>
+            <%= logo_image_tag(version: "white") %>
           <% end %>
         </div>
       <% end %>
