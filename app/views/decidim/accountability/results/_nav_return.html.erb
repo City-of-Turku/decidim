@@ -1,0 +1,30 @@
+<% if result && result.parent.present? %>
+  <div>
+    <%= translated_attribute(result.title) %>
+  </div>
+  <div class="lines-breadcrumb">
+    <div>
+      <%= link_to "&laquo; #{t("devise.shared.links.back")}".html_safe, result_path(result.parent, filter: { scope_id: current_scope }) %>
+    </div>
+  </div>
+<% elsif category.present? && category.parent.present? %>
+  <div>
+    <%= translated_attribute(category.name) %>
+  </div>
+  <div class="lines-breadcrumb">
+    <div>
+      <%= link_to "&laquo; #{t("devise.shared.links.back")}".html_safe, results_path(filter: { category_id: category.parent_id, scope_id: current_scope }) %>
+    </div>
+  </div>
+<% else %>
+  <% if category.present? %>
+    <div>
+      <%= translated_attribute(category.name) %>
+    </div>
+  <% end %>
+  <div class="lines-breadcrumb">
+    <div>
+      <%= link_to "&laquo; #{t("devise.shared.links.back")}".html_safe, root_path %>
+    </div>
+  </div>
+<% end %>

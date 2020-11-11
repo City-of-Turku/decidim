@@ -1,0 +1,36 @@
+<%
+cats_with_results = first_class_categories.select do |category|
+  count_calculator(current_scope, category.id) > 0
+end
+%>
+
+<% if false && cats_with_results.count > 0 %>
+  <div class="row accountability">
+    <div class="small-12 columns">
+      <%= render partial: "home_header" %>
+      <%= render partial: "scope_filters", locals: { url_method: :root_path } %>
+      <%= render partial: "home_categories" %>
+    </div>
+  </div>
+  <%= javascript_include_tag "decidim/accountability/accountability" %>
+<% else %>
+  <div class="row accountability">
+    <div class="small-12 columns">
+      <%= render partial: "sub_header" %>
+    </div>
+
+    <div class="small-12 columns">
+      <%= render partial: "scope_filters", locals: { url_method: :results_path} %>
+    </div>
+
+    <div class="small-12 columns end">
+      <% if results.any?{|r| r.children_count > 0 } %>
+        <%= render partial: "results_parent", locals: { results: results, total_count: results.total_count } %>
+      <% else %>
+        <%= render partial: "results_leaf", locals: { results: results, total_count: results.total_count } %>
+      <% end %>
+    </div>
+  </div>
+
+  <%= javascript_include_tag("decidim/filters") %>
+<% end %>
