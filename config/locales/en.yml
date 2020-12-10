@@ -15,6 +15,10 @@ en:
               invalid_pin: invalid personal identity number
               used: the personal identity number is already in use
   decidim:
+    accountability:
+      actions:
+        attachment_collections: Attachment folders
+        attachments: Attachments
     authorization_handlers:
       tunnistamo_idp:
         fields:

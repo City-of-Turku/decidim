@@ -15,6 +15,10 @@ sv:
               invalid_pin: ogiltigt personnummer
               used: personnummer har redan använts
   decidim:
+    accountability:
+      actions:
+        attachment_collections: Bilagor mappar
+        attachments: Bilagor
     authorization_handlers:
       tunnistamo_idp:
         fields:

@@ -15,6 +15,10 @@ fi:
               invalid_pin: virheellinen henkilötunnus
               used: henkilötunnus on jo käytössä
   decidim:
+    accountability:
+      actions:
+        attachment_collections: Liitekansiot
+        attachments: Liitteet
     authorization_handlers:
       tunnistamo_idp:
         fields:
