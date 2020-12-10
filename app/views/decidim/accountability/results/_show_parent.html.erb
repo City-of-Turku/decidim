@@ -16,6 +16,8 @@
 
           <%= render partial: "results_leaf", locals: { results: result.children.page(1).per(result.children_count), total_count: result.children_count } %>
         </div>
+
+        <%= attachments_for result %>
       </div>
       <%= render partial: "stats_box" %>
     </div>
