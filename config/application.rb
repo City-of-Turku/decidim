@@ -27,7 +27,7 @@ module DecidimTurku
 
     # Add the override translations to the load path
     config.i18n.load_path += Dir[
-      Rails.root.join("config", "locales", "overrides/*.yml").to_s
+      Rails.root.join("config/locales/overrides/*.yml").to_s
     ]
 
     # Settings in config/environments/* take precedence over those specified here.
@@ -41,28 +41,21 @@ module DecidimTurku
     # Run before every request in development.
     config.to_prepare do
       # Cell extensions
-      ::Decidim::Budgets::BudgetListItemCell.send(
-        :include,
+      ::Decidim::Budgets::BudgetListItemCell.include(
         BudgetListItemCellExtensions
       )
-      ::Decidim::Budgets::BudgetInformationModalCell.send(
-        :include,
+      ::Decidim::Budgets::BudgetInformationModalCell.include(
         BudgetInformationModalExtensions
       )
-      ::Decidim::Budgets::ProjectListItemCell.send(
-        :include,
+      ::Decidim::Budgets::ProjectListItemCell.include(
         ProjectListItemCellExtensions
       )
 
       # Controller extensions
-      ::Decidim::Proposals::ProposalsController.send(
-        :include,
-        ProposalsExtensions
-      )
+      ::Decidim::Proposals::ProposalsController.include(ProposalsExtensions)
 
       # Authorizer extensions
-      ::Decidim::ActionAuthorizer::AuthorizationStatusCollection.send(
-        :include,
+      ::Decidim::ActionAuthorizer::AuthorizationStatusCollection.include(
         AuthorizationStatusCollectionExtensions
       )
     end

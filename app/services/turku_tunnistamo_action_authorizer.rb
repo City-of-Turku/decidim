@@ -10,11 +10,12 @@ class TurkuTunnistamoActionAuthorizer < Decidim::Verifications::DefaultActionAut
 
     return [status_code, data] unless status_code == :ok
 
-    if authorization.metadata["service"] == "turku_suomifi"
+    case authorization.metadata["service"]
+    when "turku_suomifi"
       minimum_age = options["minimum_age"].to_i || 0
       allowed_municipalities = options["suomifi_municipalities"].to_s.split(",").compact.collect(&:to_s)
 
-      if options["allow_suomifi"].to_i == 0
+      if options["allow_suomifi"].to_i.zero?
         status_code = :unauthorized
         data[:extra_explanation] = {
           key: "disallowed_service",
@@ -23,7 +24,7 @@ class TurkuTunnistamoActionAuthorizer < Decidim::Verifications::DefaultActionAut
             service: I18n.t("turku_tunnistamo_action_authorizer.service.turku_suomifi")
           }
         }
-      elsif !allowed_municipalities.include?(authorization.metadata["municipality_code"])
+      elsif allowed_municipalities.exclude?(authorization.metadata["municipality_code"])
         status_code = :unauthorized
         data[:extra_explanation] = {
           key: "disallowed_municipality",
@@ -41,10 +42,10 @@ class TurkuTunnistamoActionAuthorizer < Decidim::Verifications::DefaultActionAut
           }
         }
       end
-    elsif authorization.metadata["service"] == "opas_adfs"
+    when "opas_adfs"
       allowed_roles ||= options["opasid_role"].to_s.split(",").compact.collect(&:strip)
 
-      if options["allow_opasid"].to_i == 0
+      if options["allow_opasid"].to_i.zero?
         status_code = :unauthorized
         data[:extra_explanation] = {
           key: "disallowed_service",
@@ -53,7 +54,7 @@ class TurkuTunnistamoActionAuthorizer < Decidim::Verifications::DefaultActionAut
             service: I18n.t("turku_tunnistamo_action_authorizer.service.opas_adfs")
           }
         }
-      elsif !allowed_roles.empty? && !allowed_roles.include?(authorization.metadata["role"])
+      elsif !allowed_roles.empty? && allowed_roles.exclude?(authorization.metadata["role"])
         status_code = :unauthorized
         data[:extra_explanation] = {
           key: "disallowed_opasid_role",
@@ -62,10 +63,10 @@ class TurkuTunnistamoActionAuthorizer < Decidim::Verifications::DefaultActionAut
           }
         }
       end
-    elsif authorization.metadata["service"] == "axiell_aurora"
+    when "axiell_aurora"
       minimum_age = options["minimum_age"].to_i || 0
 
-      if options["allow_library_card"].to_i == 0
+      if options["allow_library_card"].to_i.zero?
         status_code = :unauthorized
         data[:extra_explanation] = {
           key: "disallowed_service",
@@ -102,9 +103,11 @@ class TurkuTunnistamoActionAuthorizer < Decidim::Verifications::DefaultActionAut
     if status_code == :unauthorized && allow_reauthorization?
       return [
         :incomplete,
-        extra_explanation: data[:extra_explanation],
-        action: :reauthorize,
-        cancel: true
+        {
+          extra_explanation: data[:extra_explanation],
+          action: :reauthorize,
+          cancel: true
+        }
       ]
     end
 
@@ -136,7 +139,7 @@ class TurkuTunnistamoActionAuthorizer < Decidim::Verifications::DefaultActionAut
     Decidim::Budgets::Order.where(
       component: component,
       user: authorization.user
-    ).where.not(checked_out_at: nil).count == 0
+    ).where.not(checked_out_at: nil).count.zero?
   end
 
   def authorization_age

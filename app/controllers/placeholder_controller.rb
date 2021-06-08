@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PlaceholderController < Decidim::ApplicationController
   layout "layouts/placeholder/application"
 

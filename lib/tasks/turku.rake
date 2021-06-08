@@ -10,7 +10,7 @@ namespace :turku do
   # Usage:
   #   bundle exec rake turku:export_budget_votes[1,tmp/budget_votes.xls]
   desc "Export budgeting votes to an Excel file."
-  task :export_budget_votes, [:component_id, :filename] => [:environment] do |t, args|
+  task :export_budget_votes, [:component_id, :filename] => [:environment] do |_t, args|
     component_id = args[:component_id]
     filename = args[:filename]
 
@@ -19,6 +19,7 @@ namespace :turku do
 
   private
 
+  # rubocop:disable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
   def export_component(component_id, filename)
     c = Decidim::Component.find_by(id: component_id)
     if c.nil? || c.manifest_name != "budgets"
@@ -89,12 +90,18 @@ namespace :turku do
         }
       end
 
-      projects = project_votes.map do |project_id, votes|
+      projects = project_votes.map do |project_id, single_votes|
         project = Decidim::Budgets::Project.find(project_id)
-        title = project.title.dig("fi") || project.title.dig("en")
+        title = project.title["fi"] || project.title["en"]
         pending_votes = project_pending_votes[project_id]
 
-        {id: project.id, title: title, budget: project.budget_amount, votes: votes, pending_votes: pending_votes}
+        {
+          id: project.id,
+          title: title,
+          budget: project.budget_amount,
+          votes: single_votes,
+          pending_votes: pending_votes
+        }
       end
 
       budgets["#{budget.title["fi"]} - Votes"] = votes
@@ -103,18 +110,17 @@ namespace :turku do
 
     write_excel(budgets, filename)
   end
+  # rubocop:enable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
 
+  # rubocop:disable Metrics/CyclomaticComplexity
   def user_metadata(user)
     authorization = Decidim::Authorization.where(
       user: user,
       name: "tunnistamo_idp"
+    ).order(:created_at).last || Decidim::Authorization.where(
+      user: user,
+      name: "turku_documents_authorization_handler"
     ).order(:created_at).last
-    unless authorization
-      authorization = Decidim::Authorization.where(
-        user: user,
-        name: "turku_documents_authorization_handler"
-      ).order(:created_at).last
-    end
     return unless authorization
 
     rawdata = authorization.metadata
@@ -159,11 +165,12 @@ namespace :turku do
     if data[:date_of_birth]
       now = Time.now.utc.to_date
       dob = data[:date_of_birth]
-      data[:age] = now.year - dob.year - ((now.month > dob.month || (now.month == dob.month && now.day >= dob.day)) ? 0 : 1)
+      data[:age] = now.year - dob.year - (now.month > dob.month || (now.month == dob.month && now.day >= dob.day)) ? 0 : 1
     end
 
     data
   end
+  # rubocop:enable Metrics/CyclomaticComplexity
 
   # Takes an array of hashes containing the data to put on each sheet.
   # Each of the values in the hash needs to contain an array of the row data for
@@ -184,13 +191,13 @@ namespace :turku do
   # hashes containing the export rows.
   # The hash keys need to be the names of the columns.
   def write_excel(sheets, filename)
-    return if sheets.length < 1
+    return if sheets.empty?
 
     require "spreadsheet"
 
     book = Spreadsheet::Workbook.new
     sheets.each do |sheetname, data|
-      next if data.length < 1
+      next if data.empty?
 
       headers = data.first.keys
 
