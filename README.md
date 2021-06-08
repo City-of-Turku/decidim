@@ -22,7 +22,7 @@ $ bundle exec db:seed
 Make sure to run these two commands separately.
 
 More information available from Decidim's own
-[Getting started guide](https://github.com/decidim/decidim/blob/master/docs/getting_started.md).
+[Getting started guide](https://docs.decidim.org/en/install/).
 
 ## Update the git gems
 
