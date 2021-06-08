@@ -46,6 +46,9 @@ group :production, :staging do
 
   gem "resque", "~> 2.0.0"
   gem "resque-scheduler", "~> 4.4"
+
+  # Cronjobs
+  gem "whenever", require: false
 end
 
 group :test do
