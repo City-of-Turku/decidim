@@ -5,23 +5,23 @@ git_source(:github) { |repo_name| "https://github.com/#{repo_name}.git" }
 
 ruby RUBY_VERSION
 
-DECIDIM_VERSION = { github: "mainio/decidim", branch: "feature/multibudget" }
+DECIDIM_VERSION = "~> 0.24.0"
 
 gem "decidim", DECIDIM_VERSION
 # gem "decidim-consultations", DECIDIM_VERSION
 # gem "decidim-initiatives", DECIDIM_VERSION
 
-gem "decidim-antivirus", github: "mainio/decidim-module-antivirus", branch: "develop"
-gem "decidim-term_customizer", github: "mainio/decidim-module-term_customizer", branch: "develop"
-gem "decidim-tunnistamo", github: "mainio/decidim-module-tunnistamo", branch: "develop"
+gem "decidim-antivirus", github: "mainio/decidim-module-antivirus", branch: "master"
+gem "decidim-term_customizer", github: "mainio/decidim-module-term_customizer", branch: "master"
+gem "decidim-tunnistamo", github: "mainio/decidim-module-tunnistamo", branch: "master"
 gem "omniauth-tunnistamo", github: "mainio/omniauth-tunnistamo"
 
 gem "bootsnap", "~> 1.3"
 
-gem "puma", "~> 4.3.3"
+gem "puma", "~> 5.0.0"
 gem "uglifier", "~> 4.1"
 
-gem "faker", "~> 1.9"
+gem "faker", "~> 2.14"
 
 # For the documents authorization handler
 gem "henkilotunnus"
@@ -41,8 +41,8 @@ group :development do
 end
 
 group :production, :staging do
-  gem "rack-ssl-enforcer", "~> 0.2.9"
   gem "dotenv-rails", "~> 2.1", ">= 2.1.1"
+  gem "rack-ssl-enforcer", "~> 0.2.9"
 
   gem "resque", "~> 2.0.0"
   gem "resque-scheduler", "~> 4.4"
