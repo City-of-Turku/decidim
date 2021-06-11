@@ -8,11 +8,28 @@ Decidim.configure do |config|
   config.default_locale = :fi
   config.available_locales = [:fi, :sv, :en]
 
-  # Geocoder configuration
-  config.geocoder = {
-    static_map_url: "https://image.maps.ls.hereapi.com/mia/1.6/mapview",
-    here_api_key: Rails.application.secrets.geocoder[:here_api_key]
-  }
+  # Maps configuration
+  unless Rails.application.secrets.maps[:api_key].nil?
+    config.maps = {
+      provider: :here,
+      api_key: Rails.application.secrets.maps[:api_key],
+      static: { url: "https://image.maps.ls.hereapi.com/mia/1.6/mapview" }
+    }
+  end
+
+  # Geocoder configurations if you want to customize the default geocoding
+  # settings. The maps configuration will manage which geocoding service to use,
+  # so that does not need any additional configuration here. Use this only for
+  # the global geocoder preferences.
+  # config.geocoder = {
+  #   # geocoding service request timeout, in seconds (default 3):
+  #   timeout: 5,
+  #   # set default units to kilometers:
+  #   units: :km,
+  #   # caching (see https://github.com/alexreisner/geocoder#caching for details):
+  #   cache: Redis.new,
+  #   cache_prefix: "..."
+  # }
 
   # Custom resource reference generator method
   # config.reference_generator = lambda do |resource, component|
