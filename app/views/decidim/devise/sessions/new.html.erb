@@ -1,18 +1,10 @@
 <% add_decidim_page_title(t("devise.sessions.new.sign_in")) %>
 
-<% unless current_organization.sign_up_enabled? %>
-  <%= render "placeholder/timeline" %>
-<% end %>
-
 <div class="wrapper">
   <div class="row collapse">
     <div class="row collapse">
       <div class="columns large-8 large-centered text-center page-title">
-        <% if current_organization.sign_up_enabled? %>
-          <h1><%= t("devise.sessions.new.sign_in") %></h1>
-        <% else %>
-          <h2><%= t("devise.sessions.new.sign_in") %></h2>
-        <% end %>
+        <h1><%= t("devise.sessions.new.sign_in") %></h1>
       </div>
     </div>
 
