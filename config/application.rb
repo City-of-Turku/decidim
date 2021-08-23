@@ -58,6 +58,11 @@ module DecidimTurku
       ::Decidim::ActionAuthorizer::AuthorizationStatusCollection.include(
         AuthorizationStatusCollectionExtensions
       )
+
+      # Helper extensions
+      ::Decidim::ActionAuthorizationHelper.include(
+        ActionAuthorizationHelperExtensions
+      )
     end
   end
 end
