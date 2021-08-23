@@ -28,6 +28,10 @@ $card-padding: 1.5rem;
   &:hover{
     @include modifiers(border-color, (muted: rgba($muted, .3)));
   }
+
+  &.turku-notopborder{
+    border-top: 0;
+  }
 }
 
 a.card{

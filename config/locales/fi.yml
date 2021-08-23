@@ -74,7 +74,7 @@ fi:
     title: Asukasbudjetti
     description: Asukasbudjetti tulee 1.4.2020
     explanation: Kaupunki toteuttaa voittoisat suunnitelmat vuoden 2021 aikana.
-    sign_up_disabled: Rekisteröityminen on toistaiseksi poistettu käytöstä, voit kirjautua olemassaolevalla käyttäjätilillä.
+    sign_up_disabled: Rekisteröityminen on poistettu käytöstä, voit kirjautua olemassaolevalla käyttäjätilillä.
     steps:
       step1:
         when: huhtikuu

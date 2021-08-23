@@ -74,7 +74,7 @@ en:
     title: Resident Budget
     description: Resident Budget comes 1.4.2020
     explanation: The city will implement the winning plans in 2021.
-    sign_up_disabled: Sign up is disabled temporarily, you can use an existing account to access.
+    sign_up_disabled: Sign up is disabled, you can use an existing account to access.
     steps:
       step1:
         when: April
