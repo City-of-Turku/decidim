@@ -14,11 +14,19 @@ en:
             pin:
               invalid_pin: invalid personal identity number
               used: the personal identity number is already in use
+    models:
+      decidim/proposals/evaluating_proposal_event: Proposals is possible if
   decidim:
     accountability:
       actions:
         attachment_collections: Attachment folders
         attachments: Attachments
+    admin:
+      filters:
+        proposals:
+          state_eq:
+            values:
+              evaluating: Possible if
     authorization_handlers:
       tunnistamo_idp:
         fields:
@@ -48,6 +56,30 @@ en:
       projects:
         index:
           back_to_budgets: Show all budgets
+    events:
+      proposals:
+        proposal_evaluating:
+          affected_user:
+            email_intro: 'Your proposal "%{resource_title}" is possible if. You can check for an answer in this page:'
+            email_subject: Your proposal is possible if
+            notification_title: Your proposal <a href="%{resource_path}">%{resource_title}</a> is possible if.
+          follower:
+            email_intro: 'The proposal "%{resource_title}" is possible if. You can check for an answer in this page:'
+            email_subject: A proposal you're following is possible if
+            notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal is possible if.
+    proposals:
+      admin:
+        proposal_answers:
+          form:
+            evaluating: Possible if
+      answers:
+        evaluating: Possible if
+      application_helper:
+        filter_state_values:
+          evaluating: Possible if
+      proposals:
+        show:
+          proposal_in_evaluation_reason: This proposal is possible if
     shared:
       login_modal:
         sign_in_with_account: Sign in with email and password

@@ -14,11 +14,19 @@ sv:
             pin:
               invalid_pin: ogiltigt personnummer
               used: personnummer har redan använts
+    models:
+      decidim/proposals/evaluating_proposal_event: Förslaget är möjligt om
   decidim:
     accountability:
       actions:
         attachment_collections: Bilagor mappar
         attachments: Bilagor
+    admin:
+      filters:
+        proposals:
+          state_eq:
+            values:
+              evaluating: Möjlig om
     authorization_handlers:
       tunnistamo_idp:
         fields:
@@ -48,6 +56,30 @@ sv:
       projects:
         index:
           back_to_budgets: Visa alla budgetar
+    events:
+      proposals:
+        proposal_evaluating:
+          affected_user:
+            email_intro: 'Ditt förslag "%{resource_title}" utvärderas för närvarande. Du kan söka efter ett svar på den här sidan:'
+            email_subject: Ditt förslag utvärderas
+            notification_title: Ditt förslag <a href="%{resource_path}">%{resource_title}</a> utvärderas.
+          follower:
+            email_intro: 'Förslaget "%{resource_title}" utvärderas för närvarande. Du kan söka efter ett svar på den här sidan:'
+            email_subject: Ett förslag som du följer utvärderas
+            notification_title: Förslaget <a href="%{resource_path}">%{resource_title}</a> utvärderas.
+    proposals:
+      admin:
+        proposal_answers:
+          form:
+            evaluating: Möjlig om
+      answers:
+        evaluating: Möjlig om
+      application_helper:
+        filter_state_values:
+          evaluating: Möjlig om
+      proposals:
+        show:
+          proposal_in_evaluation_reason: Detta förslag är möjligt om
     shared:
       login_modal:
         sign_in_with_account: Logga in med e-post och lösenord
