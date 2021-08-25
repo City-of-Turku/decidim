@@ -89,13 +89,13 @@ en:
             notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal is possible.
         proposal_evaluating:
           affected_user:
-            email_intro: 'Your proposal "%{resource_title}" is possible if. You can check for an answer in this page:'
-            email_subject: Your proposal is possible if
-            notification_title: Your proposal <a href="%{resource_path}">%{resource_title}</a> is possible if.
+            email_intro: 'Your proposal "%{resource_title}" is under review. You can check for an answer in this page:'
+            email_subject: Your proposal is under review
+            notification_title: Your proposal <a href="%{resource_path}">%{resource_title}</a> is under review.
           follower:
-            email_intro: 'The proposal "%{resource_title}" is possible if. You can check for an answer in this page:'
-            email_subject: A proposal you're following is possible if
-            notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal is possible if.
+            email_intro: 'The proposal "%{resource_title}" is under review. You can check for an answer in this page:'
+            email_subject: A proposal you're following is under review
+            notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal is under review.
         proposal_rejected:
           affected_user:
             email_intro: 'Your proposal "%{resource_title}" is not possible. You can read the answer in this page:'
@@ -133,7 +133,7 @@ en:
             rejected: Not possible
       answers:
         accepted: Possible
-        evaluating: Possible if
+        evaluating: Under review
         rejected: Not possible
       application_helper:
         filter_state_values:

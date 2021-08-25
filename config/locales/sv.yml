@@ -89,13 +89,13 @@ sv:
             notification_title: Förslaget <a href="%{resource_path}">%{resource_title}</a> är möjlig.
         proposal_evaluating:
           affected_user:
-            email_intro: 'Ditt förslag "%{resource_title}" utvärderas för närvarande. Du kan söka efter ett svar på den här sidan:'
-            email_subject: Ditt förslag utvärderas
-            notification_title: Ditt förslag <a href="%{resource_path}">%{resource_title}</a> utvärderas.
+            email_intro: 'Ditt förslag "%{resource_title}" granskas. Du kan söka efter ett svar på den här sidan:'
+            email_subject: Ditt förslag granskas
+            notification_title: Ditt förslag <a href="%{resource_path}">%{resource_title}</a> granskas.
           follower:
-            email_intro: 'Förslaget "%{resource_title}" utvärderas för närvarande. Du kan söka efter ett svar på den här sidan:'
-            email_subject: Ett förslag som du följer utvärderas
-            notification_title: Förslaget <a href="%{resource_path}">%{resource_title}</a> utvärderas.
+            email_intro: 'Förslaget "%{resource_title}" granskas. Du kan söka efter ett svar på den här sidan:'
+            email_subject: Ett förslag som du följer granskas
+            notification_title: Förslaget <a href="%{resource_path}">%{resource_title}</a> granskas.
         proposal_rejected:
           affected_user:
             email_intro: 'Ditt förslag "%{resource_title}" är inte möjlig. Du kan läsa svaret på den här sidan:'
@@ -133,7 +133,7 @@ sv:
             rejected: Inte möjlig
       answers:
         accepted: Möjlig
-        evaluating: Möjlig om
+        evaluating: Under granskning
         rejected: Inte möjlig
       application_helper:
         filter_state_values:

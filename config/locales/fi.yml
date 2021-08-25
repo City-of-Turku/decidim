@@ -89,13 +89,13 @@ fi:
             notification_title: Ehdotus <a href="%{resource_path}">%{resource_title}</a> on mahdollinen.
         proposal_evaluating:
           affected_user:
-            email_intro: 'Ehdotuksesi "%{resource_title}" on mahdollinen, jos. Voit tarkistaa vastauksen täältä:'
-            email_subject: Ehdotuksesi on mahdollinen, jos
-            notification_title: Ehdotuksesi <a href="%{resource_path}">%{resource_title}</a> on mahdollinen, jos
+            email_intro: 'Ehdotuksesi "%{resource_title}" selvityksessä. Voit tarkistaa vastauksen täältä:'
+            email_subject: Ehdotuksesi on selvityksessä
+            notification_title: Ehdotuksesi <a href="%{resource_path}">%{resource_title}</a> on selvityksessä
           follower:
-            email_intro: 'Ehdotus "%{resource_title}" on mahdollinen, jos. Voit tarkistaa vastauksen tältä sivulla:'
-            email_subject: Seuraamasi ehdotus on mahdollinen, jos
-            notification_title: Ehdotus <a href="%{resource_path}">%{resource_title}</a> on mahdollinen, jos
+            email_intro: 'Ehdotus "%{resource_title}" on selvityksessä. Voit tarkistaa vastauksen tältä sivulla:'
+            email_subject: Seuraamasi ehdotus on selvityksessä
+            notification_title: Ehdotus <a href="%{resource_path}">%{resource_title}</a> on selvityksessä
         proposal_rejected:
           affected_user:
             email_intro: 'Ehdotuksesi "%{resource_title}" ei ole mahdollinen. Voit lukea vastauksen täältä:'
@@ -133,7 +133,7 @@ fi:
             rejected: Ei mahdollinen
       answers:
         accepted: Mahdollinen
-        evaluating: Mahdollinen, jos
+        evaluating: Selvityksessä
         rejected: Ei mahdollinen
       application_helper:
         filter_state_values:
