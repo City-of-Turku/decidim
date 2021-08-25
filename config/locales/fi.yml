@@ -1,6 +1,19 @@
+---
 fi:
   activemodel:
     attributes:
+      collaborative_draft:
+        decidim_scope_id: Suuralue
+        scope_id: Suuralue
+      meeting:
+        decidim_scope_id: Suuralue
+      project:
+        decidim_scope_id: Suuralue
+      proposal:
+        decidim_scope_id: Suuralue
+        scope_id: Suuralue
+      result:
+        decidim_scope_id: Suuralue
       turku_documents_authorization_handler:
         document_type: Henkilöllisyystodistuksen tyyppi
         first_name: Etunimi
@@ -15,12 +28,17 @@ fi:
               invalid_pin: virheellinen henkilötunnus
               used: henkilötunnus on jo käytössä
     models:
+      decidim/proposals/accepted_proposal_event: Ehdotus mahdollinen
+      decidim/proposals/admin/update_proposal_scope_event: Ehdotuksen suuralue muutettu
       decidim/proposals/evaluating_proposal_event: Ehdotus on mahdollinen, jos
   decidim:
     accountability:
       actions:
         attachment_collections: Liitekansiot
         attachments: Liitteet
+      results:
+        filters:
+          scopes: Suuralueet
     admin:
       filters:
         proposals:
@@ -30,19 +48,19 @@ fi:
     authorization_handlers:
       tunnistamo_idp:
         fields:
-          allow_suomifi: Salli Suomi.fi
-          allow_opasid: Salli OpasID
           allow_library_card: Salli kirjastokortti
+          allow_opasid: Salli OpasID
+          allow_suomifi: Salli Suomi.fi
+          minimum_age: Ikä vähintään
           opasid_role: OpasID-roolit
           suomifi_municipalities: Suomi.fi-kuntakoodit
-          minimum_age: Ikä vähintään
       turku_documents_authorization_handler:
-        explanation: Varmenna itsesi fyysisessä toimipisteessä.
         document_types:
           drivers_license: Ajokortti
           idcard: Henkilökortti
           kela_card: KELA-kortti
           passport: Passi
+        explanation: Varmenna itsesi fyysisessä toimipisteessä.
         name: Henkilöllisyystodistus toimipisteessä
         user_explanation: Käy fyysisessä toimipisteessä varmentamassa itsesi henkilöllisyystodistuksen avulla.
     budgets:
@@ -54,10 +72,21 @@ fi:
         more_info: Tutustu tähän suunnitelmaan
         more_info_with_title: Tutustu suunnitelmaan %{title}
       projects:
+        filters:
+          scope: Suuralue
         index:
           back_to_budgets: Näytä kaikki budjetit
     events:
       proposals:
+        proposal_accepted:
+          affected_user:
+            email_intro: 'Ehdotuksesi "%{resource_title}" on mahdollinen. Voit lukea vastauksen täältä:'
+            email_subject: Ehdotuksesi on mahdollinen
+            notification_title: Ehdotuksesi <a href="%{resource_path}">%{resource_title}</a> on mahdollinen.
+          follower:
+            email_intro: 'Ehdotus "%{resource_title}" on hyväksytty. Voit lukea vastauksen täältä:'
+            email_subject: Seuraamasi ehdotus on mahdollinen
+            notification_title: Ehdotus <a href="%{resource_path}">%{resource_title}</a> on mahdollinen.
         proposal_evaluating:
           affected_user:
             email_intro: 'Ehdotuksesi "%{resource_title}" on mahdollinen, jos. Voit tarkistaa vastauksen täältä:'
@@ -67,19 +96,73 @@ fi:
             email_intro: 'Ehdotus "%{resource_title}" on mahdollinen, jos. Voit tarkistaa vastauksen tältä sivulla:'
             email_subject: Seuraamasi ehdotus on mahdollinen, jos
             notification_title: Ehdotus <a href="%{resource_path}">%{resource_title}</a> on mahdollinen, jos
+        proposal_rejected:
+          affected_user:
+            email_intro: 'Ehdotuksesi "%{resource_title}" ei ole mahdollinen. Voit lukea vastauksen täältä:'
+            notification_title: Ehdotuksesi <a href="%{resource_path}">%{resource_title}</a> ei ole mahdollinen.
+          follower:
+            email_intro: 'Ehdotus "%{resource_title}" ei ole mahdollinen. Voit lukea vastauksen tällä sivulla:'
+            email_subject: Seuraamasi ehdotus ei ole mahdollinen
+            notification_title: Ehdotus <a href="%{resource_path}">%{resource_title}</a> ei ole mahdollinen.
+        proposal_update_scope:
+          email_intro: 'Hallintakäyttäjä on päivittänyt ehdotuksesi "%{resource_title}" suuralueen, tarkista se tältä sivulta:'
+          email_subject: Ehdotuksen %{resource_title} suuralue on päivitetty
+          notification_title: Hallintakäyttäjä on päivittänyt ehdotuksen <a href="%{resource_path}">%{resource_title}</a> suuralueen.
+    gamification:
+      badges:
+        accepted_proposals:
+          description_another: Tällä käyttäjällä on %{score} mahdollista ehdotusta.
+          unearned_another: Tällä käyttäjällä ei ole vielä yhtään mahdollista ehdotusta.
+          unearned_own: Sinulla ei ole vielä mahdollisia ehdotuksia.
+    metrics:
+      accepted_proposals:
+        description: Mahdollisten ehdotusten määrä
+    pages:
+      home:
+        statistics:
+          proposals_accepted: Mahdollisia ehdotuksia
+    participatory_processes:
+      show:
+        scope: Suuralue
     proposals:
       admin:
         proposal_answers:
           form:
+            accepted: Mahdollinen
             evaluating: Mahdollinen, jos
+            rejected: Ei mahdollinen
       answers:
+        accepted: Mahdollinen
         evaluating: Mahdollinen, jos
+        rejected: Ei mahdollinen
       application_helper:
         filter_state_values:
+          accepted: Mahdolliset
           evaluating: Mahdollinen, jos
+          rejected: Ei mahdolliset
+      collaborative_drafts:
+        filters:
+          scope: Suuralue
+      models:
+        proposal:
+          fields:
+            scope: Suuralue
       proposals:
+        filters:
+          scope: Suuralue
         show:
+          proposal_accepted_reason: 'Tämä ehdotus on mahdollinen, koska:'
           proposal_in_evaluation_reason: Tämä ehdotus on mahdollinen, jos
+          proposal_rejected_reason: 'Tämä ehdotus ei ole mahdollinen, koska:'
+    scopes:
+      global: Yleinen
+      picker:
+        change: Muuta valittua suuraluetta
+        currently_selected: Tällä hetkellä valittu suuralue
+      prompt: Valitse suuralue
+      scopes: Suuralueet
+      scopes_picker_input:
+        select_scope: 'Valitse suuralue (tämänhetkinen valinta: %{current})'
     shared:
       login_modal:
         sign_in_with_account: Kirjaudu sisään sähköpostilla ja salasanalla
@@ -103,25 +186,25 @@ fi:
       footer:
         feedback_link: Anna palautetta
   placeholder:
-    title: Asukasbudjetti
     description: Asukasbudjetti tulee 1.4.2020
     explanation: Kaupunki toteuttaa voittoisat suunnitelmat vuoden 2021 aikana.
     sign_up_disabled: Rekisteröityminen on poistettu käytöstä, voit kirjautua olemassaolevalla käyttäjätilillä.
     steps:
       step1:
-        when: huhtikuu
         what: Ehdota
+        when: huhtikuu
       step2:
-        when: touko-kesäkuu
         what: Kehitä
+        when: touko-kesäkuu
       step3:
-        when: syyskuu
         what: Äänestä
+        when: syyskuu
+    title: Asukasbudjetti
   turku_tunnistamo_action_authorizer:
     restrictions:
+      disallowed_municipality: Äänestys on rajattu vain Turun asukkaille.
       disallowed_opasid_role: Äänestys on rajattu vain Turun koulun oppilaille. Kirjaudu ulos ja tunnistaudu uudestaan Suomi.fi-tunnistuksella.
       disallowed_service: Äänestääksesi sinun tulee tunnistautua vahvalla tunnistautumistavalla. Kirjaudu ulos ja kirjaudu uudestaan sisään käyttäen Suomi.fi-tunnistusta tai Turun koululaisten kirjautumista.
-      disallowed_municipality: Äänestys on rajattu vain Turun asukkaille.
       too_young: Olet liian nuori äänestääksesi.
     service:
       axiell_aurora: Kirjastokortti

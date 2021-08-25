@@ -1,6 +1,19 @@
+---
 sv:
   activemodel:
     attributes:
+      collaborative_draft:
+        decidim_scope_id: Område
+        scope_id: Område
+      meeting:
+        decidim_scope_id: Område
+      project:
+        decidim_scope_id: Område
+      proposal:
+        decidim_scope_id: Område
+        scope_id: Område
+      result:
+        decidim_scope_id: Område
       turku_documents_authorization_handler:
         document_type: Typ av identitetsdokument
         first_name: Förnamn
@@ -15,12 +28,17 @@ sv:
               invalid_pin: ogiltigt personnummer
               used: personnummer har redan använts
     models:
+      decidim/proposals/accepted_proposal_event: Förslag möjlig
+      decidim/proposals/admin/update_proposal_scope_event: Förslagets område ändrades
       decidim/proposals/evaluating_proposal_event: Förslaget är möjligt om
   decidim:
     accountability:
       actions:
         attachment_collections: Bilagor mappar
         attachments: Bilagor
+      results:
+        filters:
+          scopes: Områden
     admin:
       filters:
         proposals:
@@ -30,19 +48,19 @@ sv:
     authorization_handlers:
       tunnistamo_idp:
         fields:
-          allow_suomifi: Tillåt Suomi.fi
-          allow_opasid: Tillåt OpasID
           allow_library_card: Tillåt bibliotekskort
+          allow_opasid: Tillåt OpasID
+          allow_suomifi: Tillåt Suomi.fi
+          minimum_age: Ålder åtminstone
           opasid_role: OpasID roller
           suomifi_municipalities: Suomi.fi kommun koda
-          minimum_age: Ålder åtminstone
       turku_documents_authorization_handler:
-        explanation: Identifiera dig själv på en fysisk plats.
         document_types:
           drivers_license: Körkort
           idcard: Identitetskort
           kela_card: FPA-kort
           passport: Pass
+        explanation: Identifiera dig själv på en fysisk plats.
         name: Identity document at an office
         user_explanation: Gå till en fysisk plats för att identifiera dig med ett identitetsdokument.
     budgets:
@@ -54,10 +72,21 @@ sv:
         more_info: Läs mer om denna plan
         more_info_with_title: Läs mer o %{title}
       projects:
+        filters:
+          scope: Område
         index:
           back_to_budgets: Visa alla budgetar
     events:
       proposals:
+        proposal_accepted:
+          affected_user:
+            email_intro: 'Ditt förslag "%{resource_title}" är möjlig. Du kan läsa svaret på den här sidan:'
+            email_subject: Ditt förslag är möjlig
+            notification_title: Ditt förslag <a href="%{resource_path}">%{resource_title}</a> är möjlig.
+          follower:
+            email_intro: 'Förslaget "%{resource_title}" har antagits. Läs svaret på den här sidan:'
+            email_subject: Ett förslag som du följer är möjlig
+            notification_title: Förslaget <a href="%{resource_path}">%{resource_title}</a> är möjlig.
         proposal_evaluating:
           affected_user:
             email_intro: 'Ditt förslag "%{resource_title}" utvärderas för närvarande. Du kan söka efter ett svar på den här sidan:'
@@ -67,19 +96,73 @@ sv:
             email_intro: 'Förslaget "%{resource_title}" utvärderas för närvarande. Du kan söka efter ett svar på den här sidan:'
             email_subject: Ett förslag som du följer utvärderas
             notification_title: Förslaget <a href="%{resource_path}">%{resource_title}</a> utvärderas.
+        proposal_rejected:
+          affected_user:
+            email_intro: 'Ditt förslag "%{resource_title}" är inte möjlig. Du kan läsa svaret på den här sidan:'
+            notification_title: Ditt förslag <a href="%{resource_path}">%{resource_title}</a> är inte möjlig.
+          follower:
+            email_intro: 'Förslaget "%{resource_title}" är inte möjlig. Du kan läsa svaret på den här sidan:'
+            email_subject: Ett förslag som du följer är inte möjlig
+            notification_title: Förslaget <a href="%{resource_path}">%{resource_title}</a> är inte möjlig.
+        proposal_update_scope:
+          email_intro: 'Administratörsanvändaren har uppdaterat området för ditt förslag "%{resource_title}", kolla det på denna sida:'
+          email_subject: Området för förslag %{resource_title} har uppdaterats
+          notification_title: Administratörsanvändaren har uppdaterat området för förslag <a href="%{resource_path}">%{resource_title}</a>.
+    gamification:
+      badges:
+        accepted_proposals:
+          description_another: Den här användaren har %{score} möjlig förslag.
+          unearned_another: Den här användaren har inte några möjlig förslag än.
+          unearned_own: Du har inga möjlig förslag än.
+    metrics:
+      accepted_proposals:
+        description: Antal möjlig förslag av användarna
+    pages:
+      home:
+        statistics:
+          proposals_accepted: Möjliga förslag
+    participatory_processes:
+      show:
+        scope: Område
     proposals:
       admin:
         proposal_answers:
           form:
+            accepted: Möjlig
             evaluating: Möjlig om
+            rejected: Inte möjlig
       answers:
+        accepted: Möjlig
         evaluating: Möjlig om
+        rejected: Inte möjlig
       application_helper:
         filter_state_values:
+          accepted: Möjliga
           evaluating: Möjlig om
+          rejected: Inte möjliga
+      collaborative_drafts:
+        filters:
+          scope: Område
+      models:
+        proposal:
+          fields:
+            scope: Område
       proposals:
+        filters:
+          scope: Område
         show:
+          proposal_accepted_reason: 'Detta förslag är möjligt eftersom:'
           proposal_in_evaluation_reason: Detta förslag är möjligt om
+          proposal_rejected_reason: 'Detta förslag är inte möjligt eftersom:'
+    scopes:
+      global: Global
+      picker:
+        change: Ändra det valda området
+        currently_selected: För närvarande vald området
+      prompt: Välj ett område
+      scopes: Områden
+      scopes_picker_input:
+        select_scope: 'Välj ett område (nuvarande val: %{current})'
     shared:
       login_modal:
         sign_in_with_account: Logga in med e-post och lösenord
@@ -103,25 +186,25 @@ sv:
       footer:
         feedback_link: Ge feedback
   placeholder:
-    title: Boendebudget
     description: Boendebudget kommer 1.4.2020
     explanation: Staden kommer att genomföra de vinnande planerna 2021.
     sign_up_disabled: Registreringen inaktiveras, du kan använda ett befintligt konto för att komma åt.
     steps:
       step1:
-        when: april
         what: Föreslå
+        when: april
       step2:
-        when: maj-juni
         what: Utveckla
+        when: maj-juni
       step3:
-        when: september
         what: Rösta
+        when: september
+    title: Boendebudget
   turku_tunnistamo_action_authorizer:
     restrictions:
+      disallowed_municipality: Röstningen är endast begränsad till invånare i Åbo.
       disallowed_opasid_role: Röstningen är begränsad till Åbo studenter. Logga ut och logga in igen med Suomi.fi.
       disallowed_service: För att kunna rösta måste du bevisa din identitet med en stark identitetstjänst. Logga ut och logga in igen med Suomi.fi eller Åbo studentidentitet.
-      disallowed_municipality: Röstningen är endast begränsad till invånare i Åbo.
       too_young: Du är för ung för att rösta.
     service:
       axiell_aurora: Bibliotekskort
