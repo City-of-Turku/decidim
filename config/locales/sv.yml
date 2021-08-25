@@ -138,7 +138,7 @@ sv:
       application_helper:
         filter_state_values:
           accepted: Möjliga
-          evaluating: Möjlig om
+          evaluating: Under granskning
           rejected: Inte möjliga
       collaborative_drafts:
         filters:

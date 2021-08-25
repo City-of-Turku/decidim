@@ -138,7 +138,7 @@ en:
       application_helper:
         filter_state_values:
           accepted: Possible
-          evaluating: Possible if
+          evaluating: Under review
           rejected: Not possible
       collaborative_drafts:
         filters:
