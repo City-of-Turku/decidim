@@ -89,7 +89,7 @@ fi:
             notification_title: Ehdotus <a href="%{resource_path}">%{resource_title}</a> on mahdollinen.
         proposal_evaluating:
           affected_user:
-            email_intro: 'Ehdotuksesi "%{resource_title}" selvityksessä. Voit tarkistaa vastauksen täältä:'
+            email_intro: 'Ehdotuksesi "%{resource_title}" on selvityksessä. Voit tarkistaa vastauksen täältä:'
             email_subject: Ehdotuksesi on selvityksessä
             notification_title: Ehdotuksesi <a href="%{resource_path}">%{resource_title}</a> on selvityksessä
           follower:
