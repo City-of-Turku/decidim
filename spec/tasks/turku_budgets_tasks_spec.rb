@@ -7,7 +7,7 @@ describe "Executing Decidim Metrics tasks" do
     let(:organization) { create(:organization) }
     let!(:user) { create(:user, organization: organization) }
     let(:component) { create(:component, manifest_name: "budgets", organization: organization) }
-    let(:budget) { create(:budget, component: component) }
+    let(:budget) { create(:budget, component: component, total_budget: 26_000_000) }
     let(:projects) { create_list(:project, 1, budget: budget, budget_amount: 25_000_000) }
 
     let!(:order) do
@@ -24,17 +24,31 @@ describe "Executing Decidim Metrics tasks" do
     context "when we reminder time is zero" do
       before do
         allow(Rails.application.config).to receive(:reminder_times).and_return(0.seconds)
+        Rake::Task[:"turku:budgets:remind"].reenable
       end
 
       it "have to be executed without failures" do
-        Rake::Task[:"turku:budgets:remind"].reenable
         expect { Rake::Task[:"turku:budgets:remind"].invoke }.not_to raise_error
       end
 
-      it "enques job" do
-        expect(Turku::VoteReminderJob).to receive(:perform_now).once
+      describe "when order is not checked out" do
+        it "enques job" do
+          expect(Turku::VoteReminderJob).to receive(:perform_now).once
 
-        Rake::Task[:"turku:budgets:remind"].invoke
+          Rake::Task[:"turku:budgets:remind"].invoke
+        end
+      end
+
+      describe "when order is checked out" do
+        before do
+          order.update!(checked_out_at: Time.current)
+        end
+
+        it "doesnt enque job" do
+          expect(Turku::VoteReminderJob).not_to receive(:perform_now)
+
+          Rake::Task[:"turku:budgets:remind"].invoke
+        end
       end
     end
   end
