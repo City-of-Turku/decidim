@@ -38,3 +38,4 @@ public/uploads
 
 # Ignore webpack stuff
 /webpack.report.html
+.rspec-failures

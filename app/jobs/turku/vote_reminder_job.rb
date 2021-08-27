@@ -6,7 +6,7 @@ module Turku
 
     def perform(user, orders)
       return unless user
-      return unless orders
+      return if orders.blank?
 
       VoteReminderMailer.vote_reminder(user, orders).deliver_now
     end

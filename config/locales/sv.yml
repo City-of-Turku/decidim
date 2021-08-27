@@ -204,12 +204,12 @@ sv:
     vote_reminder_mailer:
       vote_reminder:
         email_subject:
-          one: Sinulla on keskeneräinen ääni osallistuvan budjetoinnin äänestyksessä
-          other: Sinulla on keskeneräisiä ääniä osallistuvan budjetoinnin äänestyksessä
-        email_intro: Olet aloittanut osallistuvan budjetoinnin äänestyksen, mutta et ole saattanut sitä loppuun.
-        email_budgets: "Alueet, joilla sinulla on keskeneräinen ääni:"
-        email_outro: Muistathan suorittaa äänestyksen loppuun. Äänestääksesi sinun on ensin valittava se ehdotus tai ne ehdotukset, joita haluat äänestää ja tämän jälkeen vahvistettava äänesi "Äänestä" -painikkeella.
-        email_link: Siirry jatkamaan äänestystä
+          one: Du har en oavslutad röst i den deltagande budgetröstningen
+          other: Du har oavslutade röster i den deltagande budgetröstningen
+        email_intro: Du har startat den deltagande budgetröstningen, men har inte slutfört den.
+        email_budgets: "Områden där du har en oavslutad röst:"
+        email_outro: Kom ihåg att slutföra omröstningen. För att rösta måste du först välja det eller de förslag du vill rösta på och sedan bekräfta din röst med knappen "Rösta".
+        email_link: Gå för att fortsätta rösta
   turku_tunnistamo_action_authorizer:
     restrictions:
       disallowed_municipality: Röstningen är endast begränsad till invånare i Åbo.

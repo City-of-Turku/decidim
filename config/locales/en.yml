@@ -204,12 +204,12 @@ en:
     vote_reminder_mailer:
       vote_reminder:
         email_subject:
-          one: Sinulla on keskeneräinen ääni osallistuvan budjetoinnin äänestyksessä
-          other: Sinulla on keskeneräisiä ääniä osallistuvan budjetoinnin äänestyksessä
-        email_intro: Olet aloittanut osallistuvan budjetoinnin äänestyksen, mutta et ole saattanut sitä loppuun.
-        email_budgets: "Alueet, joilla sinulla on keskeneräinen ääni:"
-        email_outro: Muistathan suorittaa äänestyksen loppuun. Äänestääksesi sinun on ensin valittava se ehdotus tai ne ehdotukset, joita haluat äänestää ja tämän jälkeen vahvistettava äänesi "Äänestä" -painikkeella.
-        email_link: Siirry jatkamaan äänestystä
+          one: You have an unfinished vote in the participatory budgeting vote
+          other: You have unfinished votes in the participatory budgeting vote
+        email_intro: You have started the participatory budgeting vote, but have not completed it.
+        email_budgets: "Areas where you have an unfinished vote:"
+        email_outro: Please remember to complete the vote. To vote, you must first select the proposal or proposals you want to vote on and then confirm your vote with the "Vote" button.
+        email_link: Go to continue voting
   turku_tunnistamo_action_authorizer:
     restrictions:
       disallowed_municipality: Voting is limited only to Turku residents.

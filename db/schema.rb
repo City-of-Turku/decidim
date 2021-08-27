@@ -1495,6 +1495,9 @@ ActiveRecord::Schema.define(version: 2021_08_26_120208) do
 
   create_table "turku_voting_reminders", force: :cascade do |t|
     t.bigint "decidim_user_id"
+    t.bigint "decidim_component_id"
+    t.datetime "times", default: [], array: true
+    t.index ["decidim_component_id"], name: "index_turku_voting_reminders_on_decidim_component_id"
     t.index ["decidim_user_id"], name: "index_turku_voting_reminders_on_decidim_user_id"
   end
 
@@ -1550,5 +1553,6 @@ ActiveRecord::Schema.define(version: 2021_08_26_120208) do
   add_foreign_key "oauth_access_tokens", "decidim_users", column: "resource_owner_id"
   add_foreign_key "oauth_access_tokens", "oauth_applications", column: "application_id"
   add_foreign_key "oauth_applications", "decidim_organizations"
+  add_foreign_key "turku_voting_reminders", "decidim_components"
   add_foreign_key "turku_voting_reminders", "decidim_users"
 end

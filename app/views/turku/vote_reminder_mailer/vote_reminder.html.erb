@@ -5,7 +5,6 @@
 <ul>
   <% @orders.each do |order| %>
   <li>
-    <%=  %>
     <%= link_to(
       translated_attribute(order.budget.title),
       routes.budget_path(order.budget)
