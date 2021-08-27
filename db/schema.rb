@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_24_082922) do
+ActiveRecord::Schema.define(version: 2021_08_26_120208) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -314,8 +314,10 @@ ActiveRecord::Schema.define(version: 2021_08_24_082922) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "decidim_budgets_budget_id"
+    t.bigint "turku_voting_reminder_id"
     t.index ["decidim_budgets_budget_id"], name: "index_decidim_budgets_orders_on_decidim_budgets_budget_id"
     t.index ["decidim_user_id"], name: "index_decidim_budgets_orders_on_decidim_user_id"
+    t.index ["turku_voting_reminder_id"], name: "index_decidim_budgets_orders_on_turku_voting_reminder_id"
   end
 
   create_table "decidim_budgets_projects", id: :serial, force: :cascade do |t|
@@ -1491,6 +1493,11 @@ ActiveRecord::Schema.define(version: 2021_08_24_082922) do
     t.index ["uid"], name: "index_oauth_applications_on_uid", unique: true
   end
 
+  create_table "turku_voting_reminders", force: :cascade do |t|
+    t.bigint "decidim_user_id"
+    t.index ["decidim_user_id"], name: "index_turku_voting_reminders_on_decidim_user_id"
+  end
+
   create_table "versions", force: :cascade do |t|
     t.string "item_type", null: false
     t.integer "item_id", null: false
@@ -1512,6 +1519,7 @@ ActiveRecord::Schema.define(version: 2021_08_24_082922) do
   add_foreign_key "decidim_authorizations", "decidim_users"
   add_foreign_key "decidim_budgets_budgets", "decidim_scopes"
   add_foreign_key "decidim_budgets_orders", "decidim_budgets_budgets"
+  add_foreign_key "decidim_budgets_orders", "turku_voting_reminders"
   add_foreign_key "decidim_budgets_projects", "decidim_budgets_budgets"
   add_foreign_key "decidim_categorizations", "decidim_categories"
   add_foreign_key "decidim_debates_debates", "decidim_scopes"
@@ -1542,4 +1550,5 @@ ActiveRecord::Schema.define(version: 2021_08_24_082922) do
   add_foreign_key "oauth_access_tokens", "decidim_users", column: "resource_owner_id"
   add_foreign_key "oauth_access_tokens", "oauth_applications", column: "application_id"
   add_foreign_key "oauth_applications", "decidim_organizations"
+  add_foreign_key "turku_voting_reminders", "decidim_users"
 end

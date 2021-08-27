@@ -200,6 +200,16 @@ fi:
         what: Äänestä
         when: syyskuu
     title: Asukasbudjetti
+  turku:
+    vote_reminder_mailer:
+      vote_reminder:
+        email_subject:
+          one: Sinulla on keskeneräinen ääni osallistuvan budjetoinnin äänestyksessä
+          other: Sinulla on keskeneräisiä ääniä osallistuvan budjetoinnin äänestyksessä
+        email_intro: Olet aloittanut osallistuvan budjetoinnin äänestyksen, mutta et ole saattanut sitä loppuun.
+        email_budgets: "Alueet, joilla sinulla on keskeneräinen ääni:"
+        email_outro: Muistathan suorittaa äänestyksen loppuun. Äänestääksesi sinun on ensin valittava se ehdotus tai ne ehdotukset, joita haluat äänestää ja tämän jälkeen vahvistettava äänesi "Äänestä" -painikkeella.
+        email_link: Siirry jatkamaan äänestystä
   turku_tunnistamo_action_authorizer:
     restrictions:
       disallowed_municipality: Äänestys on rajattu vain Turun asukkaille.
