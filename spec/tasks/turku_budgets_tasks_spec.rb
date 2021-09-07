@@ -51,5 +51,18 @@ describe "Executing Decidim Metrics tasks" do
         end
       end
     end
+
+    context "when not enough time has passed" do
+      before do
+        allow(Rails.application.config).to receive(:reminder_times).and_return(1.hour)
+        Rake::Task[:"turku:budgets:remind"].reenable
+      end
+
+      it "doesnt enque job" do
+        expect(Turku::VoteReminderJob).not_to receive(:perform_now)
+
+        Rake::Task[:"turku:budgets:remind"].invoke
+      end
+    end
   end
 end
