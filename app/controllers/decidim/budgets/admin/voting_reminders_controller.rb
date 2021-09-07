@@ -16,8 +16,8 @@ module Decidim
           @form = form(VotingReminderForm).from_params(params, current_component: current_component)
 
           CreateVotingReminders.call(@form) do
-            on(:ok) do
-              flash[:notice] = "success"
+            on(:ok) do |reminder_data|
+              flash[:notice] = "success #{reminder_data.count}"
               redirect_to budgets_path
             end
 

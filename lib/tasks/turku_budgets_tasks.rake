@@ -20,28 +20,14 @@ namespace :turku do
 
       reminders = []
       components.each do |component|
-        next unless component.current_settings.votes == "enabled"
-
-        budgets = Decidim::Budgets::Budget.where(component: component)
-        orders = Decidim::Budgets::Order.where(budget: budgets, checked_out_at: nil)
-
-        orders.each do |order|
-          reminder = ::Turku::VotingReminder.find_or_create_by!(user: order.user, component: component)
-          reminder.orders << order
-          reminders << reminder
-        end
+        generator = Decidim::Budgets::Admin::VotingReminderGenerator.new(component)
+        reminders.push(*generator.generate)
       end
 
       reminders.each do |reminder|
-        reminder.orders.each do |order|
-          reminder.orders.delete(order.id) if order.checked_out_at.present?
-        end
-
         next unless time_to_remind?(reminder)
 
-        Turku::VoteReminderJob.perform_now(reminder.user, reminder.orders)
-        reminder.update(times: reminder.times << Time.current)
-        reminder.times << Time.current
+        reminder.remind!
       end
     end
   end
