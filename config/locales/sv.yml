@@ -76,11 +76,11 @@ sv:
       admin:
         vote_reminders:
           new:
-            title: 'Are you sure you want to send reminder to %{count} people?'
-            submit: Send
+            title: 'Är du säker på att du vill skicka påminnelse till %{count} personer?'
+            submit: Skicka
           create:
-            success: '%{count} people reminded.'
-            error: There was a problem creating reminders.
+            success: '%{count} personer påminde.'
+            error: Det var ett problem att skapa påminnelser.
       budget_list_item:
         budget: Budget
         show: Visa

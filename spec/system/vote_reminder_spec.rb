@@ -49,5 +49,12 @@ describe "Admin sends vote reminders", type: :system do
       expect(last_email_first_link).to eq("/processes/#{component.participatory_space.slug}/f/#{component.id}/budgets/#{budget.id}")
       expect(last_email_link).to eq("/processes/#{component.participatory_space.slug}/f/#{component.id}/")
     end
+
+    it "doesnt remind twice" do
+      click_button "Send"
+      click_link "Send voting reminders"
+      click_button "Send"
+      expect(page).to have_content("0 people reminded.")
+    end
   end
 end

@@ -4,6 +4,8 @@ require "rails_helper"
 
 describe "Executing Turku voting reminder tasks" do
   describe "rake turku:budgets:remind", type: :task do
+    include ActiveSupport::Testing::TimeHelpers
+
     let(:organization) { create(:organization) }
     let!(:user) { create(:user, organization: organization) }
     let(:component) { create(:component, manifest_name: "budgets", organization: organization) }
@@ -62,6 +64,42 @@ describe "Executing Turku voting reminder tasks" do
         expect(Decidim::Admin::VoteReminderJob).not_to receive(:perform_now)
 
         Rake::Task[:"turku:budgets:remind"].invoke
+      end
+    end
+
+    context "when there is reminder intervals" do
+      it "does something" do
+        allow(Rails.application.config).to receive(:reminder_times).and_return([1.hour, 1.week])
+        expect(Decidim::Budgets::VoteReminder.count).to eq(0)
+
+        travel 2.hours
+
+        expect do
+          Rake::Task[:"turku:budgets:remind"].reenable
+          Rake::Task[:"turku:budgets:remind"].invoke
+        end.to change { Decidim::Budgets::VoteReminder.count }.by(1)
+
+        expect(Decidim::Budgets::VoteReminder.first.times.count).to eq(1)
+
+        travel 1.day
+
+        Rake::Task[:"turku:budgets:remind"].reenable
+        Rake::Task[:"turku:budgets:remind"].invoke
+
+        expect(Decidim::Budgets::VoteReminder.first.times.count).to eq(1)
+
+        travel 1.week
+
+        Rake::Task[:"turku:budgets:remind"].reenable
+        Rake::Task[:"turku:budgets:remind"].invoke
+
+        expect(Decidim::Budgets::VoteReminder.first.times.count).to eq(2)
+
+        Rake::Task[:"turku:budgets:remind"].reenable
+        Rake::Task[:"turku:budgets:remind"].invoke
+
+        expect(Decidim::Budgets::VoteReminder.first.times.count).to eq(2)
+        expect(Decidim::Budgets::VoteReminder.count).to eq(1)
       end
     end
   end
