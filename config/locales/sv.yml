@@ -181,6 +181,11 @@ sv:
       scopes_picker_input:
         select_scope: 'Välj ett område (nuvarande val: %{current})'
     shared:
+      exit_warning:
+        body: Din röst har ännu inte registrerats. Är du säker på att du vill logga ut?
+        continue_voting: Fortsätt omröstning
+        sign_out: Logga ut
+        title: Du har ännu inte röstat
       login_modal:
         sign_in_with_account: Logga in med e-post och lösenord
     tunnistamo:

@@ -181,6 +181,11 @@ en:
       scopes_picker_input:
         select_scope: 'Select a ward (currently: %{current})'
     shared:
+      exit_warning:
+        body: Your vote has not yet been registered. Are you sure you want to sign out?
+        continue_voting: Continue voting
+        sign_out: Sign out
+        title: You have not yet voted
       login_modal:
         sign_in_with_account: Sign in with email and password
     tunnistamo:

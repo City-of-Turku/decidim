@@ -181,6 +181,11 @@ fi:
       scopes_picker_input:
         select_scope: 'Valitse suuralue (tämänhetkinen valinta: %{current})'
     shared:
+      exit_warning:
+        body: Ääntäsi ei ole vielä rekisteröity. Haluatko varmasti kirjautua ulos?
+        continue_voting: Jatka äänestystä
+        sign_out: Kirjaudu ulos
+        title: Et ole vielä jättänyt ääntäsi
       login_modal:
         sign_in_with_account: Kirjaudu sisään sähköpostilla ja salasanalla
     tunnistamo:
