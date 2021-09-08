@@ -4,13 +4,14 @@ module Decidim
   module Budgets
     module Admin
       # This command is executed when admin sends vote reminders.
-      class CreateVotingReminders < Rectify::Command
+      class CreateVoteReminders < Rectify::Command
         def initialize(form)
           @form = form
         end
 
         def call
           return broadcast(:invalid) if form.invalid?
+          return broadcast(:invalid) unless voting_enabled?
 
           reminders.each(&:remind!)
 
@@ -35,11 +36,15 @@ module Decidim
         end
 
         def generator
-          @generator ||= Decidim::Budgets::Admin::VotingReminderGenerator.new(current_component)
+          @generator ||= Decidim::Budgets::Admin::VoteReminderGenerator.new(current_component)
         end
 
         def current_component
           form.current_component
+        end
+
+        def voting_enabled?
+          form.voting_enabled?
         end
       end
     end

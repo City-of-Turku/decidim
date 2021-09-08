@@ -45,6 +45,15 @@ en:
           state_eq:
             values:
               evaluating: Possible if
+      vote_reminder_mailer:
+        vote_reminder:
+          email_subject:
+            one: You have an unfinished vote in the participatory budgeting vote
+            other: You have unfinished votes in the participatory budgeting vote
+          email_intro: You have started the participatory budgeting vote, but have not completed it.
+          email_budgets: "Areas where you have an unfinished vote:"
+          email_outro: Please remember to complete the vote. To vote, you must first select the proposal or proposals you want to vote on and then confirm your vote with the "Vote" button.
+          email_link: Go to continue voting
     authorization_handlers:
       tunnistamo_idp:
         fields:
@@ -64,6 +73,14 @@ en:
         name: Identity document at an office
         user_explanation: Go to a physical location to identify yourself with an identity document.
     budgets:
+      admin:
+        vote_reminders:
+          new:
+            title: 'Are you sure you want to send reminder to %{count} people?'
+            submit: Send
+          create:
+            success: '%{count} people reminded.'
+            error: There was a problem creating reminders.
       budget_list_item:
         budget: Budget
         show: Show
@@ -200,16 +217,6 @@ en:
         what: Vote
         when: September
     title: Resident Budget
-  turku:
-    vote_reminder_mailer:
-      vote_reminder:
-        email_subject:
-          one: You have an unfinished vote in the participatory budgeting vote
-          other: You have unfinished votes in the participatory budgeting vote
-        email_intro: You have started the participatory budgeting vote, but have not completed it.
-        email_budgets: "Areas where you have an unfinished vote:"
-        email_outro: Please remember to complete the vote. To vote, you must first select the proposal or proposals you want to vote on and then confirm your vote with the "Vote" button.
-        email_link: Go to continue voting
   turku_tunnistamo_action_authorizer:
     restrictions:
       disallowed_municipality: Voting is limited only to Turku residents.

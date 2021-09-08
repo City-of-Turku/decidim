@@ -3,7 +3,7 @@
 module Decidim
   module Budgets
     module Admin
-      class VotingReminderForm < Decidim::Form
+      class VoteReminderForm < Decidim::Form
         attribute :reminder_amount
 
         def reminder_amount

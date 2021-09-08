@@ -2,8 +2,8 @@
 
 require "rails_helper"
 
-describe "Executing Decidim Metrics tasks" do
-  describe "rake decidim:metrics:all", type: :task do
+describe "Executing Turku voting reminder tasks" do
+  describe "rake turku:budgets:remind", type: :task do
     let(:organization) { create(:organization) }
     let!(:user) { create(:user, organization: organization) }
     let(:component) { create(:component, manifest_name: "budgets", organization: organization) }
@@ -33,7 +33,7 @@ describe "Executing Decidim Metrics tasks" do
 
       describe "when order is not checked out" do
         it "enques job" do
-          expect(Turku::VoteReminderJob).to receive(:perform_now).once
+          expect(Decidim::Admin::VoteReminderJob).to receive(:perform_now).once
 
           Rake::Task[:"turku:budgets:remind"].invoke
         end
@@ -45,7 +45,7 @@ describe "Executing Decidim Metrics tasks" do
         end
 
         it "doesnt enque job" do
-          expect(Turku::VoteReminderJob).not_to receive(:perform_now)
+          expect(Decidim::Admin::VoteReminderJob).not_to receive(:perform_now)
 
           Rake::Task[:"turku:budgets:remind"].invoke
         end
@@ -59,7 +59,7 @@ describe "Executing Decidim Metrics tasks" do
       end
 
       it "doesnt enque job" do
-        expect(Turku::VoteReminderJob).not_to receive(:perform_now)
+        expect(Decidim::Admin::VoteReminderJob).not_to receive(:perform_now)
 
         Rake::Task[:"turku:budgets:remind"].invoke
       end

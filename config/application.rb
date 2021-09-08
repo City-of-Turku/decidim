@@ -30,11 +30,11 @@ module DecidimTurku
       Rails.root.join("config/locales/overrides/*.yml").to_s
     ]
 
-    config.reminder_times = [2.hours, 1.week, 2.weeks]
+    config.reminder_times = [1.second, 1.week, 2.weeks]
 
     initializer "turku.admin_routes", before: :add_routing_paths do
       Decidim::Budgets::AdminEngine.routes.append do
-        resource :voting_reminder, only: [:new, :create]
+        resource :vote_reminder, only: [:new, :create]
       end
     end
 

@@ -3,7 +3,7 @@
 module Decidim
   module Budgets
     module Admin
-      class VotingReminderGenerator
+      class VoteReminderGenerator
         def initialize(component)
           @component = component
         end
@@ -16,7 +16,7 @@ module Decidim
           orders = Decidim::Budgets::Order.where(budget: budgets, checked_out_at: nil)
 
           orders.each do |order|
-            reminder = ::Turku::VotingReminder.find_or_create_by!(user: order.user, component: @component)
+            reminder = ::Decidim::Budgets::VoteReminder.find_or_create_by!(user: order.user, component: @component)
             reminder.orders << order
             reminders << reminder
           end

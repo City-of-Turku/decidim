@@ -20,7 +20,7 @@ namespace :turku do
 
       reminders = []
       components.each do |component|
-        generator = Decidim::Budgets::Admin::VotingReminderGenerator.new(component)
+        generator = Decidim::Budgets::Admin::VoteReminderGenerator.new(component)
         reminders.push(*generator.generate)
       end
 
