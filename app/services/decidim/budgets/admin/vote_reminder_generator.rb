@@ -18,7 +18,7 @@ module Decidim
           orders.each do |order|
             reminder = ::Decidim::Budgets::VoteReminder.find_or_create_by!(user: order.user, component: @component)
             reminder.orders << order
-            reminders << reminder
+            reminders << reminder if reminders.select { |r| r.user == order.user && r.component == @component }.blank?
           end
 
           # Clean checked out orders
