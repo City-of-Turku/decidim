@@ -19,7 +19,7 @@ module Turku
             # The role can be one of "student", "teacher" or nil/empty.
             role: raw_info[:school_role]
           )
-        when "axiell_aurora"
+        when "axiell_aurora", "koha"
           # Library card
           data.merge!(birthdate: raw_info[:birthdate])
         end
