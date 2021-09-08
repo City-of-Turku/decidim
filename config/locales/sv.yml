@@ -45,6 +45,15 @@ sv:
           state_eq:
             values:
               evaluating: Möjlig om
+      vote_reminder_mailer:
+        vote_reminder:
+          email_subject:
+            one: Du har en oavslutad röst i den deltagande budgetröstningen
+            other: Du har oavslutade röster i den deltagande budgetröstningen
+          email_intro: Du har startat den deltagande budgetröstningen, men har inte slutfört den.
+          email_budgets: "Områden där du har en oavslutad röst:"
+          email_outro: Kom ihåg att slutföra omröstningen. För att rösta måste du först välja det eller de förslag du vill rösta på och sedan bekräfta din röst med knappen "Rösta".
+        email_link: Gå för att fortsätta rösta
     authorization_handlers:
       tunnistamo_idp:
         fields:
@@ -64,6 +73,14 @@ sv:
         name: Identity document at an office
         user_explanation: Gå till en fysisk plats för att identifiera dig med ett identitetsdokument.
     budgets:
+      admin:
+        vote_reminders:
+          new:
+            title: 'Är du säker på att du vill skicka påminnelse till %{count} personer?'
+            submit: Skicka
+          create:
+            success: '%{count} personer påminde.'
+            error: Det var ett problem att skapa påminnelser.
       budget_list_item:
         budget: Budget
         show: Visa

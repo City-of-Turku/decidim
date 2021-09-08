@@ -45,6 +45,15 @@ fi:
           state_eq:
             values:
               evaluating: Mahdollinen, jos
+      vote_reminder_mailer:
+        vote_reminder:
+          email_subject:
+            one: Sinulla on keskeneräinen ääni osallistuvan budjetoinnin äänestyksessä
+            other: Sinulla on keskeneräisiä ääniä osallistuvan budjetoinnin äänestyksessä
+          email_intro: Olet aloittanut osallistuvan budjetoinnin äänestyksen, mutta et ole saattanut sitä loppuun.
+          email_budgets: "Alueet, joilla sinulla on keskeneräinen ääni:"
+          email_outro: Muistathan suorittaa äänestyksen loppuun. Äänestääksesi sinun on ensin valittava se ehdotus tai ne ehdotukset, joita haluat äänestää ja tämän jälkeen vahvistettava äänesi "Äänestä" -painikkeella.
+          email_link: Siirry jatkamaan äänestystä
     authorization_handlers:
       tunnistamo_idp:
         fields:
@@ -64,6 +73,14 @@ fi:
         name: Henkilöllisyystodistus toimipisteessä
         user_explanation: Käy fyysisessä toimipisteessä varmentamassa itsesi henkilöllisyystodistuksen avulla.
     budgets:
+      admin:
+        vote_reminders:
+          new:
+            title: 'Are you sure you want to send reminder to %{count} people?'
+            submit: Send
+          create:
+            success: '%{count} people reminded.'
+            error: There was a problem creating reminders.
       budget_list_item:
         budget: Budjetti
         show: Näytä
