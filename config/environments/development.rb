@@ -65,4 +65,7 @@ Rails.application.configure do
 
   # No precompilation on demand on first request
   config.assets.check_precompiled_asset = false
+
+  # Dont timeout so often in development
+  config.expire_session_after = 1.day
 end
