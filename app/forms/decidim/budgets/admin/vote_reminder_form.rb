@@ -10,8 +10,12 @@ module Decidim
           @reminder_amount ||= begin
             return 0 unless voting_enabled?
 
-            user_ids = unfinished_orders.map do |order|
-              order.user.id
+            user_ids = []
+            unfinished_orders.each do |order|
+              reminder = Decidim::Budgets::VoteReminder.find_by(component: current_component, user: order.user)
+              next if reminder && reminder.times.present? && reminder.times.last > Time.current - 24.hours
+
+              user_ids << order.user.id
             end
             user_ids.uniq.count
           end
