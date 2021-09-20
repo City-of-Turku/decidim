@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_26_120208) do
+ActiveRecord::Schema.define(version: 2021_09_20_160425) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -1411,6 +1411,10 @@ ActiveRecord::Schema.define(version: 2021_08_26_120208) do
     t.integer "block_id"
     t.boolean "email_on_moderations", default: true
     t.integer "follows_count", default: 0, null: false
+    t.string "tunnistamo_email_sent_to"
+    t.string "tunnistamo_email_code"
+    t.datetime "tunnistamo_email_code_sent_at"
+    t.integer "tunnistamo_failed_confirmation_attempts", default: 0
     t.index ["confirmation_token"], name: "index_decidim_users_on_confirmation_token", unique: true
     t.index ["decidim_organization_id"], name: "index_decidim_users_on_decidim_organization_id"
     t.index ["email", "decidim_organization_id"], name: "index_decidim_users_on_email_and_decidim_organization_id", unique: true, where: "((deleted_at IS NULL) AND (managed = false) AND ((type)::text = 'Decidim::User'::text))"

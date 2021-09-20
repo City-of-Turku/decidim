@@ -15,6 +15,10 @@ module Turku
       true
     end
 
+    def email_confirmed?
+      @email_confirmed ||= %w(opas_adfs turku_adfs).include?(authorization_metadata[:service])
+    end
+
     private
 
     def has_security_denial?

@@ -4,6 +4,7 @@ require "turku/tunnistamo_authenticator"
 require "turku/tunnistamo_metadata_collector"
 
 Decidim::Tunnistamo.configure do |config|
+  config.confirm_emails = true
   config.scope = [:openid, :email, :profile, :address]
   config.authenticator_class = Turku::TunnistamoAuthenticator
   config.metadata_collector_class = Turku::TunnistamoMetadataCollector
