@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_21_093322) do
+ActiveRecord::Schema.define(version: 2021_09_24_090534) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -475,6 +475,56 @@ ActiveRecord::Schema.define(version: 2021_09_21_093322) do
     t.index ["endorsements_count"], name: "idx_decidim_debates_debates_on_endorsemnts_count"
   end
 
+  create_table "decidim_dummy_resources_coauthorable_dummy_resources", force: :cascade do |t|
+    t.jsonb "translatable_text"
+    t.string "title"
+    t.string "body"
+    t.text "address"
+    t.float "latitude"
+    t.float "longitude"
+    t.datetime "published_at"
+    t.integer "coauthorships_count", default: 0, null: false
+    t.integer "endorsements_count", default: 0, null: false
+    t.integer "comments_count", default: 0, null: false
+    t.bigint "decidim_component_id"
+    t.bigint "decidim_category_id"
+    t.bigint "decidim_scope_id"
+    t.string "reference"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "decidim_dummy_resources_dummy_resources", force: :cascade do |t|
+    t.jsonb "translatable_text"
+    t.jsonb "title"
+    t.string "body"
+    t.text "address"
+    t.float "latitude"
+    t.float "longitude"
+    t.datetime "published_at"
+    t.integer "coauthorships_count", default: 0, null: false
+    t.integer "endorsements_count", default: 0, null: false
+    t.integer "comments_count", default: 0, null: false
+    t.integer "follows_count", default: 0, null: false
+    t.bigint "decidim_component_id"
+    t.integer "decidim_author_id"
+    t.string "decidim_author_type"
+    t.integer "decidim_user_group_id"
+    t.bigint "decidim_category_id"
+    t.bigint "decidim_scope_id"
+    t.string "reference"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "decidim_dummy_resources_nested_dummy_resources", force: :cascade do |t|
+    t.jsonb "translatable_text"
+    t.string "title"
+    t.bigint "dummy_resource_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "decidim_endorsements", force: :cascade do |t|
     t.string "resource_type"
     t.bigint "resource_id"
@@ -607,6 +657,7 @@ ActiveRecord::Schema.define(version: 2021_09_21_093322) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "decidim_organization_id"
+    t.string "turku_oid"
     t.index ["decidim_organization_id"], name: "index_decidim_identities_on_decidim_organization_id"
     t.index ["decidim_user_id"], name: "index_decidim_identities_on_decidim_user_id"
     t.index ["provider", "uid", "decidim_organization_id"], name: "decidim_identities_provider_uid_organization_unique", unique: true

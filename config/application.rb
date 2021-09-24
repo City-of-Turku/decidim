@@ -62,6 +62,9 @@ module DecidimTurku
       # Controller extensions
       ::Decidim::Proposals::ProposalsController.include(ProposalsExtensions)
 
+      # Command extensions
+      ::Decidim::CreateOmniauthRegistration.include(CreateOmniauthRegistrationExtensions)
+
       # Authorizer extensions
       ::Decidim::ActionAuthorizer::AuthorizationStatusCollection.include(
         AuthorizationStatusCollectionExtensions
