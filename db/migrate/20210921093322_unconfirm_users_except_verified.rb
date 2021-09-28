@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UnconfirmUsersExceptVerified < ActiveRecord::Migration[5.2]
   def up
     Decidim::Authorization.where(name: "tunnistamo_idp").find_each do |authorization|
