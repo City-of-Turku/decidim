@@ -5,29 +5,9 @@
     height: 3rem;
   }
 
-  input{
-    border-radius: 0 4px 4px 0;
-  }
-
-  span:first-of-type{
-    &.columns{
-      padding: 0 .5rem;
-      background-color: $medium-gray;
-      border: 1px solid $dark-gray;
-      border-right: 0;
-      border-radius: 4px 0 0 4px;
-      height: 3rem;
-    }
-  }
-
-  .prefix{
-    display: inline-block;
-    padding-top: .7rem;
-  }
-
-  .is-invalid-label{
-    .prefix{
-      color: $black;
-    }
+  .input-group-label{
+    background-color: $medium-gray;
+    border: 1px solid $dark-gray;
+    border-right: 0;
   }
 }
