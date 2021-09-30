@@ -6,7 +6,7 @@ module CreateOmniauthRegistrationExtensions
   included do
     private
 
-    alias_method :create_identity_orig_tunnistamo, :create_identity unless respond_to?(:create_identity_orig_tunnistamo)
+    alias_method :create_identity_orig_turku, :create_identity unless private_method_defined?(:create_identity_orig_turku)
 
     def create_identity
       identity = create_identity_orig_tunnistamo
