@@ -22,7 +22,7 @@ module Decidim
 
         attr_reader :form
 
-        def time_to_remind?(reminder)
+        def send_remind?(reminder)
           return true if reminder.times.empty?
 
           reminder.times.last < Time.current - 24.hours
@@ -31,7 +31,7 @@ module Decidim
         def reminders
           @reminders ||= begin
             @reminders = generator.generate
-            @reminders.select { |r| time_to_remind?(r) }
+            @reminders.select { |r| send_remind?(r) }
           end
         end
 

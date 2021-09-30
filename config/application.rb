@@ -30,6 +30,7 @@ module DecidimTurku
       Rails.root.join("config/locales/overrides/*.yml").to_s
     ]
 
+    # Remind users who haven't checked out their votes
     config.reminder_times = [2.hours, 1.week, 2.weeks]
 
     initializer "turku.admin_routes", before: :add_routing_paths do

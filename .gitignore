@@ -39,3 +39,4 @@ public/uploads
 # Ignore webpack stuff
 /webpack.report.html
 .rspec-failures
+bin/delayed_job

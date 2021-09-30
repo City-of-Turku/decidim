@@ -2,15 +2,6 @@
 
 # Usage: bundle exec rake turku:budgets:remind
 
-def time_to_remind?(reminder)
-  intervals = Array(Rails.application.config.reminder_times)
-
-  return false if intervals.length <= reminder.times.length
-  return false if intervals[reminder.times.length] > Time.current - reminder.orders.last.created_at
-
-  true
-end
-
 # Send email reminders to users who have started voting process but haven't actually voted (pressed "vote" button)
 namespace :turku do
   namespace :budgets do
@@ -24,11 +15,7 @@ namespace :turku do
         reminders.push(*generator.generate)
       end
 
-      reminders.each do |reminder|
-        next unless time_to_remind?(reminder)
-
-        reminder.remind!
-      end
+      Decidim::Admin::VoteReminderJob.perform_later(reminders)
     end
   end
 end
