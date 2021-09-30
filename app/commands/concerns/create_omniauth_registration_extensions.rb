@@ -9,7 +9,7 @@ module CreateOmniauthRegistrationExtensions
     alias_method :create_identity_orig_turku, :create_identity unless private_method_defined?(:create_identity_orig_turku)
 
     def create_identity
-      identity = create_identity_orig_tunnistamo
+      identity = create_identity_orig_turku
       identity.update(turku_oid: anonymized_oid) if !identity.turku_oid && anonymized_oid
       identity
     end
