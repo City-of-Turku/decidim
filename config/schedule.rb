@@ -33,3 +33,8 @@ end
 every :day, at: "03:05", roles: [:db] do
   rake "decidim_meetings:clean_registration_forms"
 end
+
+# Remind users about pending votes
+every :day, at: "09:05", roles: [:db] do
+  rake "turku:budgets:remind"
+end
