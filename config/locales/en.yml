@@ -79,7 +79,7 @@ en:
             title: 'Are you sure you want to send reminder to %{count} people?'
             submit: Send
           create:
-            success: '%{count} people reminded.'
+            success: '%{count} users will be reminded.'
             error: There was a problem creating reminders.
       budget_list_item:
         budget: Budget

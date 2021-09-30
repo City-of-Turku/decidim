@@ -5,11 +5,11 @@ module Decidim
     class VoteReminderJob < ApplicationJob
       queue_as :vote_reminder
 
-      def perform(user, orders)
+      def perform(user, order_ids)
         return unless user
-        return if orders.blank?
+        return if order_ids.blank?
 
-        ::Decidim::Admin::VoteReminderMailer.vote_reminder(user, orders).deliver_now
+        ::Decidim::Admin::VoteReminderMailer.vote_reminder(user, order_ids).deliver_now
       end
     end
   end

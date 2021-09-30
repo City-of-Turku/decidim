@@ -76,11 +76,11 @@ fi:
       admin:
         vote_reminders:
           new:
-            title: 'Are you sure you want to send reminder to %{count} people?'
-            submit: Send
+            title: 'Oletko varma että haluat lähettää muistutuksen %{count} ihmiselle?'
+            submit: Lähetä
           create:
-            success: '%{count} people reminded.'
-            error: There was a problem creating reminders.
+            success: 'Lähetetään %{count} käyttäjälle muistutus.'
+            error: Muistutusten lähettämisessä ilmeni ongelma.
       budget_list_item:
         budget: Budjetti
         show: Näytä

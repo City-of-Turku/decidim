@@ -35,7 +35,7 @@ describe "Executing Turku voting reminder tasks" do
 
       describe "when order is not checked out" do
         it "enques job" do
-          expect(Decidim::Admin::VoteReminderJob).to receive(:perform_now).once
+          expect(Decidim::Admin::VoteReminderJob).to receive(:perform_later).with(user, [order.id]).once
 
           Rake::Task[:"turku:budgets:remind"].invoke
         end
@@ -47,7 +47,7 @@ describe "Executing Turku voting reminder tasks" do
         end
 
         it "doesnt enque job" do
-          expect(Decidim::Admin::VoteReminderJob).not_to receive(:perform_now)
+          expect(Decidim::Admin::VoteReminderJob).not_to receive(:perform_later)
 
           Rake::Task[:"turku:budgets:remind"].invoke
         end
@@ -61,7 +61,7 @@ describe "Executing Turku voting reminder tasks" do
       end
 
       it "doesnt enque job" do
-        expect(Decidim::Admin::VoteReminderJob).not_to receive(:perform_now)
+        expect(Decidim::Admin::VoteReminderJob).not_to receive(:perform_later)
 
         Rake::Task[:"turku:budgets:remind"].invoke
       end

@@ -39,9 +39,20 @@ describe "Admin sends vote reminders", type: :system do
   end
 
   describe "create vote reminders" do
+    include ActiveJob::TestHelper
+
+    after do
+      clear_enqueued_jobs
+    end
+
     it "sends reminders" do
       click_button "Send"
-      expect(page).to have_content("2 people reminded.")
+
+      perform_enqueued_jobs do
+        ::Decidim::Admin::VoteReminderMailer.vote_reminder(user, [order.id]).deliver_now
+        ::Decidim::Admin::VoteReminderMailer.vote_reminder(user2, [order2.id]).deliver_now
+      end
+      expect(page).to have_content("2 users will be reminded")
       expect(emails.count).to eq(2)
       emails.each do |email|
         expect(email.subject).to eq("You have an unfinished vote in the participatory budgeting vote")
@@ -54,7 +65,7 @@ describe "Admin sends vote reminders", type: :system do
       click_button "Send"
       click_link "Send voting reminders"
       click_button "Send"
-      expect(page).to have_content("0 people reminded.")
+      expect(page).to have_content("0 users will be reminded")
     end
   end
 end

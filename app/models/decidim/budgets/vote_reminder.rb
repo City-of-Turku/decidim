@@ -10,7 +10,8 @@ module Decidim
 
       def remind!
         update!(times: times << Time.current)
-        ::Decidim::Admin::VoteReminderJob.perform_now(user, orders)
+        order_ids = orders.pluck(:id)
+        ::Decidim::Admin::VoteReminderJob.perform_later(user, order_ids)
       end
     end
   end

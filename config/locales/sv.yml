@@ -79,7 +79,7 @@ sv:
             title: 'Är du säker på att du vill skicka påminnelse till %{count} personer?'
             submit: Skicka
           create:
-            success: '%{count} personer påminde.'
+            success: '%{count} användare kommer att påminnas.'
             error: Det var ett problem att skapa påminnelser.
       budget_list_item:
         budget: Budget
