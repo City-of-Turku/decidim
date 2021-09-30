@@ -16,22 +16,27 @@ module Decidim
           orders = Decidim::Budgets::Order.where(budget: budgets, checked_out_at: nil)
 
           orders.each do |order|
+            next unless order.user
+
             reminder = ::Decidim::Budgets::VoteReminder.find_or_create_by!(user: order.user, component: @component)
             reminder.orders << order
             reminders << reminder if reminders.select { |r| r.user == order.user && r.component == @component }.blank?
           end
 
-          # Clean checked out orders
-          reminders.each do |reminder|
-            reminder.orders.each do |order|
-              reminder.orders.delete(order.id) if order.checked_out_at.present?
-            end
-          end
+          clean_checked_out_orders(reminders)
 
           reminders
         end
 
         private
+
+        def clean_checked_out_orders(reminders)
+          reminders.each do |reminder|
+            reminder.orders.each do |order|
+              reminder.orders.delete(order.id) if order.checked_out_at.present?
+            end
+          end
+        end
 
         def voting_enabled?
           @component.current_settings.votes == "enabled"

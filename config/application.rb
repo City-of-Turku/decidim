@@ -60,6 +60,9 @@ module DecidimTurku
         ProjectListItemCellExtensions
       )
 
+      # Model extensions
+      ::Decidim::User.include(UserExtensions)
+
       # Controller extensions
       ::Decidim::Proposals::ProposalsController.include(ProposalsExtensions)
 
