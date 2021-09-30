@@ -29,7 +29,7 @@ GIT
 
 GIT
   remote: https://github.com/mainio/decidim-module-tunnistamo.git
-  revision: 2077156c44067e24b0e31f4f1dba9e14c7b61ea9
+  revision: 8005cc107d3d3a7866ec846c6d6b758c6ae1751c
   branch: develop
   specs:
     decidim-tunnistamo (0.24.0)
