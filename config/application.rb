@@ -62,12 +62,14 @@ module DecidimTurku
 
       # Model extensions
       ::Decidim::User.include(UserExtensions)
+      ::Decidim::ActionLog.include(ActionLogExtensions)
 
       # Controller extensions
       ::Decidim::Proposals::ProposalsController.include(ProposalsExtensions)
 
       # Command extensions
       ::Decidim::CreateOmniauthRegistration.include(CreateOmniauthRegistrationExtensions)
+      ::Decidim::Budgets::Checkout.include(CheckoutExtensions)
 
       # Authorizer extensions
       ::Decidim::ActionAuthorizer::AuthorizationStatusCollection.include(
