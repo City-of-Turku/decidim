@@ -39,6 +39,13 @@ module DecidimTurku
       end
     end
 
+    initializer "turku.api_extensions" do
+      require "turku/query_extensions"
+      require "turku/mutation_extensions"
+      Decidim::Api::QueryType.include Turku::QueryExtensions
+      Decidim::Api::MutationType.include Turku::MutationExtensions
+    end
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
