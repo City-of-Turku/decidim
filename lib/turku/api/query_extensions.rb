@@ -6,15 +6,8 @@ module Turku
   module Api
     module QueryExtensions
       def self.included(type)
-        # TODO: Move activity under the user record
-        # type.field :activity, [Decidim::Turku::ActivityType], null: false do
-        #   argument :user_id, GraphQL::Types::ID, "The user's ID", required: false
-        #   argument :oid, GraphQL::Types::String, "The user's OID", required: false
-        # end
-
         user_field = type.own_fields["user"]
         user_field.argument :oid, GraphQL::Types::String, "The UID of the participant", required: false
-        # type.add_field :activity, [Turku::ActivityType, { null: true }], "User's activities", null: false
       end
 
       def user(id: nil, oid: nil, nickname: nil)
