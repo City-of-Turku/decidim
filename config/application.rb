@@ -40,10 +40,15 @@ module DecidimTurku
     end
 
     initializer "turku.api_extensions" do
-      require "turku/query_extensions"
-      require "turku/mutation_extensions"
-      Decidim::Api::QueryType.include Turku::QueryExtensions
-      Decidim::Api::MutationType.include Turku::MutationExtensions
+      require "turku/api/query_extensions"
+      require "turku/api/mutation_extensions"
+      require "turku/api/author_interface_extensions"
+      require "turku/api/user_type_extensions"
+
+      Decidim::Api::QueryType.include Turku::Api::QueryExtensions
+      Decidim::Api::MutationType.include Turku::Api::MutationExtensions
+      Decidim::Core::AuthorInterface.include Turku::Api::AuthorInterfaceExtensions
+      Decidim::Core::UserType.include Turku::Api::UserTypeExtensions
     end
 
     # Settings in config/environments/* take precedence over those specified here.

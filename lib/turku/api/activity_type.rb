@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-module Decidim
-  module Turku
+module Turku
+  module Api
     class ActivityType < Decidim::Api::Types::BaseObject
       graphql_name "Activity"
       description "An activity."
