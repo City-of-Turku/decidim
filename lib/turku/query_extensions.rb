@@ -15,17 +15,17 @@ module Turku
       user_field.argument :uid, GraphQL::Types::String, "The UID of the participant", required: false
     end
 
-      def activity(user_id: nil, oid: nil)
-        if oid.present? && context[:current_user].admin?
-          pseudoanonymized_oid = Digest::MD5.hexdigest("OID:#{oid}:#{Rails.application.secrets.secret_key_base}")
-          user = Decidim::Identity.find_by(turku_oid: pseudoanonymized_oid)&.user
-          return activities(user, %w(private-only public-only all))
-        end
-
-        activities(Decidim::User.find(user_id), %w(public-only all))
+    def activity(user_id: nil, oid: nil)
+      if oid.present? && context[:current_user].admin?
+        pseudoanonymized_oid = Digest::MD5.hexdigest("OID:#{oid}:#{Rails.application.secrets.secret_key_base}")
+        user = Decidim::Identity.find_by(turku_oid: pseudoanonymized_oid)&.user
+        return activities(user, %w(private-only public-only all))
       end
 
-      private
+      activities(Decidim::User.find(user_id), %w(public-only all))
+    end
+
+    private
 
     def user(id: nil, uid: nil, nickname: nil)
       if uid
@@ -38,22 +38,20 @@ module Turku
       Decidim::Core::UserEntityFinder.new.call(object, { id: id, nickname: nickname }, context)
     end
 
-    private
+    def activities(user, visibility)
+      return unless user
 
-      def activities(user, visibility)
-        return unless user
-        ::Decidim::ActionLog.where(
-          user: user,
-          visibility: visibility,
-          organization: context[:current_organization]
-        )
-      end
+      ::Decidim::ActionLog.where(
+        user: user,
+        visibility: visibility,
+        organization: context[:current_organization]
+      )
+    end
 
-      def find_user(id, oid)
-        return Decidim::Identity.find_by(turku_oid: oid).user if oid
+    def find_user(id, oid)
+      return Decidim::Identity.find_by(turku_oid: oid).user if oid
 
-        Decidim::User.find(id)
-      end
+      Decidim::User.find(id)
     end
   end
 end
