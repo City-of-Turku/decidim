@@ -25,8 +25,6 @@ module Turku
       activities(Decidim::User.find(user_id), %w(public-only all))
     end
 
-    private
-
     def user(id: nil, uid: nil, nickname: nil)
       if uid
         # TODO: Make sure the logged in user has system admin rights
@@ -37,6 +35,8 @@ module Turku
       # Turku::UserEntityFinder.new.call(object, { id: id, uid: uid, nickname: nickname }, context)
       Decidim::Core::UserEntityFinder.new.call(object, { id: id, nickname: nickname }, context)
     end
+
+    private
 
     def activities(user, visibility)
       return unless user
