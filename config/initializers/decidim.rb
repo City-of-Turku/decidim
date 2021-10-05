@@ -142,3 +142,9 @@ end
 
 Rails.application.config.i18n.available_locales = Decidim.available_locales
 Rails.application.config.i18n.default_locale = Decidim.default_locale
+
+# Test the unconfirmed access, the Decidim configuration is not working for
+# this.
+Devise.setup do |config|
+  config.allow_unconfirmed_access_for = 1000.days
+end
