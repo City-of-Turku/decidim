@@ -95,7 +95,7 @@ module Decidim
               }
             )
           end
-          let(:cost) { ::Faker::Number.between(from: 1, to: 100_000.0).round(2) }
+          let(:cost) { ::Faker::Number.between(from: 1, to: 100_000.0).round(2).to_f }
           let(:cost_report) do
             {
               en: ::Faker::Lorem.paragraph,

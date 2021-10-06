@@ -42,25 +42,27 @@ module Decidim
           let(:query) do
             %(
               {
-                activity(oid: "#{oid}") {
-                  id
-                  resourceType
-                  visibility
+                user(oid: "#{oid}") {
+                  activityTypes {
+                    id
+                    resourceType
+                    visibility
+                  }
                 }
               }
             )
           end
 
           it "returns id" do
-            expect(response["activity"].first).to include("id" => action_log.id.to_s)
+            expect(response["user"]["activityTypes"].first).to include("id" => action_log.id.to_s)
           end
 
           it "returns resourceType" do
-            expect(response["activity"].first).to include("resourceType" => order.class.to_s)
+            expect(response["user"]["activityTypes"].first).to include("resourceType" => order.class.to_s)
           end
 
           it "returns visibility" do
-            expect(response["activity"].first).to include("visibility" => visibility)
+            expect(response["user"]["activityTypes"].first).to include("visibility" => visibility)
           end
         end
       end
