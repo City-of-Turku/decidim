@@ -2,7 +2,6 @@
 
 require "rails_helper"
 require "decidim/api/test/type_context"
-# require "turku/api/activity_type"
 
 module Turku
   module Api
