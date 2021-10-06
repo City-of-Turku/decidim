@@ -33,36 +33,41 @@ module Decidim
         end
         let(:budget) { create(:budget, component: component) }
         let!(:order) { create(:order, :with_projects, user: user, budget: budget) }
+        let(:query) do
+          %(
+            {
+              user(oid: "#{oid}") {
+                activityTypes {
+                  id
+                  resourceType
+                  visibility
+                }
+              }
+            }
+          )
+        end
 
         before do
           identity.update(turku_oid: Digest::MD5.hexdigest("OID:#{oid}:#{Rails.application.secrets.secret_key_base}"))
         end
 
-        describe "query" do
-          let(:query) do
-            %(
-              {
-                user(oid: "#{oid}") {
-                  activityTypes {
-                    id
-                    resourceType
-                    visibility
-                  }
-                }
-              }
-            )
-          end
+        it "returns activity's id" do
+          expect(response["user"]["activityTypes"].first).to include("id" => action_log.id.to_s)
+        end
 
-          it "returns id" do
-            expect(response["user"]["activityTypes"].first).to include("id" => action_log.id.to_s)
-          end
+        it "returns activity's resourceType" do
+          expect(response["user"]["activityTypes"].first).to include("resourceType" => order.class.to_s)
+        end
 
-          it "returns resourceType" do
-            expect(response["user"]["activityTypes"].first).to include("resourceType" => order.class.to_s)
-          end
+        it "returns activity's visibility" do
+          expect(response["user"]["activityTypes"].first).to include("visibility" => visibility)
+        end
 
-          it "returns visibility" do
-            expect(response["user"]["activityTypes"].first).to include("visibility" => visibility)
+        context "when current user is not admin" do
+          let(:current_user) { create(:user, :confirmed, organization: current_organization) }
+
+          it "raises action forbidden" do
+            expect { response }.to raise_error(Decidim::ActionForbidden)
           end
         end
       end
