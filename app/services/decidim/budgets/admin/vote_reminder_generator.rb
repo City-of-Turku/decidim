@@ -17,6 +17,7 @@ module Decidim
 
           orders.each do |order|
             next unless order.user
+            next if order.user.email.blank?
 
             reminder = ::Decidim::Budgets::VoteReminder.find_or_create_by!(user: order.user, component: @component)
             reminder.orders << order

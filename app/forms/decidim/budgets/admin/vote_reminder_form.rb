@@ -13,6 +13,7 @@ module Decidim
             user_ids = []
             unfinished_orders.each do |order|
               next unless order.user
+              next if order.user.email.blank?
 
               reminder = Decidim::Budgets::VoteReminder.find_by(component: current_component, user: order.user)
               next if reminder && reminder.times.present? && reminder.times.last > Time.current - 24.hours
