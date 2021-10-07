@@ -87,16 +87,11 @@ fi:
         vote: Äänestä
       partials:
         exit_modal:
-          cancel: Return to voting
-          close: Close window
-          exit: Exit voting
-          message: Your vote has not been registered because you have not yet completed the voting process. Are you sure you want to exit voting?
-          title: You have not yet voted
-        sign_out_modal:
-          body: Ääntäsi ei ole vielä rekisteröity. Haluatko varmasti kirjautua ulos?
-          continue_voting: Jatka äänestystä
-          sign_out: Kirjaudu ulos
-          title: Et ole vielä jättänyt ääntäsi
+          cancel: Palaa äänestykseen
+          close: Sulje ikkuna
+          exit: Poistu äänestyksestä
+          message: Ääntäsi ei ole kirjattu, koska et ole vielä suorittanut äänestystä loppuun asti. Haluatko varmasti poistua äänestyksestä?
+          title: Poistumishuomautus
       project_list_item:
         more_info: Tutustu tähän suunnitelmaan
         more_info_with_title: Tutustu suunnitelmaan %{title}

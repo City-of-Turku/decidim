@@ -2,11 +2,13 @@
 //= require foundation
 
 ((exports) => {
-  const $ = exports.$; // eslint-disable-line id-length
+  // const $ = exports.$;
   const location = exports.location;
 
   const allowExitFrom = ($el) => {
     if ($el.attr("target") === "_blank") {
+      return true;
+    } else if ($el.hasClass("sign-out-link")) {
       return true;
     } else if ($el.attr("href") && $el.attr("href").startsWith("#") ||
       $el.attr("href").startsWith(`${location.pathname}#`) ||
@@ -45,8 +47,6 @@
       $exitLink.html(exitLinkText);
       $exitNotification.foundation();
       $exitNotification.foundation("open");
-      // const popup = new Foundation.Reveal($exitNotification);
-      // popup.open();
     };
 
     // Handle "beforeunload"
@@ -69,7 +69,7 @@
     // logout form submit and so that it changes the exit link text. This does
     // not trigger the document link click listener because it has the
     // data-method attribute to trigger a form submit event.
-    $(".header a.sign-out-link").on("click", (event) => {
+    $(".menu a.sign-out-link").on("click", (event) => {
       event.preventDefault();
       event.stopPropagation();
 

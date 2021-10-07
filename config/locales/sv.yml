@@ -87,16 +87,11 @@ sv:
         vote: Rösta
       partials:
         exit_modal:
-          cancel: Return to voting
-          close: Close window
-          exit: Exit voting
-          message: Your vote has not been registered because you have not yet completed the voting process. Are you sure you want to exit voting?
-          title: You have not yet voted
-        sign_out_modal:
-          body: Din röst har ännu inte registrerats. Är du säker på att du vill logga ut?
-          continue_voting: Fortsätt omröstning
-          sign_out: Logga ut
-          title: Du har ännu inte röstat
+          cancel: Återgå till omröstningen
+          close: Stäng fönstret
+          exit: Avsluta omröstning
+          message: Din röst har inte registrerats eftersom du ännu inte har slutfört omröstningen. Är du säker på att du vill avsluta omröstningen?
+          title: Avsluta meddelandet
       project_list_item:
         more_info: Läs mer om denna plan
         more_info_with_title: Läs mer o %{title}
