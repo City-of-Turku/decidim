@@ -1,5 +1,4 @@
-<%# Current workflown tarkastus ei toimi kun on monta budjettia, pitäis olla voted?(budget) %>
-<% if current_user && current_component.current_settings.votes == "enabled" && !current_workflow.voted?(budget) %>
+<% if current_user && current_component.current_settings&.votes == "enabled" && !current_workflow.voted?(budget) %>
   <div class="reveal"
     id="exitWarningModal"
     data-close-on-click="false"

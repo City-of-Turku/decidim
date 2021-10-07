@@ -85,6 +85,18 @@ fi:
         budget: Budjetti
         show: Näytä
         vote: Äänestä
+      partials:
+        exit_modal:
+          cancel: Return to voting
+          close: Close window
+          exit: Exit voting
+          message: Your vote has not been registered because you have not yet completed the voting process. Are you sure you want to exit voting?
+          title: You have not yet voted
+        exit_warning:
+          body: Ääntäsi ei ole vielä rekisteröity. Haluatko varmasti kirjautua ulos?
+          continue_voting: Jatka äänestystä
+          sign_out: Kirjaudu ulos
+          title: Et ole vielä jättänyt ääntäsi
       project_list_item:
         more_info: Tutustu tähän suunnitelmaan
         more_info_with_title: Tutustu suunnitelmaan %{title}
@@ -181,11 +193,6 @@ fi:
       scopes_picker_input:
         select_scope: 'Valitse suuralue (tämänhetkinen valinta: %{current})'
     shared:
-      exit_warning:
-        body: Ääntäsi ei ole vielä rekisteröity. Haluatko varmasti kirjautua ulos?
-        continue_voting: Jatka äänestystä
-        sign_out: Kirjaudu ulos
-        title: Et ole vielä jättänyt ääntäsi
       login_modal:
         sign_in_with_account: Kirjaudu sisään sähköpostilla ja salasanalla
     tunnistamo:

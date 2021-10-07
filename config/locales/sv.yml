@@ -85,6 +85,18 @@ sv:
         budget: Budget
         show: Visa
         vote: Rösta
+      partials:
+        exit_modal:
+          cancel: Return to voting
+          close: Close window
+          exit: Exit voting
+          message: Your vote has not been registered because you have not yet completed the voting process. Are you sure you want to exit voting?
+          title: You have not yet voted
+        exit_warning:
+          body: Din röst har ännu inte registrerats. Är du säker på att du vill logga ut?
+          continue_voting: Fortsätt omröstning
+          sign_out: Logga ut
+          title: Du har ännu inte röstat
       project_list_item:
         more_info: Läs mer om denna plan
         more_info_with_title: Läs mer o %{title}
@@ -181,11 +193,6 @@ sv:
       scopes_picker_input:
         select_scope: 'Välj ett område (nuvarande val: %{current})'
     shared:
-      exit_warning:
-        body: Din röst har ännu inte registrerats. Är du säker på att du vill logga ut?
-        continue_voting: Fortsätt omröstning
-        sign_out: Logga ut
-        title: Du har ännu inte röstat
       login_modal:
         sign_in_with_account: Logga in med e-post och lösenord
     tunnistamo:
