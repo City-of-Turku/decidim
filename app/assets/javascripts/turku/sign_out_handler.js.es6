@@ -1,14 +1,14 @@
 //= require jquery
 
 $(() => {
-  const $exitWarningModal = $("#exitWarningModal")
-  if ($exitWarningModal.length === 0) {
+  const $signOutModal = $("#signOutModal")
+  if ($signOutModal.length === 0) {
     return
   }
 
   const $signOutLink = $("#user-menu").find(".sign-out-link")
-  const $continueButton = $exitWarningModal.find("#continueVoting")
-  const popup = new Foundation.Reveal($exitWarningModal);
+  const $continueButton = $signOutModal.find("#continueVoting")
+  const popup = new Foundation.Reveal($signOutModal);
 
   $signOutLink.removeAttr("href")
   $signOutLink.removeAttr("data-method")

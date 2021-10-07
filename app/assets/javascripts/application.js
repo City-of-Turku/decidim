@@ -14,4 +14,5 @@
 //= require activestorage
 //= require_tree .
 //= require decidim
-//= require turku/exit_warning
+//= require turku/exit_handler
+//= require turku/sign_out_handler

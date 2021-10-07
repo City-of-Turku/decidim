@@ -92,7 +92,7 @@ sv:
           exit: Exit voting
           message: Your vote has not been registered because you have not yet completed the voting process. Are you sure you want to exit voting?
           title: You have not yet voted
-        exit_warning:
+        sign_out_modal:
           body: Din röst har ännu inte registrerats. Är du säker på att du vill logga ut?
           continue_voting: Fortsätt omröstning
           sign_out: Logga ut

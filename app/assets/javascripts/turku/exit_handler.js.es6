@@ -1,4 +1,5 @@
 //= require jquery
+//= require foundation
 
 ((exports) => {
   const $ = exports.$; // eslint-disable-line id-length
