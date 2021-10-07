@@ -1,12 +1,14 @@
-//= require jquery
-//= require foundation
-
 ((exports) => {
   // const $ = exports.$;
   const location = exports.location;
 
   const allowExitFrom = ($el) => {
-    if ($el.attr("target") === "_blank") {
+    const $budgetSummary = $(".budget-summary__progressbox");
+    const currentAllocation = parseInt($budgetSummary.attr("data-current-allocation"), 10);
+
+    if (currentAllocation === 0) {
+      return true;
+    } else if ($el.attr("target") === "_blank") {
       return true;
     } else if ($el.hasClass("sign-out-link")) {
       return true;
@@ -57,10 +59,8 @@
 
       const $link = $(event.currentTarget);
       if (allowExitFrom($link)) {
-        console.log("allow exit")
         window.allowExit = true;
       } else {
-        console.log("dont allow")
         event.preventDefault();
         openExitNotification($link.attr("href"), $link.data("method"));
       }
@@ -91,7 +91,6 @@
     });
 
     window.addEventListener("beforeunload", (event) => {
-      console.log("beforeunload!")
       const allowExit = window.allowExit;
       window.allowExit = false;
 
