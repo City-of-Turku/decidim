@@ -11,7 +11,7 @@ gem "decidim", DECIDIM_VERSION
 # gem "decidim-consultations", DECIDIM_VERSION
 # gem "decidim-initiatives", DECIDIM_VERSION
 
-gem "decidim-antivirus", github: "mainio/decidim-module-antivirus", branch: "master"
+gem "decidim-antivirus", github: "mainio/decidim-module-antivirus", branch: "release/0.24-stable"
 gem "decidim-apiauth", github: "mainio/decidim-module-apiauth", branch: "master"
 gem "decidim-term_customizer", github: "mainio/decidim-module-term_customizer", branch: "master"
 gem "decidim-tunnistamo", github: "mainio/decidim-module-tunnistamo", branch: "develop"
@@ -19,7 +19,7 @@ gem "omniauth-tunnistamo", github: "mainio/omniauth-tunnistamo"
 
 gem "bootsnap", "~> 1.4"
 
-gem "puma", "~> 5.3.1"
+gem "puma", "~> 5.5.1"
 gem "uglifier", "~> 4.1"
 
 gem "faker", "~> 2.14"
