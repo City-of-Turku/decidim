@@ -1,0 +1,36 @@
+.hero{
+  color: $body-font-color;
+
+  &::after{
+    background-color: rgba($black, .3);
+  }
+}
+
+.subhero-cta{
+  margin-top: 2rem;
+  font-size: $lead-font-size;
+}
+
+.home-section:nth-of-type(2n+1){
+  background-color: $turku-light-grey;
+}
+
+.hero__container{
+  padding: 3rem 0;
+
+  @include breakpoint(medium){
+    padding: 4rem 0;
+  }
+
+  @include breakpoint(mediumlarge){
+    padding: 5rem 0;
+  }
+
+  @include breakpoint(large){
+    padding: 6rem 0;
+  }
+
+  @include breakpoint(xlarge){
+    padding: 9rem 0;
+  }
+}

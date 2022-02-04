@@ -1,0 +1,11 @@
+.tunnistamo-verification-code{
+  input[type="text"]{
+    height: 3rem;
+  }
+
+  .input-group-label{
+    background-color: $medium-gray;
+    border: 1px solid $dark-gray;
+    border-right: 0;
+  }
+}

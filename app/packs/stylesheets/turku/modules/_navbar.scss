@@ -1,0 +1,210 @@
+$navbar-bg: $turku-dark-grey;
+$navbar-bg-active: $turku-rubine-red;
+$navbar-bg-hover: $secondary;
+$navbar-color: $white;
+$navbar-color-hover: $white;
+$topbar-link-color: $anchor-color;
+$topbar-link-color-hover: $anchor-color-hover;
+$navbar-active-color: $white;
+$navbar-active-bg: $navbar-bg-hover;
+$navbar-active-shadow-small: inset 4px 0 0 0 var(--primary);
+$navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
+
+.navbar{
+  background: $navbar-bg;
+  color: $white;
+}
+
+.logo-wrapper{
+  img{
+    width: 113px;
+  }
+}
+
+.main-nav__link{
+  a{
+    color: $navbar-color;
+    text-decoration: none;
+    font-weight: 600;
+
+    &.hover,
+    &:hover,
+    &.focus,
+    &:focus{
+      color: $navbar-color-hover;
+      background: $navbar-bg-hover;
+    }
+  }
+
+  &.main-nav__link--active{
+    a{
+      box-shadow: none;
+      background: $navbar-bg-active;
+
+      &.hover,
+      &:hover,
+      &.focus,
+      &:focus{
+        background: $navbar-bg-hover;
+      }
+    }
+  }
+}
+
+.topbar__user__login{
+  text-align: right;
+  line-height: 1.2;
+
+  a{
+    color: $topbar-link-color;
+
+    &:hover{
+      text-decoration: underline;
+    }
+
+    &:hover,
+    &:focus{
+      color: $topbar-link-color-hover;
+    }
+  }
+
+  a:first-of-type::before{
+    display: none;
+  }
+}
+
+.topbar__search{
+  position: relative;
+
+  input{
+    color: $input-color;
+    border: $input-border;
+    background: $input-background;
+    border-radius: $input-radius 0 0 $input-radius;
+
+    &:focus{
+      color: $input-color;
+      background: $input-background-focus;
+      box-shadow: none;
+    }
+
+    @include breakpoint(medium){
+      background: $input-background;
+    }
+  }
+
+  &:not(:focus-within){
+    button{
+      background-color: $navbar-active-bg;
+      color: $white;
+
+      @include breakpoint(medium){
+        background: var(--primary);
+      }
+    }
+  }
+
+  &:focus-within{
+    input{
+      background-color: $light-gray;
+      color: $body-font-color;
+      border: $input-border;
+
+      &::placeholder{
+        color: $dark-medium-gray;
+      }
+    }
+  }
+}
+
+.topbar__dropmenu .is-dropdown-submenu{
+  li a{
+    &:hover,
+    &:focus{
+      color: $topbar-link-color-hover;
+    }
+  }
+}
+
+.topbar__dropmenu{
+  > ul > li > a{
+    color: $topbar-link-color;
+
+    &:hover{
+      text-decoration: underline;
+    }
+
+    &:hover,
+    &:focus{
+      color: $topbar-link-color-hover;
+    }
+
+    &::after{
+      border-top-color: $topbar-link-color !important;
+    }
+  }
+
+  &.language-choose{
+    > ul > li > a{
+      color: $white;
+
+      @include breakpoint(medium){
+        color: $topbar-link-color;
+      }
+
+      &::after{
+        border-top-color: $white !important;
+
+        @include breakpoint(medium){
+          border-top-color: $topbar-link-color !important;
+        }
+      }
+
+      &:hover,
+      &:focus{
+        color: $white;
+
+        @include breakpoint(medium){
+          color: $topbar-link-color-hover;
+        }
+      }
+    }
+  }
+}
+
+.topbar__admin__link a{
+  color: $topbar-link-color;
+  text-decoration: none;
+
+  &:hover,
+  &:focus{
+    color: $topbar-link-color-hover;
+    text-decoration: underline;
+  }
+}
+
+a.topbar__notifications,
+a.topbar__conversations{
+  text-decoration: none;
+
+  &:hover,
+  &:focus{
+    .icon{
+      fill: $topbar-link-color-hover;
+    }
+  }
+
+  .icon{
+    fill: $topbar-link-color;
+  }
+}
+
+/* Main nav */
+.main-nav ul{
+  @include breakpoint(medium){
+    > li{
+      flex: 0 auto;
+      margin-right: 2rem;
+    }
+  }
+}

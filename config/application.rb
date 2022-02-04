@@ -2,7 +2,7 @@
 
 require_relative "boot"
 
-require "rails/all"
+require "decidim/rails"
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -11,7 +11,7 @@ Bundler.require(*Rails.groups)
 module DecidimTurku
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 5.2
+    config.load_defaults 6.0
 
     config.time_zone = "Europe/Helsinki"
 
@@ -56,42 +56,47 @@ module DecidimTurku
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
 
-    # See:
-    # https://guides.rubyonrails.org/configuring.html#initialization-events
-    #
-    # Run before every request in development.
-    config.to_prepare do
-      # Cell extensions
-      ::Decidim::Budgets::BudgetListItemCell.include(
-        BudgetListItemCellExtensions
-      )
-      ::Decidim::Budgets::BudgetInformationModalCell.include(
-        BudgetInformationModalExtensions
-      )
-      ::Decidim::Budgets::ProjectListItemCell.include(
-        ProjectListItemCellExtensions
-      )
+    # Add the to_prepare hook AFTER the decidim.action_controller initializer
+    # because otherwise a necessary helper would be missing from some of the
+    # controllers.
+    initializer "customizations", after: "decidim.action_controller" do
+      # See:
+      # https://guides.rubyonrails.org/configuring.html#initialization-events
+      #
+      # Run before every request in development.
+      config.to_prepare do
+        # Cell extensions
+        ::Decidim::Budgets::BudgetListItemCell.include(
+          BudgetListItemCellExtensions
+        )
+        ::Decidim::Budgets::BudgetInformationModalCell.include(
+          BudgetInformationModalExtensions
+        )
+        ::Decidim::Budgets::ProjectListItemCell.include(
+          ProjectListItemCellExtensions
+        )
 
-      # Model extensions
-      ::Decidim::User.include(UserExtensions)
-      ::Decidim::ActionLog.include(ActionLogExtensions)
+        # Model extensions
+        ::Decidim::User.include(UserExtensions)
+        ::Decidim::ActionLog.include(ActionLogExtensions)
 
-      # Controller extensions
-      ::Decidim::Proposals::ProposalsController.include(ProposalsExtensions)
+        # Controller extensions
+        ::Decidim::Proposals::ProposalsController.include(ProposalsExtensions)
 
-      # Command extensions
-      ::Decidim::CreateOmniauthRegistration.include(CreateOmniauthRegistrationExtensions)
-      ::Decidim::Budgets::Checkout.include(CheckoutExtensions)
+        # Command extensions
+        ::Decidim::CreateOmniauthRegistration.include(CreateOmniauthRegistrationExtensions)
+        ::Decidim::Budgets::Checkout.include(CheckoutExtensions)
 
-      # Authorizer extensions
-      ::Decidim::ActionAuthorizer::AuthorizationStatusCollection.include(
-        AuthorizationStatusCollectionExtensions
-      )
+        # Authorizer extensions
+        ::Decidim::ActionAuthorizer::AuthorizationStatusCollection.include(
+          AuthorizationStatusCollectionExtensions
+        )
 
-      # Helper extensions
-      ::Decidim::ActionAuthorizationHelper.include(
-        ActionAuthorizationHelperExtensions
-      )
+        # Helper extensions
+        ::Decidim::ActionAuthorizationHelper.include(
+          ActionAuthorizationHelperExtensions
+        )
+      end
     end
   end
 end

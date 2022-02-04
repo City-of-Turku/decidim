@@ -44,3 +44,11 @@ public/uploads
 
 # Ignore delayed job
 bin/delayed_job
+
+/public/packs
+/public/packs-test
+/node_modules
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity
+/public/decidim-packs

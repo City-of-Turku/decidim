@@ -5,8 +5,8 @@ module ApplicationHelper
     suffix = current_locale == "sv" ? "-sv" : ""
     suffix += "-#{version}" if version
 
-    image_location = "turku/logo#{suffix}.svg"
-    image_tag(
+    image_location = "media/images/logo#{suffix}.svg"
+    image_pack_tag(
       image_location,
       alt: t("logo", scope: "decidim.accessibility", organization: current_organization.name)
     )

@@ -1,0 +1,132 @@
+$card-bg: $white !default;
+
+$card-margin-bottom: map-get($grid-column-gutter, medium);
+
+$card-border: none;
+$card-border-top: $border;
+$card-border-radius: $global-radius;
+$card-border-top-width: 8px;
+$card-secondary-bg: $turku-light-grey;
+$card-padding-small: 1rem;
+$card-padding: 1.5rem;
+
+/* Cards */
+.card{
+  margin-bottom: $card-margin-bottom;
+  background: $card-bg;
+  border: $card-border;
+  border-top: $card-border-top;
+  border-radius: $card-border-radius;
+  overflow: hidden;
+
+  @include modifiers(border-top-color, (muted: rgba($muted, .3))){
+    border-top-width: $card-border-top-width;
+  }
+
+  &:hover{
+    @include modifiers(border-color, (muted: rgba($muted, .3)));
+  }
+
+  &.turku-notopborder{
+    border-top: 0;
+  }
+}
+
+a.card{
+  text-decoration: none;
+}
+
+.card--secondary,
+.card__datetime,
+.card--list__data,
+.card__extra{
+  background: $card-secondary-bg;
+}
+
+.card--widget{
+  .card-data{
+    .card-data__item{
+      &:first-child{
+        background-color: $card-secondary-bg;
+      }
+    }
+  }
+}
+
+.card-data__item{
+  &.creation_date_status{
+    strong{
+      text-transform: none;
+    }
+  }
+}
+
+.card--list.card--list--budgets{
+  display: flex;
+  flex-direction: column;
+  border: 0;
+
+  .card--list__item{
+    flex-direction: column;
+    border: $border;
+    border-radius: $card-border-radius;
+    margin-top: 1rem;
+    padding-left: 0;
+
+    @include breakpoint(medium){
+      flex-direction: row;
+    }
+
+    &:first-child{
+      margin-top: 0;
+    }
+
+    .card--list__data{
+      flex-basis: 30%;
+
+      @include breakpoint(large){
+        flex-basis: 20%;
+      }
+    }
+  }
+
+  .card--list__text{
+    flex-direction: column;
+    place-items: stretch;
+    padding-left: $card-padding-small;
+    width: 100%;
+
+    @include breakpoint(medium){
+      padding-left: $card-padding;
+      width: auto;
+    }
+
+    .card--list__heading{
+      .card--list__check{
+        display: inline-block;
+        top: -2px;
+      }
+    }
+
+    .card-list__description{
+      p{
+        &:last-child{
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}
+
+// This is the list of budgeting projects
+.budget-list{
+  .card-list__description{
+    margin-bottom: 0;
+  }
+
+  .budget-list__text{
+    // Without this, some of the items could be unclicable in mobile.
+    word-wrap: break-word;
+    overflow-wrap: anywhere;
+  }
+}
