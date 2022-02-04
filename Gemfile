@@ -1,12 +1,11 @@
 # frozen_string_literal: true
 
 source "https://rubygems.org"
-git_source(:github) { |repo_name| "https://github.com/#{repo_name}.git" }
 
 ruby RUBY_VERSION
 
-DECIDIM_VERSION = "~> 0.25.0"
-# DECIDIM_VERSION = { github: "mainio/decidim", branch: "release/0.25-stable" }.freeze
+# DECIDIM_VERSION = "~> 0.25.0"
+DECIDIM_VERSION = { github: "mainio/decidim", branch: "release/0.25-stable" }.freeze
 
 gem "decidim", DECIDIM_VERSION
 # gem "decidim-consultations", DECIDIM_VERSION
@@ -16,6 +15,8 @@ gem "decidim-antivirus", github: "mainio/decidim-module-antivirus", branch: "mas
 gem "decidim-apiauth", github: "mainio/decidim-module-apiauth", branch: "develop"
 gem "decidim-term_customizer", github: "mainio/decidim-module-term_customizer", branch: "develop"
 gem "decidim-tunnistamo", github: "mainio/decidim-module-tunnistamo", branch: "develop"
+# Required for Omniauth 2.0+ compatibility until there is a newer version than 0.3.5:
+gem "omniauth_openid_connect", github: "omniauth/omniauth_openid_connect", branch: "master"
 gem "omniauth-tunnistamo", github: "mainio/omniauth-tunnistamo"
 
 gem "bootsnap", "~> 1.4"
@@ -46,7 +47,7 @@ group :production, :staging do
   gem "dotenv-rails", "~> 2.1", ">= 2.1.1"
   gem "rack-ssl-enforcer", "~> 0.2.9"
 
-  gem "resque", "~> 2.0.0"
+  gem "resque", "~> 2.2.0"
   gem "resque-scheduler", "~> 4.4"
 
   # Cronjobs
