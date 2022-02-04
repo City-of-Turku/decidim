@@ -85,7 +85,7 @@ visit_tunnistamo = ::Decidim::Core::Engine.routes.url_helpers.user_tunnistamo_om
                   <% if current_organization.sign_up_enabled? %>
                     <%= link_to t("layouts.decidim.header.sign_up"), decidim.new_user_registration_path, class: "sign-up-link" %>
                   <% end %>
-                  <%= link_to t("layouts.decidim.header.sign_in"), visit_tunnistamo, class: "sign-in-link" %>
+                  <%= link_to t("layouts.decidim.header.sign_in"), visit_tunnistamo, class: "sign-in-link", method: :post %>
                 </div>
               </div>
             <% end %>

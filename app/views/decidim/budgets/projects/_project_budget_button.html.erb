@@ -33,6 +33,6 @@
           "aria-label": t(".add_descriptive", resource_name: translated_attribute(project.title))
         ) %>
   <% else %>
-    <%= link_to t(".add"), ::Decidim::Core::Engine.routes.url_helpers.user_tunnistamo_omniauth_authorize_path, class: "button expanded button--sc" %>
+    <%= link_to t(".add"), ::Decidim::Core::Engine.routes.url_helpers.user_tunnistamo_omniauth_authorize_path, class: "button expanded button--sc", method: :post %>
   <% end %>
 </div>
