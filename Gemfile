@@ -15,9 +15,7 @@ gem "decidim-antivirus", github: "mainio/decidim-module-antivirus", branch: "mas
 gem "decidim-apiauth", github: "mainio/decidim-module-apiauth", branch: "develop"
 gem "decidim-term_customizer", github: "mainio/decidim-module-term_customizer", branch: "develop"
 gem "decidim-tunnistamo", github: "mainio/decidim-module-tunnistamo", branch: "develop"
-# Required for Omniauth 2.0+ compatibility until there is a newer version than 0.3.5:
-gem "omniauth_openid_connect", github: "omniauth/omniauth_openid_connect", branch: "master"
-gem "omniauth-tunnistamo", github: "mainio/omniauth-tunnistamo"
+gem "omniauth-tunnistamo", github: "mainio/omniauth-tunnistamo", branch: "develop"
 
 gem "bootsnap", "~> 1.4"
 

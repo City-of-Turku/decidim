@@ -29,12 +29,12 @@ GIT
 
 GIT
   remote: https://github.com/mainio/decidim-module-tunnistamo.git
-  revision: 80357b20910ded002c253265157cc6edcb091155
+  revision: 5b09d65bb055cea6cf408dd846580ecfb27f3550
   branch: develop
   specs:
     decidim-tunnistamo (0.25.0)
       decidim-core (~> 0.25.0)
-      omniauth-tunnistamo (~> 0.1.0)
+      omniauth-tunnistamo (~> 0.2.0)
 
 GIT
   remote: https://github.com/mainio/decidim.git
@@ -215,20 +215,11 @@ GIT
 
 GIT
   remote: https://github.com/mainio/omniauth-tunnistamo.git
-  revision: 49210ebe8993b8b53538d0aab0be3fa97fe8deaa
+  revision: 375333b595ad011b436a035e97fda087f6d42f9e
+  branch: develop
   specs:
-    omniauth-tunnistamo (0.1.1)
+    omniauth-tunnistamo (0.2.0)
       omniauth_openid_connect (~> 0.3, >= 0.3.5)
-
-GIT
-  remote: https://github.com/omniauth/omniauth_openid_connect.git
-  revision: 1a96ab857cc2f7166579b3da11ef95bd5646395d
-  branch: master
-  specs:
-    omniauth_openid_connect (0.3.5)
-      addressable (~> 2.5)
-      omniauth (>= 1.9, < 3)
-      openid_connect (~> 1.1)
 
 GEM
   remote: https://rubygems.org/
@@ -632,12 +623,16 @@ GEM
     omniauth-oauth2 (1.7.2)
       oauth2 (~> 1.4)
       omniauth (>= 1.9, < 3)
-    omniauth-rails_csrf_protection (1.0.0)
+    omniauth-rails_csrf_protection (1.0.1)
       actionpack (>= 4.2)
       omniauth (~> 2.0)
     omniauth-twitter (1.4.0)
       omniauth-oauth (~> 1.1)
       rack
+    omniauth_openid_connect (0.4.0)
+      addressable (~> 2.5)
+      omniauth (>= 1.9, < 3)
+      openid_connect (~> 1.1)
     openid_connect (1.3.0)
       activemodel
       attr_required (>= 1.0.0)
@@ -733,7 +728,7 @@ GEM
     ratonvirus-clamby (0.3.0)
       clamby (~> 1.6)
       ratonvirus (~> 0.3.0)
-    rb-fsevent (0.11.0)
+    rb-fsevent (0.11.1)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     rectify (0.13.0)
@@ -965,7 +960,6 @@ DEPENDENCIES
   letter_opener_web (~> 1.3)
   listen (~> 3.1)
   omniauth-tunnistamo!
-  omniauth_openid_connect!
   puma (~> 5.5.1)
   rack-ssl-enforcer (~> 0.2.9)
   resque (~> 2.2.0)
