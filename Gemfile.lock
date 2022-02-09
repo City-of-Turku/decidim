@@ -10,8 +10,8 @@ GIT
 
 GIT
   remote: https://github.com/mainio/decidim-module-apiauth.git
-  revision: 77cfe6d5c21fe2fa43445709b954c500e05cf258
-  branch: develop
+  revision: e311ff6271d5fee6052ffeb3309d3bc91b6f5ec9
+  branch: master
   specs:
     decidim-apiauth (0.25.0)
       decidim-api (~> 0.25.0)
@@ -20,8 +20,8 @@ GIT
 
 GIT
   remote: https://github.com/mainio/decidim-module-term_customizer.git
-  revision: 697fdc216bfe9b595b5b5528ba8f50369fc8d39e
-  branch: develop
+  revision: 437042198ed04cdd5582b29d5df83b032ecc518f
+  branch: master
   specs:
     decidim-term_customizer (0.25.0)
       decidim-admin (~> 0.25.0)
@@ -29,8 +29,8 @@ GIT
 
 GIT
   remote: https://github.com/mainio/decidim-module-tunnistamo.git
-  revision: 5b09d65bb055cea6cf408dd846580ecfb27f3550
-  branch: develop
+  revision: 513dc4d4db2a03550e27bdae39dc7fe5e7fa3b48
+  branch: master
   specs:
     decidim-tunnistamo (0.25.0)
       decidim-core (~> 0.25.0)
