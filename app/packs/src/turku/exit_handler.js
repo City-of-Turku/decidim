@@ -1,6 +1,3 @@
-// TODO: location
-const location = exports.location;
-
 const allowExitFrom = ($el) => {
   const $budgetSummary = $(".budget-summary__progressbox");
   const currentAllocation = parseInt($budgetSummary.attr("data-current-allocation"), 10);
