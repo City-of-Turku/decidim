@@ -92,6 +92,13 @@ sv:
           exit: Avsluta omröstning
           message: Din röst har inte registrerats eftersom du ännu inte har slutfört omröstningen. Är du säker på att du vill avsluta omröstningen?
           title: Avsluta meddelandet
+        voting_help_modal:
+          confirm: Jag förstår hur man röstar
+          step1: Välj plan
+          step2: Kontrollera ditt val
+          step3: Tryck på knappen Rösta
+          subtitle: Du måste trycka på knappen Rösta för att lämna din röst.
+          title: Du har inte röstat än!
       project_list_item:
         more_info: Läs mer om denna plan
         more_info_with_title: Läs mer o %{title}

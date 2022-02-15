@@ -1,0 +1,72 @@
+$passive-item-color: #919191;
+$active-item-color: $black;
+
+#voting-help{
+  .reveal__header{
+    border: hidden;
+
+    .subtitle{
+      font-size: 1.2rem;
+    }
+  }
+
+  .voting-help-item{
+    @include breakpoint(medium down){
+      margin: 1rem 0;
+    }
+
+    .circle{
+      &.active{
+        fill: $active-item-color;
+        border: 4px solid $active-item-color;
+
+        svg{
+          fill: $active-item-color;
+        }
+      }
+
+      display: block;
+      position: relative;
+      border: 2px solid $passive-item-color;
+      border-radius: 50%;
+      width: 150px;
+      height: 150px;
+      left: 10px;
+
+      @include breakpoint(medium down){
+        left: 20%;
+      }
+
+      svg{
+        display: block;
+        position: relative;
+        fill: $passive-item-color;
+        top: 23px;
+        left: 22px;
+        width: 100px;
+        height: 100px;
+      }
+    }
+
+    .help-description{
+      margin-top: .5rem;
+      font-size: 1.2rem;
+
+      span{
+        &.strong{
+          font-weight: 800;
+        }
+      }
+
+      &.active{
+        color: $active-item-color;
+      }
+
+      color: $passive-item-color;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  }
+}

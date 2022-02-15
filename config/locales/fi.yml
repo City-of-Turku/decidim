@@ -92,6 +92,13 @@ fi:
           exit: Poistu äänestyksestä
           message: Ääntäsi ei ole kirjattu, koska et ole vielä suorittanut äänestystä loppuun asti. Haluatko varmasti poistua äänestyksestä?
           title: Poistumishuomautus
+        voting_help_modal:
+          confirm: Ymmärrän kuinka äänestän
+          step1: Valitse suunnitelmat
+          step2: Tarkista valintasi
+          step3: Paina Äänestä-painiketta
+          subtitle: Sinun täytyy painaa Äänestä-painiketta jättääksesi äänesi.
+          title: Et ole vielä äänestänyt!
       project_list_item:
         more_info: Tutustu tähän suunnitelmaan
         more_info_with_title: Tutustu suunnitelmaan %{title}

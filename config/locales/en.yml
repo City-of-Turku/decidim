@@ -92,6 +92,13 @@ en:
           exit: Exit voting
           message: Your vote has not been registered because you have not yet completed the voting process. Are you sure you want to exit voting?
           title: You have not yet voted
+        voting_help_modal:
+          confirm: I understand how to vote
+          step1: Choose plan
+          step2: Check your selection
+          step3: Press the Vote button
+          subtitle: You need to press the Vote button to leave your vote.
+          title: You haven't voted yet!
       project_list_item:
         more_info: Read more about this plan
         more_info_with_title: Read more about %{title}
