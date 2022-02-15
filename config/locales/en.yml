@@ -84,7 +84,7 @@ en:
       budget_list_item:
         budget: Budget
         show: Show
-        vote: Vote
+        vote: Go to vote
       partials:
         exit_modal:
           cancel: Return to voting

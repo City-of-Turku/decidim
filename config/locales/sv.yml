@@ -84,7 +84,7 @@ sv:
       budget_list_item:
         budget: Budget
         show: Visa
-        vote: Rösta
+        vote: Gå till valurnorna
       partials:
         exit_modal:
           cancel: Återgå till omröstningen

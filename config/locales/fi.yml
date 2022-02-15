@@ -84,7 +84,7 @@ fi:
       budget_list_item:
         budget: Budjetti
         show: Näytä
-        vote: Äänestä
+        vote: Siirry äänestämään
       partials:
         exit_modal:
           cancel: Palaa äänestykseen
