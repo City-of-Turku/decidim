@@ -85,6 +85,13 @@ fi:
         budget: Budjetti
         show: Näytä
         vote: Siirry äänestämään
+      budgets_list:
+        active_budgets:
+          one: Voit vielä äänestää tällä alueella
+          other: Voit vielä äänestää jollain näistä alueista
+        completed_budgets: Olet jo äänestänyt näillä alueilla
+        intro: Valitse alta suuralue, jonka suunnitelmia haluat äänestää. Voit äänestää <b>Koko Turussa ja sen lisäksi yhden valitsemasi suuralueen</b> suunnitelmia.
+        locked_budgets: Voit halutessasi tarkastella muiden alueiden suunnitelmia
       partials:
         exit_modal:
           cancel: Palaa äänestykseen
@@ -107,6 +114,12 @@ fi:
           scope: Suuralue
         index:
           back_to_budgets: Näytä kaikki budjetit
+    components:
+      budgets:
+        settings:
+          global:
+            workflow_choices:
+              asukasbudjetti: Asukasbudjetti
     events:
       proposals:
         proposal_accepted:

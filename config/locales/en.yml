@@ -85,6 +85,13 @@ en:
         budget: Budget
         show: Show
         vote: Go to vote
+      budgets_list:
+        active_budgets:
+          one: You can still vote in this area
+          other: You can still vote in one of these areas
+        completed_budgets: You have already voted in these areas
+        intro: Select the subarea whose plans you want to vote on below. You can vote for plans for <b>All of Turku plus one of your selected regions</b>.
+        locked_budgets: You can view plans for other areas if you wish
       partials:
         exit_modal:
           cancel: Return to voting
@@ -107,6 +114,12 @@ en:
           scope: Ward
         index:
           back_to_budgets: Show all budgets
+    components:
+      budgets:
+        settings:
+          global:
+            workflow_choices:
+              asukasbudjetti: Asukasbudjetti
     events:
       proposals:
         proposal_accepted:

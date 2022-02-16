@@ -85,6 +85,13 @@ sv:
         budget: Budget
         show: Visa
         vote: Gå till valurnorna
+      budgets_list:
+        active_budgets:
+          one: Du kan fortfarande rösta i detta område
+          other: Du kan fortfarande rösta i något av dessa områden
+        completed_budgets: Du har redan röstat i dessa områden
+        intro: Välj det delområde vars planer du vill rösta på nedan. Du kan rösta på planer för <b>Hela Åbo plus en av dina valda regioner</b>.
+        locked_budgets: Du kan se planer för andra områden om du vill
       partials:
         exit_modal:
           cancel: Återgå till omröstningen
@@ -107,6 +114,12 @@ sv:
           scope: Område
         index:
           back_to_budgets: Visa alla budgetar
+    components:
+      budgets:
+        settings:
+          global:
+            workflow_choices:
+              asukasbudjetti: Asukasbudjetti
     events:
       proposals:
         proposal_accepted:

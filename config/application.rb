@@ -51,6 +51,10 @@ module DecidimTurku
       Decidim::Core::UserType.include Turku::Api::UserTypeExtensions
     end
 
+    initializer "budget_workflows" do
+      Decidim::Budgets.workflows[:asukasbudjetti] = Turku::Budgets::Workflows::Asukasbudjetti
+    end
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
@@ -74,6 +78,9 @@ module DecidimTurku
         )
         ::Decidim::Budgets::ProjectListItemCell.include(
           ProjectListItemCellExtensions
+        )
+        ::Decidim::Budgets::BudgetsListCell.include(
+          BudgetsListCellExtensions
         )
 
         # Model extensions

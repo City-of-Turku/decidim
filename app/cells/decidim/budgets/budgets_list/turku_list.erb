@@ -1,0 +1,35 @@
+<div class="margin-vertical-1"><%= t(".intro") %></div>
+
+<div id="budgets" class="card card--list card--list--budgets">
+  <% if active_budgets.present? %>
+    <% if completed_budgets.present? || locked_budgets.present? %>
+      <div class="margin-top-2">
+        <strong class="text-large"><%= t(".active_budgets", count: active_budgets.count) %></strong>
+      </div>
+    <% end %>
+    <% active_budgets.each do |budget| %>
+      <% next if highlighted.include?(budget) %>
+      <%= cell("decidim/budgets/budget_list_item", budget) %>
+    <% end %>
+  <% end %>
+
+  <% if completed_budgets.present? %>
+    <div class="margin-top-2">
+      <strong class="text-large"><%= t(".completed_budgets") %></strong>
+    </div>
+    <% completed_budgets.each do |budget| %>
+      <% next if highlighted.include?(budget) %>
+      <%= cell("decidim/budgets/budget_list_item", budget) %>
+    <% end %>
+  <% end %>
+
+  <% if locked_budgets.present? %>
+    <div class="margin-top-2">
+      <strong class="text-large"><%= t(".locked_budgets") %></strong>
+    </div>
+    <% locked_budgets.each do |budget| %>
+      <% next if highlighted.include?(budget) %>
+      <%= cell("decidim/budgets/budget_list_item", budget) %>
+    <% end %>
+  <% end %>
+</div>

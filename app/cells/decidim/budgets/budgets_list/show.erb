@@ -7,6 +7,10 @@
       </div>
     <% end %>
 
-    <%= render :card_list %>
+    <% if voting_finished? %>
+      <%= render :card_list %>
+    <% else %>
+      <%= render :turku_list %>
+    <% end %>
   </div>
 </div>
