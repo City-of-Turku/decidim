@@ -8,7 +8,6 @@
       </div>
     <% end %>
     <% active_budgets.each do |budget| %>
-      <% next if highlighted.include?(budget) %>
       <%= cell("decidim/budgets/budget_list_item", budget) %>
     <% end %>
   <% end %>
@@ -18,7 +17,6 @@
       <strong class="text-large"><%= t(".completed_budgets") %></strong>
     </div>
     <% completed_budgets.each do |budget| %>
-      <% next if highlighted.include?(budget) %>
       <%= cell("decidim/budgets/budget_list_item", budget) %>
     <% end %>
   <% end %>
@@ -28,7 +26,6 @@
       <strong class="text-large"><%= t(".locked_budgets") %></strong>
     </div>
     <% locked_budgets.each do |budget| %>
-      <% next if highlighted.include?(budget) %>
       <%= cell("decidim/budgets/budget_list_item", budget) %>
     <% end %>
   <% end %>

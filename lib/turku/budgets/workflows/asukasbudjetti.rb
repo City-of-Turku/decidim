@@ -32,11 +32,11 @@ module Turku
           resource.scope&.code == STICKY_SCOPE_CODE
         end
 
-        def progress
-          @progress ||= begin
-            info_array = orders.values.reject { |order_info| sticky?(order_info[:order].budget) }
-            info_array.map { |order_info| order_info[:order].budget if order_info[:status] == :progress }.compact
-          end
+        # Public: Return the list of budget resources where the user could discard their order to vote in other components.
+        #
+        # Returns Array.
+        def discardable
+          voted.reject { |budget| budget.scope&.code == STICKY_SCOPE_CODE }
         end
       end
     end

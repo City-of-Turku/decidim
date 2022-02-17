@@ -17,6 +17,8 @@ const allowExitFrom = ($el) => {
     return true;
   } else if ($el.parents(".voting-wrapper").length > 0) {
     return true;
+  } else if ($(".budget-summary__progressbox").length === 0) {
+    return true;
   }
 
   return false;
