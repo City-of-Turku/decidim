@@ -44,7 +44,7 @@ edit_link(
 
           <% if voting_finished? %>
             <%= cell("decidim/budgets/project_voted_hint", project, class: "display-block") %>
-          <% elsif voting_open? %>
+          <% elsif voting_open? && (current_workflow.vote_allowed?(budget) || current_workflow.voted?(budget)) %>
             <%= render partial: "project_budget_button", locals: { project: project } %>
           <% end %>
 
