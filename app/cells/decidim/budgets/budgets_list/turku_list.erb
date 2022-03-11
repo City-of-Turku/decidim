@@ -11,7 +11,7 @@
   <% end %>
 
   <% if completed_budgets.present? %>
-    <div class="<%= "margin-top-3" unless voted? %>">
+    <div class="<%= "margin-top-3" if active_budgets.present? %>">
       <h2 class="heading3"><%= t(".completed_budgets", count: completed_budgets.count) %></h2>
     </div>
     <% completed_budgets.each do |budget| %>
