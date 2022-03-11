@@ -19,7 +19,7 @@ gem "omniauth-tunnistamo", github: "mainio/omniauth-tunnistamo", branch: "develo
 
 gem "bootsnap", "~> 1.4"
 
-gem "puma", "~> 5.5.1"
+gem "puma", "~> 5.6.2"
 gem "uglifier", "~> 4.1"
 
 gem "faker", "~> 2.14"
