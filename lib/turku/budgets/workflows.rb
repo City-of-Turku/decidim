@@ -2,7 +2,7 @@
 
 require "turku/budgets/workflows/asukasbudjetti"
 
-module Decidim
+module Turku
   module Budgets
     module Workflows
     end
