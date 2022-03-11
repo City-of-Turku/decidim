@@ -10,7 +10,7 @@ module Turku
       # This also provides a special "sticky" method for the
       # voting pipeline to make some budgets "sticky" (i.e. always selected).
       class Asukasbudjetti < Decidim::Budgets::Workflows::Base
-        STICKY_SCOPE_CODE = "SUURALUE-01-KOKOTURKU"
+        STICKY_SCOPE_CODE = "SUUR-KOKO-TURKU"
 
         def highlighted?(_resource)
           false
