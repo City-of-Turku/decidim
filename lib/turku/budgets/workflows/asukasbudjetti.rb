@@ -12,6 +12,14 @@ module Turku
       class Asukasbudjetti < Decidim::Budgets::Workflows::Base
         STICKY_SCOPE_CODE = "SUUR-KOKO-TURKU"
 
+        def voted
+          super.sort_by(&:weight)
+        end
+
+        def progress
+          super.sort_by(&:weight)
+        end
+
         def highlighted?(_resource)
           false
         end
