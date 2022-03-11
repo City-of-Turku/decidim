@@ -73,6 +73,10 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 var(--primary);
   }
 }
 
+.topbar > .topbar__user__logged{
+  display: block;
+}
+
 .topbar__search{
   position: relative;
 
