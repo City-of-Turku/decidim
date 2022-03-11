@@ -3,14 +3,13 @@
     <% if highlighted? || voted? %>
       <div class="section">
         <%= render :highlighted %>
-        <%= render :voted %>
       </div>
     <% end %>
 
-    <% if voting_finished? %>
-      <%= render :card_list %>
-    <% else %>
+    <% if turku_voting? && !voting_finished? %>
       <%= render :turku_list %>
+    <% else %>
+      <%= render :card_list %>
     <% end %>
   </div>
 </div>

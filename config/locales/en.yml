@@ -89,9 +89,11 @@ en:
         active_budgets:
           one: You can still vote in this area
           other: You can still vote in one of these areas
-        completed_budgets: You have already voted in these areas
-        intro: Select the subarea whose plans you want to vote on below. You can vote for plans for <b>All of Turku plus one of your selected regions</b>.
+        completed_budgets:
+          one: You have already voted in this area
+          other: You have voted in these areas
         locked_budgets: You can view plans for other areas if you wish
+        locked_explanation: You can still view the plans for other areas, but you can only vote in one area of your choice and Entire Turku. If you want to vote in another area, you must first remove your previous vote.
       partials:
         exit_modal:
           cancel: Return to voting
@@ -119,7 +121,7 @@ en:
         settings:
           global:
             workflow_choices:
-              asukasbudjetti: Asukasbudjetti
+              asukasbudjetti: 'Asukasbudjetti: allows participants to vote in Entire Turku and one area of their choice.'
     events:
       proposals:
         proposal_accepted:

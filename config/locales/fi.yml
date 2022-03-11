@@ -89,9 +89,11 @@ fi:
         active_budgets:
           one: Voit vielä äänestää tällä alueella
           other: Voit vielä äänestää jollain näistä alueista
-        completed_budgets: Olet jo äänestänyt näillä alueilla
-        intro: Valitse alta suuralue, jonka suunnitelmia haluat äänestää. Voit äänestää <b>Koko Turussa ja sen lisäksi yhden valitsemasi suuralueen</b> suunnitelmia.
+        completed_budgets:
+          one: Olet jo äänestänyt tällä alueella
+          other: Olet äänestänyt näillä alueilla
         locked_budgets: Voit halutessasi tarkastella muiden alueiden suunnitelmia
+        locked_explanation: Voit tarkastella edelleen muiden alueiden suunnitelmia, mutta voit äänestää vain yhdellä valitsemallasi alueella sekä koko Turussa. Mikäli haluat äänestää toisella alueella, sinun on ensin poistettava aikaisempi äänesi.
       partials:
         exit_modal:
           cancel: Palaa äänestykseen
@@ -119,7 +121,7 @@ fi:
         settings:
           global:
             workflow_choices:
-              asukasbudjetti: Asukasbudjetti
+              asukasbudjetti: 'Asukasbudjetti: mahdollistaa osallistujien äänestämisen Koko Turussa ja yhdellä valitulla alueella'
     events:
       proposals:
         proposal_accepted:

@@ -89,9 +89,11 @@ sv:
         active_budgets:
           one: Du kan fortfarande rösta i detta område
           other: Du kan fortfarande rösta i något av dessa områden
-        completed_budgets: Du har redan röstat i dessa områden
-        intro: Välj det delområde vars planer du vill rösta på nedan. Du kan rösta på planer för <b>Hela Åbo plus en av dina valda regioner</b>.
+        completed_budgets:
+          one: Du har redan röstat i det här området
+          other: Du har röstat i dessa områden
         locked_budgets: Du kan se planer för andra områden om du vill
+        locked_explanation: Du kan fortfarande se planerna för andra områden, men du kan bara rösta i ett valfritt område och hela Åbo. Om du vill rösta i ett annat område måste du först ta bort din tidigare röst.
       partials:
         exit_modal:
           cancel: Återgå till omröstningen
@@ -119,7 +121,7 @@ sv:
         settings:
           global:
             workflow_choices:
-              asukasbudjetti: Asukasbudjetti
+              asukasbudjetti: 'Asukasbudjetti: tillåter deltagarna att rösta i hela Åbo och ett valfritt område.'
     events:
       proposals:
         proposal_accepted:

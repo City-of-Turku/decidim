@@ -1,10 +1,8 @@
-<div class="margin-vertical-1"><%= t(".intro") %></div>
-
 <div id="budgets" class="card card--list card--list--budgets">
   <% if active_budgets.present? %>
     <% if completed_budgets.present? || locked_budgets.present? %>
-      <div class="margin-top-2">
-        <strong class="text-large"><%= t(".active_budgets", count: active_budgets.count) %></strong>
+      <div>
+        <h2 class="heading3"><%= t(".active_budgets", count: active_budgets.count) %></h2>
       </div>
     <% end %>
     <% active_budgets.each do |budget| %>
@@ -13,8 +11,8 @@
   <% end %>
 
   <% if completed_budgets.present? %>
-    <div class="margin-top-2">
-      <strong class="text-large"><%= t(".completed_budgets") %></strong>
+    <div class="<%= "margin-top-3" unless voted? %>">
+      <h2 class="heading3"><%= t(".completed_budgets", count: completed_budgets.count) %></h2>
     </div>
     <% completed_budgets.each do |budget| %>
       <%= cell("decidim/budgets/budget_list_item", budget) %>
@@ -22,8 +20,9 @@
   <% end %>
 
   <% if locked_budgets.present? %>
-    <div class="margin-top-2">
-      <strong class="text-large"><%= t(".locked_budgets") %></strong>
+    <div class="margin-top-3">
+      <h2 class="heading3"><%= t(".locked_budgets") %></h2>
+      <p><%= t(".locked_explanation") %></p>
     </div>
     <% locked_budgets.each do |budget| %>
       <%= cell("decidim/budgets/budget_list_item", budget) %>

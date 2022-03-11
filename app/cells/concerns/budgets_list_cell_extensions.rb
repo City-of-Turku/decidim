@@ -17,4 +17,8 @@ module BudgetsListCellExtensions
       @locked_budgets ||= budgets - (active_budgets + completed_budgets)
     end
   end
+
+  def turku_voting?
+    current_workflow.is_a?(Turku::Budgets::Workflows::Asukasbudjetti)
+  end
 end

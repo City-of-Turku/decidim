@@ -1,15 +1,5 @@
 <% if voted? %>
   <div id="voted-budgets">
-    <% if finished? %>
-      <p class="lead">
-        <%= t(:finished_message, scope: i18n_scope) %>
-      </p>
-    <% end %>
-
-    <p class="lead">
-      <%= t(:voted_on, scope: i18n_scope, links: budgets_link_list(voted)) %>
-    </p>
-
     <div>
       <p>
         <%= t(:if_change_opinion, scope: i18n_scope) %>
