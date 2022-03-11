@@ -51,7 +51,7 @@ module DecidimTurku
       Decidim::Core::UserType.include Turku::Api::UserTypeExtensions
     end
 
-    initializer "budget_workflows" do
+    initializer "turku.budget_workflows" do
       Decidim::Budgets.workflows[:asukasbudjetti] = Turku::Budgets::Workflows::Asukasbudjetti
     end
 
