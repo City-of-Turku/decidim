@@ -6,7 +6,7 @@
       </div>
     <% end %>
 
-    <% if turku_voting? && !voting_finished? %>
+    <% if turku_voting? && voting_open? %>
       <%= render :turku_list %>
     <% else %>
       <%= render :card_list %>
