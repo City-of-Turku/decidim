@@ -92,6 +92,7 @@ module DecidimTurku
         # Controller extensions
         ::Decidim::Proposals::ProposalsController.include(ProposalsExtensions)
         ::Decidim::Budgets::LineItemsController.include(LineItemsExtensions)
+        ::Decidim::PagesController.include(PagesExtensions)
 
         # Command extensions
         ::Decidim::CreateOmniauthRegistration.include(CreateOmniauthRegistrationExtensions)
