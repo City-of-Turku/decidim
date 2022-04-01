@@ -13,8 +13,8 @@ module MetaTagsHelperExtensions
     end
 
     def add_turku_base_url(path)
-      return path if path.include?(turku_resolve_base_url)
       return path if path.blank?
+      return path if path.include?(turku_resolve_base_url)
 
       "#{turku_resolve_base_url}#{path}"
     end
