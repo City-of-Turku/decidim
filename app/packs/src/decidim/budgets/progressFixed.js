@@ -4,6 +4,7 @@ $(() => {
         progressRef = document.querySelector("[data-progress-reference]"),
         progressVisibleClass = "is-progressbox-visible";
 
+    // Turku doesnt show progress bar when user has voted in another budget (except koko turku)!
     if (!progressRef || !progressFix) {
       return;
     }
