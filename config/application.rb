@@ -107,6 +107,7 @@ module DecidimTurku
         ::Decidim::ActionAuthorizationHelper.include(
           ActionAuthorizationHelperExtensions
         )
+        ::Decidim::MetaTagsHelper.include(MetaTagsHelperExtensions)
       end
     end
   end
