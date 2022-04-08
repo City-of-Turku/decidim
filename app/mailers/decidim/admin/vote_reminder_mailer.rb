@@ -8,7 +8,7 @@ module Decidim
 
       helper Decidim::TranslationsHelper
 
-      helper_method :component_url, :budget_url
+      helper_method :routes
 
       def vote_reminder(user, order_ids)
         with_user(user) do
@@ -28,26 +28,6 @@ module Decidim
       end
 
       private
-
-      def budget_url(order)
-        path = routes.budget_path(order.budget)
-        return path if URI.parse(path).host.present?
-
-        "#{resolve_base_url}#{path}"
-      end
-
-      def component_url
-        "#{resolve_base_url}#{routes.root_path}"
-      end
-
-      def resolve_base_url
-        uri = URI.parse(routes.decidim.root_url(host: @organization.host))
-        if uri.port.blank? || [80, 443].include?(uri.port)
-          "#{uri.scheme}://#{uri.host}"
-        else
-          "#{uri.scheme}://#{uri.host}:#{uri.port}"
-        end
-      end
 
       def routes
         @routes ||= Decidim::EngineRouter.main_proxy(@orders.first.component)
