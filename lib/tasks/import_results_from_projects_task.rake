@@ -22,6 +22,10 @@ namespace :turku do
         new_result = create_result_from_project!(project, accountability_component)
 
         new_result.link_resources([project], "included_projects")
+        project.linked_resources(:proposals, "included_proposals").each do |proposal|
+          new_result.link_resources(proposal, "included_proposals")
+        end
+        copy_attachments(project, new_result)
       end
     end
 
@@ -30,7 +34,7 @@ namespace :turku do
         title: project.title,
         description: project.description,
         category: project.category,
-        scope: project.scope,
+        scope: project.scope || project.budget.scope,
         component: accountability_component
       )
     end
@@ -43,6 +47,29 @@ namespace :turku do
       budgets = Decidim::Budgets::Budget.where(component: budget_component_id)
       projects = Decidim::Budgets::Project.where(budget: budgets)
       projects.select { |project| project.selected_at.present? }
+    end
+
+    def copy_attachments(project, result)
+      project.attachments.each do |attachment|
+        new_attachment = Decidim::Attachment.new(
+          {
+            # Attached to needs to be always defined before the file is set
+            attached_to: result
+          }.merge(
+            attachment.attributes.slice("content_type", "description", "file_size", "title", "weight")
+          )
+        )
+
+        if attachment.file.attached?
+          new_attachment.file = attachment.file.blob
+        else
+          new_attachment.attached_uploader(:file).remote_url = attachment.attached_uploader(:file).url(host: project.organization.host)
+        end
+
+        new_attachment.save!
+      rescue Errno::ENOENT, OpenURI::HTTPError => e
+        Rails.logger.warn("[ERROR] Couldn't copy attachment from proposal #{project.id} when copying to component due to #{e.message}")
+      end
     end
   end
 end

@@ -52,6 +52,24 @@ describe "rake turku:budgets:import_projects_to_results", type: :task do
         let(:accountability_compoennt_published_at) { Time.current }
 
         it_behaves_like "import project to result"
+
+        context "when project is linked to a proposal" do
+          let(:proposals_component) { create(:component, manifest_name: "proposals", participatory_space: participatory_space) }
+          let(:proposal) { create(:proposal, component: proposals_component) }
+
+          before do
+            project.link_resources(proposal, "included_proposals")
+          end
+
+          it "links result to project and proposal" do
+            Rake::Task[task].invoke(budget_component.id, accountability_component.id)
+
+            expect(Decidim::Accountability::Result.count).to eq(1)
+            result = Decidim::Accountability::Result.last
+            expect(result.linked_resources(:proposals, "included_proposals").first).to eq(proposal)
+            expect(result.linked_resources(:projects, "included_projects").first).to eq(project)
+          end
+        end
       end
 
       context "when not selected" do
@@ -91,6 +109,25 @@ describe "rake turku:budgets:import_projects_to_results", type: :task do
 
           expect(Decidim::Accountability::Result.count).to eq(1)
           expect(Decidim::Accountability::Result.first.scope).to eq(scope)
+        end
+      end
+
+      context "when project has attachments" do
+        let(:image) { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
+        let(:document) { Decidim::Dev.test_file("Exampledocument.pdf", "application/pdf") }
+        let!(:attachment) { create(:attachment, attached_to: project, file: image) }
+        let!(:attachment2) { create(:attachment, attached_to: project, file: document) }
+
+        it "copies attachments to result" do
+          Rake::Task[task].invoke(budget_component.id, accountability_component.id)
+
+          expect(Decidim::Accountability::Result.count).to eq(1)
+          result = Decidim::Accountability::Result.last
+          expect(result.attachments.count).to eq(2)
+          image_attachment = result.attachments.select { |attachment| attachment.content_type == "image/jpeg" }.first
+          document_attachment = result.attachments.select { |attachment| attachment.content_type == "application/pdf" }.first
+          expect(image_attachment.title).to eq(attachment.title)
+          expect(document_attachment.title).to eq(attachment2.title)
         end
       end
     end
