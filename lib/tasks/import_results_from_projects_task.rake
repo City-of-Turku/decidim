@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-# Usage: bundle exec rake turku:budgets:import_projects_to_results[<budget component id>,<accountability component id>]
+# Usage: bundle exec rake turku:budgets:import_results_from_projects[<accountability component id>, <budget component id>]
 
 namespace :turku do
   namespace :budgets do
     desc "Create results from the projects that are selected to implementation"
-    task :import_projects_to_results, [:budget_component_id, :accountability_component_id] => [:environment] do |_t, args|
+    task :import_results_from_projects, [:accountability_component_id, :budget_component_id] => [:environment] do |_t, args|
       budget_component_id = args[:budget_component_id]
       accountability_component_id = args[:accountability_component_id]
 
@@ -16,7 +16,12 @@ namespace :turku do
 
     def results_from_projects(budget_component_id, accountability_component_id)
       accountability_component = Decidim::Component.find_by(id: accountability_component_id, manifest_name: "accountability")
-      projects(budget_component_id).map do |project|
+      raise ArgumentError.new, "Can't find accountability component!" unless accountability_component
+
+      budgets = Decidim::Budgets::Budget.where(component: budget_component_id)
+      raise ArgumentError.new, "Can't find budgets!" unless budgets
+
+      projects(budgets).map do |project|
         next if project_already_copied?(project)
 
         new_result = create_result_from_project!(project, accountability_component)
@@ -43,8 +48,7 @@ namespace :turku do
       project.resource_links_to.where(from_type: "Decidim::Accountability::Result", name: "included_projects").any?
     end
 
-    def projects(budget_component_id)
-      budgets = Decidim::Budgets::Budget.where(component: budget_component_id)
+    def projects(budgets)
       projects = Decidim::Budgets::Project.where(budget: budgets)
       projects.select { |project| project.selected_at.present? }
     end

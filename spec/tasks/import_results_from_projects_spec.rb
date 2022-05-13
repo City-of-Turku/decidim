@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe "rake turku:budgets:import_projects_to_results", type: :task do
+describe "rake turku:budgets:import_results_from_projects", type: :task do
   let(:organization) { create(:organization) }
   let(:participatory_space) { create(:participatory_process, organization: organization) }
 
@@ -14,11 +14,11 @@ describe "rake turku:budgets:import_projects_to_results", type: :task do
   let(:project) { create(:project, budget: budget, selected_at: selected_at) }
   let(:selected_at) { Time.current }
 
-  let(:task) { :"turku:budgets:import_projects_to_results" }
+  let(:task) { :"turku:budgets:import_results_from_projects" }
 
   shared_examples "import project to result" do
     it "creates new result" do
-      Rake::Task[task].invoke(budget_component.id, accountability_component.id)
+      Rake::Task[task].invoke(accountability_component.id, budget_component.id)
 
       expect(Decidim::Accountability::Result.count).to eq(1)
       result = Decidim::Accountability::Result.first
@@ -40,10 +40,10 @@ describe "rake turku:budgets:import_projects_to_results", type: :task do
       it_behaves_like "import project to result"
 
       it "doesnt extra result when ran twice" do
-        Rake::Task[task].invoke(budget_component.id, accountability_component.id)
+        Rake::Task[task].invoke(accountability_component.id, budget_component.id)
         expect(Decidim::Accountability::Result.count).to eq(1)
         Rake::Task[task].reenable
-        Rake::Task[task].invoke(budget_component.id, accountability_component.id)
+        Rake::Task[task].invoke(accountability_component.id, budget_component.id)
 
         expect(Decidim::Accountability::Result.count).to eq(1)
       end
@@ -62,7 +62,7 @@ describe "rake turku:budgets:import_projects_to_results", type: :task do
           end
 
           it "links result to project and proposal" do
-            Rake::Task[task].invoke(budget_component.id, accountability_component.id)
+            Rake::Task[task].invoke(accountability_component.id, budget_component.id)
 
             expect(Decidim::Accountability::Result.count).to eq(1)
             result = Decidim::Accountability::Result.last
@@ -76,7 +76,7 @@ describe "rake turku:budgets:import_projects_to_results", type: :task do
         let(:selected_at) { nil }
 
         it "doesnt create result" do
-          Rake::Task[task].invoke(budget_component.id, accountability_component.id)
+          Rake::Task[task].invoke(accountability_component.id, budget_component.id)
 
           expect(Decidim::Accountability::Result.count).to eq(0)
         end
@@ -90,7 +90,7 @@ describe "rake turku:budgets:import_projects_to_results", type: :task do
         end
 
         it "adds category to result" do
-          Rake::Task[task].invoke(budget_component.id, accountability_component.id)
+          Rake::Task[task].invoke(accountability_component.id, budget_component.id)
 
           expect(Decidim::Accountability::Result.count).to eq(1)
           expect(Decidim::Accountability::Result.first.category).to eq(category)
@@ -105,7 +105,7 @@ describe "rake turku:budgets:import_projects_to_results", type: :task do
         end
 
         it "adds category to result" do
-          Rake::Task[task].invoke(budget_component.id, accountability_component.id)
+          Rake::Task[task].invoke(accountability_component.id, budget_component.id)
 
           expect(Decidim::Accountability::Result.count).to eq(1)
           expect(Decidim::Accountability::Result.first.scope).to eq(scope)
@@ -119,7 +119,7 @@ describe "rake turku:budgets:import_projects_to_results", type: :task do
         let!(:attachment2) { create(:attachment, attached_to: project, file: document) }
 
         it "copies attachments to result" do
-          Rake::Task[task].invoke(budget_component.id, accountability_component.id)
+          Rake::Task[task].invoke(accountability_component.id, budget_component.id)
 
           expect(Decidim::Accountability::Result.count).to eq(1)
           result = Decidim::Accountability::Result.last
@@ -138,7 +138,7 @@ describe "rake turku:budgets:import_projects_to_results", type: :task do
       let!(:projects) { [project, project2, project3] }
 
       it "creates result on every selected project" do
-        Rake::Task[task].invoke(budget_component.id, accountability_component.id)
+        Rake::Task[task].invoke(accountability_component.id, budget_component.id)
 
         expect(Decidim::Accountability::Result.count).to eq(2)
       end
