@@ -6,8 +6,8 @@ namespace :turku do
   namespace :budgets do
     desc "Create results from the projects that are selected to implementation"
     task :import_results_from_projects, [:accountability_component_id, :budget_component_id] => [:environment] do |_t, args|
-      budget_component_id = args[:budget_component_id]
       accountability_component_id = args[:accountability_component_id]
+      budget_component_id = args[:budget_component_id]
 
       results_from_projects(budget_component_id, accountability_component_id)
     end
