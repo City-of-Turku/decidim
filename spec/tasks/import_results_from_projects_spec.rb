@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe "rake turku:budgets:import_results_from_projects", type: :task do
+describe "rake turku:accountability:import_results_from_projects", type: :task do
   let(:organization) { create(:organization) }
   let(:participatory_space) { create(:participatory_process, organization: organization) }
 
@@ -14,7 +14,7 @@ describe "rake turku:budgets:import_results_from_projects", type: :task do
   let(:project) { create(:project, budget: budget, selected_at: selected_at) }
   let(:selected_at) { Time.current }
 
-  let(:task) { :"turku:budgets:import_results_from_projects" }
+  let(:task) { :"turku:accountability:import_results_from_projects" }
 
   shared_examples "import project to result" do
     it "creates new result" do
@@ -53,12 +53,12 @@ describe "rake turku:budgets:import_results_from_projects", type: :task do
 
         it_behaves_like "import project to result"
 
-        context "when project is linked to a proposal" do
+        context "when project is linked to proposals" do
           let(:proposals_component) { create(:component, manifest_name: "proposals", participatory_space: participatory_space) }
-          let(:proposal) { create(:proposal, component: proposals_component) }
+          let(:linked_proposals) { create_list(:proposal, 3, component: proposals_component) }
 
           before do
-            project.link_resources(proposal, "included_proposals")
+            project.link_resources(linked_proposals, "included_proposals")
           end
 
           it "links result to project and proposal" do
@@ -66,7 +66,7 @@ describe "rake turku:budgets:import_results_from_projects", type: :task do
 
             expect(Decidim::Accountability::Result.count).to eq(1)
             result = Decidim::Accountability::Result.last
-            expect(result.linked_resources(:proposals, "included_proposals").first).to eq(proposal)
+            expect(result.linked_resources(:proposals, "included_proposals")).to match_array(linked_proposals)
             expect(result.linked_resources(:projects, "included_projects").first).to eq(project)
           end
         end

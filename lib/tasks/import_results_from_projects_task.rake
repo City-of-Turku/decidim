@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 
-# Usage: bundle exec rake turku:budgets:import_results_from_projects[<accountability component id>, <budget component id>]
-
 namespace :turku do
-  namespace :budgets do
+  namespace :accountability do
+    # Usage: bundle exec rake turku:accountability:import_results_from_projects[<accountability component id>,<budget component id>]
     desc "Create results from the projects that are selected to implementation"
     task :import_results_from_projects, [:accountability_component_id, :budget_component_id] => [:environment] do |_t, args|
       accountability_component_id = args[:accountability_component_id]
@@ -22,14 +21,13 @@ namespace :turku do
       raise ArgumentError.new, "Can't find budgets!" unless budgets
 
       projects(budgets).map do |project|
-        next if project_already_copied?(project)
+        next if project_already_copied?(project, accountability_component)
 
         new_result = create_result_from_project!(project, accountability_component)
 
         new_result.link_resources([project], "included_projects")
-        project.linked_resources(:proposals, "included_proposals").each do |proposal|
-          new_result.link_resources(proposal, "included_proposals")
-        end
+        new_result.link_resources(project.linked_resources(:proposals, "included_proposals"), "included_proposals")
+
         copy_attachments(project, new_result)
       end
     end
@@ -44,8 +42,13 @@ namespace :turku do
       )
     end
 
-    def project_already_copied?(project)
-      project.resource_links_to.where(from_type: "Decidim::Accountability::Result", name: "included_projects").any?
+    def project_already_copied?(project, target_component)
+      project.resource_links_to.where(
+        name: "included_projects",
+        from_type: "Decidim::Accountability::Result"
+      ).any? do |link|
+        link.from.component == target_component
+      end
     end
 
     def projects(budgets)
@@ -72,7 +75,7 @@ namespace :turku do
 
         new_attachment.save!
       rescue Errno::ENOENT, OpenURI::HTTPError => e
-        Rails.logger.warn("[ERROR] Couldn't copy attachment from proposal #{project.id} when copying to component due to #{e.message}")
+        Rails.logger.warn("[ERROR] Couldn't copy attachment from project #{project.id} when copying to component due to #{e.message}")
       end
     end
   end
