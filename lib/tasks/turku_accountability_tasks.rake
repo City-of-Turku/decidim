@@ -40,7 +40,8 @@ namespace :turku do
         category: project.category,
         scope: project.scope || project.budget.scope,
         component: accountability_component,
-        status: status
+        status: status,
+        progress: status.progress || 0
       )
     end
 
