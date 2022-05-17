@@ -20,10 +20,11 @@ namespace :turku do
       budgets = Decidim::Budgets::Budget.where(component: budget_component_id)
       raise ArgumentError.new, "Can't find budgets!" unless budgets.any?
 
+      statuses = Decidim::Accountability::Status.where(component: accountability_component).order(:progress)
       projects(budgets).map do |project|
         next if project_already_copied?(project, accountability_component)
 
-        new_result = create_result_from_project!(project, accountability_component)
+        new_result = create_result_from_project!(project, accountability_component, statuses.first)
 
         new_result.link_resources([project], "included_projects")
         new_result.link_resources(project.linked_resources(:proposals, "included_proposals"), "included_proposals")
@@ -32,13 +33,14 @@ namespace :turku do
       end
     end
 
-    def create_result_from_project!(project, accountability_component)
+    def create_result_from_project!(project, accountability_component, status)
       Decidim::Accountability::Result.create!(
         title: project.title,
         description: project.description,
         category: project.category,
         scope: project.scope || project.budget.scope,
-        component: accountability_component
+        component: accountability_component,
+        status: status
       )
     end
 
