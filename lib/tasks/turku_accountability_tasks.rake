@@ -18,7 +18,7 @@ namespace :turku do
       raise ArgumentError.new, "Can't find accountability component!" unless accountability_component
 
       budgets = Decidim::Budgets::Budget.where(component: budget_component_id)
-      raise ArgumentError.new, "Can't find budgets!" unless budgets
+      raise ArgumentError.new, "Can't find budgets!" unless budgets.any?
 
       projects(budgets).map do |project|
         next if project_already_copied?(project, accountability_component)
@@ -52,8 +52,7 @@ namespace :turku do
     end
 
     def projects(budgets)
-      projects = Decidim::Budgets::Project.where(budget: budgets)
-      projects.select { |project| project.selected_at.present? }
+      Decidim::Budgets::Project.where(budget: budgets).where.not(selected_at: nil)
     end
 
     def copy_attachments(project, result)
