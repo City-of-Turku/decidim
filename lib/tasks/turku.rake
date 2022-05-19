@@ -193,28 +193,30 @@ namespace :turku do
   def write_excel(sheets, filename)
     return if sheets.empty?
 
-    require "spreadsheet"
+    require "rubyXL"
+    require "rubyXL/convenience_methods/font"
+    require "rubyXL/convenience_methods/workbook"
+    require "rubyXL/convenience_methods/worksheet"
 
-    book = Spreadsheet::Workbook.new
+    book = RubyXL::Workbook.new
+    book.worksheets.delete_at(0)
     sheets.each do |sheetname, data|
       next if data.empty?
 
       headers = data.first.keys
 
-      sheet = book.create_worksheet
-      sheet.name = sheetname.to_s
-      sheet.row(0).default_format = Spreadsheet::Format.new(
-        weight: :bold,
-        pattern: 1,
-        pattern_fg_color: :xls_color_14,
-        horizontal_align: :center
-      )
-      sheet.row(0).replace headers.map(&:to_s)
-      headers.length.times.each do |index|
-        sheet.column(index).width = 20
+      sheet = book.add_worksheet(sheetname)
+      sheet.change_row_fill(0, "c0c0c0")
+      sheet.change_row_bold(0, true)
+      sheet.change_row_horizontal_alignment(0, "center")
+      headers.each_with_index do |header, index|
+        sheet.change_column_width(index, 20)
+        sheet.add_cell(0, index, header.to_s)
       end
-      data.each_with_index do |resource, index|
-        sheet.row(index + 1).replace(headers.map { |header| resource[header] })
+      data.each_with_index do |resource, rowi|
+        headers.each_with_index do |header, coli|
+          sheet.add_cell(rowi + 1, coli, resource[header])
+        end
       end
     end
 
