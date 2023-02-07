@@ -8,7 +8,6 @@ module ProposalsExtensions
     private
 
     def default_filter_params
-      raise default_filter_scope_params.inspect
       {
         search_text_cont: "",
         activity: "all",
