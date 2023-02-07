@@ -4,22 +4,19 @@ source "https://rubygems.org"
 
 ruby RUBY_VERSION
 
-# DECIDIM_VERSION = "~> 0.25.0"
-DECIDIM_VERSION = { github: "mainio/decidim", branch: "release/0.25-stable" }.freeze
+DECIDIM_VERSION = "~> 0.26.0"
 
 gem "decidim", DECIDIM_VERSION
-# gem "decidim-consultations", DECIDIM_VERSION
-# gem "decidim-initiatives", DECIDIM_VERSION
 
-gem "decidim-antivirus", github: "mainio/decidim-module-antivirus", branch: "master"
-gem "decidim-apiauth", github: "mainio/decidim-module-apiauth", branch: "master"
-gem "decidim-term_customizer", github: "mainio/decidim-module-term_customizer", branch: "master"
-gem "decidim-tunnistamo", github: "mainio/decidim-module-tunnistamo", branch: "master"
+gem "decidim-antivirus", github: "mainio/decidim-module-antivirus", branch: "release/0.26-stable"
+gem "decidim-apiauth", github: "mainio/decidim-module-apiauth", branch: "release/0.26-stable"
+gem "decidim-term_customizer", github: "mainio/decidim-module-term_customizer", branch: "release/0.26-stable"
+gem "decidim-tunnistamo", github: "mainio/decidim-module-tunnistamo", branch: "release/0.26-stable"
 gem "omniauth-tunnistamo", github: "mainio/omniauth-tunnistamo", branch: "develop"
 
 gem "bootsnap", "~> 1.4"
 
-gem "puma", "~> 5.6.2"
+gem "puma", "~> 5.0.0"
 gem "uglifier", "~> 4.1"
 
 gem "faker", "~> 2.14"
@@ -36,6 +33,7 @@ end
 group :development do
   gem "letter_opener_web", "~> 1.3"
   gem "listen", "~> 3.1"
+  gem "rubocop-faker"
   gem "spring", "~> 2.0"
   gem "spring-watcher-listen", "~> 2.0"
   gem "web-console", "~> 3.5"
