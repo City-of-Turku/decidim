@@ -4,14 +4,14 @@ source "https://rubygems.org"
 
 ruby RUBY_VERSION
 
-DECIDIM_VERSION = "~> 0.26.0"
+DECIDIM_VERSION = "~> 0.27.0"
 
 gem "decidim", DECIDIM_VERSION
 
-gem "decidim-antivirus", github: "mainio/decidim-module-antivirus", branch: "release/0.26-stable"
-gem "decidim-apiauth", github: "mainio/decidim-module-apiauth", branch: "release/0.26-stable"
-gem "decidim-term_customizer", github: "mainio/decidim-module-term_customizer", branch: "release/0.26-stable"
-gem "decidim-tunnistamo", github: "mainio/decidim-module-tunnistamo", branch: "release/0.26-stable"
+gem "decidim-antivirus", github: "mainio/decidim-module-antivirus", branch: "master"
+gem "decidim-apiauth", github: "mainio/decidim-module-apiauth", branch: "master"
+gem "decidim-term_customizer", github: "mainio/decidim-module-term_customizer", branch: "master"
+gem "decidim-tunnistamo", github: "mainio/decidim-module-tunnistamo", branch: "master"
 gem "omniauth-tunnistamo", github: "mainio/omniauth-tunnistamo", branch: "develop"
 
 gem "bootsnap", "~> 1.4"

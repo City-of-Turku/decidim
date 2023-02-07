@@ -8,14 +8,15 @@ module ProposalsExtensions
     private
 
     def default_filter_params
+      raise default_filter_scope_params.inspect
       {
-        search_text: "",
-        origin: default_filter_origin_params,
+        search_text_cont: "",
         activity: "all",
-        category_id: default_filter_category_params,
-        state: %w(accepted evaluating state_not_published rejected),
-        scope_id: default_filter_scope_params,
         related_to: "",
+        with_any_state: %w(accepted evaluating rejected state_not_published),
+        with_any_category: default_filter_category_params,
+        with_any_origin: default_filter_origin_params,
+        with_any_scope: default_filter_scope_params,
         type: "all"
       }
     end

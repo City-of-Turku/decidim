@@ -14,11 +14,13 @@ AllCops:
     - "**/Rakefile"
   Exclude:
     - "db/**/*"
+    - "**/node_modules/**/*"
     - "**/vendor/**/*"
     - "development_app/**/*"
     - "decidim_app-design/node_modules/**/*"
     - "spec/decidim_dummy_app/**/*"
     - "node_modules/**/*"
+    - "decidim-initiatives/lib/gem_overrides/origami/date.rb"
   # Default formatter will be used if no -f/--format option is given.
   DefaultFormatter: progress
   # Cop names are not displayed in offense messages by default. Change behavior
@@ -69,12 +71,12 @@ AllCops:
   # If a value is specified for TargetRubyVersion then it is used.
   # Else if .ruby-version exists and it contains an MRI version it is used.
   # Otherwise we fallback to the oldest officially supported Ruby version (2.0).
-  TargetRubyVersion: 2.7
+  TargetRubyVersion: 3.1
 
-  RSpec:
-    Patterns:
-      - "(?:^|/)spec/"
-      - "(?:^|/)test/"
+#  RSpec:
+#    Patterns:
+#      - "(?:^|/)spec/"
+#      - "(?:^|/)test/"
 
 # Indent private/protected/public as deep as method definitions
 Layout/AccessModifierIndentation:
@@ -219,7 +221,7 @@ Style/BlockDelimiters:
     # This looks at the usage of a block's method to determine its type (e.g. is
     # the result of a `map` assigned to a variable or passed to another
     # method) but exceptions are permitted in the `ProceduralMethods`,
-    # `FunctionalMethods` and `IgnoredMethods` sections below.
+    # `FunctionalMethods` and `AllowedMethods` sections below.
     - semantic
     # The `braces_for_chaining` style enforces braces around single line blocks
     # and do..end around multi-line blocks, except for multi-line blocks whose
@@ -258,7 +260,7 @@ Style/BlockDelimiters:
     - let!
     - subject
     - watch
-  IgnoredMethods:
+  AllowedMethods:
     # Methods that can be either procedural or functional and cannot be
     # categorised from their usage alone, e.g.
     #
@@ -1270,10 +1272,11 @@ RSpec/NamedSubject:
   Enabled: false
 
 RSpec/RepeatedExampleGroupDescription:
-  Enabled: false
+  Enabled: true
 
 RSpec/RepeatedExampleGroupBody:
-  Enabled: false
+  Enabled: true
+
 RSpec/VerifiedDoubles:
   Enabled: false
 
