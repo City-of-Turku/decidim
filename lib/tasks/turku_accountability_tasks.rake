@@ -21,6 +21,7 @@ namespace :turku do
       raise ArgumentError.new, "Can't find budgets!" unless budgets.any?
 
       statuses = Decidim::Accountability::Status.where(component: accountability_component).order(:progress)
+
       projects(budgets).map do |project|
         next if project_already_copied?(project, accountability_component)
 
@@ -41,7 +42,7 @@ namespace :turku do
         scope: project.scope || project.budget.scope,
         component: accountability_component,
         status: status,
-        progress: status.progress || 0
+        progress: status&.progress || 0
       )
     end
 

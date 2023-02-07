@@ -7,21 +7,21 @@ module Decidim
         attribute :reminder_amount
 
         def reminder_amount
-          @reminder_amount ||= begin
-            return 0 unless voting_enabled?
+          @reminder_amount ||= if voting_enabled?
+                                 user_ids = []
+                                 unfinished_orders.each do |order|
+                                   next unless order.user
+                                   next if order.user.email.blank?
 
-            user_ids = []
-            unfinished_orders.each do |order|
-              next unless order.user
-              next if order.user.email.blank?
+                                   reminder = Decidim::Budgets::VoteReminder.find_by(component: current_component, user: order.user)
+                                   next if reminder && reminder.times.present? && reminder.times.last > 24.hours.ago
 
-              reminder = Decidim::Budgets::VoteReminder.find_by(component: current_component, user: order.user)
-              next if reminder && reminder.times.present? && reminder.times.last > Time.current - 24.hours
-
-              user_ids << order.user.id
-            end
-            user_ids.uniq.count
-          end
+                                   user_ids << order.user.id
+                                 end
+                                 user_ids.uniq.count
+                               else
+                                 0
+                               end
         end
 
         def unfinished_orders

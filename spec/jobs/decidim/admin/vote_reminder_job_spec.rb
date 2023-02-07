@@ -3,6 +3,8 @@
 require "rails_helper"
 
 describe Decidim::Admin::VoteReminderJob do
+  subject { described_class.new }
+
   let(:organization) { create(:organization) }
   let(:user) { create(:user, :confirmed, organization: organization) }
   let(:component) { create(:budgets_component, organization: organization) }
@@ -10,7 +12,6 @@ describe Decidim::Admin::VoteReminderJob do
   let!(:order) { create(:order, user: user, budget: budget) }
   let(:vote_reminder) { Decidim::Budgets::VoteReminder.create(user: user, component: component) }
   let!(:voting_reminders) { [vote_reminder] }
-  let(:subject) { described_class.new }
 
   before do
     allow(Rails.application.config).to receive(:reminder_times).and_return([2.hours, 1.week, 2.weeks])

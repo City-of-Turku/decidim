@@ -8,6 +8,7 @@ describe "rake turku:accountability:import_results_from_projects", type: :task d
 
   let(:accountability_component) { create(:component, manifest_name: "accountability", participatory_space: participatory_space, published_at: accountability_compoennt_published_at) }
   let(:accountability_compoennt_published_at) { nil }
+  let!(:accountability_statuses) { create_list(:status, 3, component: accountability_component) }
 
   let(:budget_component) { create(:component, manifest_name: "budgets", participatory_space: participatory_space) }
   let(:budget) { create(:budget, component: budget_component, total_budget: 26_000_000) }
@@ -29,7 +30,7 @@ describe "rake turku:accountability:import_results_from_projects", type: :task d
     end
   end
 
-  context "when re enable rake task" do
+  context "when re-enable rake task" do
     before do
       Rake::Task[task].reenable
     end
@@ -46,6 +47,16 @@ describe "rake turku:accountability:import_results_from_projects", type: :task d
         Rake::Task[task].invoke(accountability_component.id, budget_component.id)
 
         expect(Decidim::Accountability::Result.count).to eq(1)
+      end
+
+      context "when there are no statuses" do
+        let!(:accountability_statuses) { [] }
+
+        it "creates result with correct progress" do
+          Rake::Task[task].invoke(accountability_component.id, budget_component.id)
+          expect(Decidim::Accountability::Result.count).to eq(1)
+          expect(Decidim::Accountability::Result.last.progress).to eq(0)
+        end
       end
 
       context "when accountability component is published" do

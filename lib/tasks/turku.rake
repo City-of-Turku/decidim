@@ -125,31 +125,29 @@ namespace :turku do
 
     rawdata = authorization.metadata
 
-    data = begin
-      case authorization.name
-      when "tunnistamo_idp"
-        case rawdata["service"]
-        when "turku_suomifi"
-          {
-            identity: "Suomi.fi",
-            date_of_birth: Date.strptime(rawdata["birthdate"], "%Y-%m-%d"),
-            postal_code: rawdata["postal_code"]
-          }
-        when "opas_adfs"
-          {
-            identity: "OpasID",
-            date_of_birth: nil,
-            postal_code: nil
-          }
-        end
-      when "turku_documents_authorization_handler"
-        {
-          identity: "Document - #{rawdata["document_type"]}",
-          date_of_birth: Date.strptime(rawdata["date_of_birth"], "%Y-%m-%d"),
-          postal_code: rawdata["postal_code"]
-        }
-      end
-    end
+    data = case authorization.name
+           when "tunnistamo_idp"
+             case rawdata["service"]
+             when "turku_suomifi"
+               {
+                 identity: "Suomi.fi",
+                 date_of_birth: Date.strptime(rawdata["birthdate"], "%Y-%m-%d"),
+                 postal_code: rawdata["postal_code"]
+               }
+             when "opas_adfs"
+               {
+                 identity: "OpasID",
+                 date_of_birth: nil,
+                 postal_code: nil
+               }
+             end
+           when "turku_documents_authorization_handler"
+             {
+               identity: "Document - #{rawdata["document_type"]}",
+               date_of_birth: Date.strptime(rawdata["date_of_birth"], "%Y-%m-%d"),
+               postal_code: rawdata["postal_code"]
+             }
+           end
 
     # During testing, there may be unknown authorizations.
     unless data

@@ -21,9 +21,8 @@ module CreateOmniauthRegistrationExtensions
           provider: form.provider,
           uid: form.uid
         )
-        return unless identity
 
-        identity.update(turku_oid: anonymized_oid) if !identity.turku_oid && anonymized_oid
+        identity.update(turku_oid: anonymized_oid) if identity && !identity.turku_oid && anonymized_oid
         identity
       end
     end
@@ -31,10 +30,10 @@ module CreateOmniauthRegistrationExtensions
     def anonymized_oid
       @anonymized_oid ||= begin
         turku_oid = form.raw_data.dig(:extra, :raw_info, :oid)
-        return nil unless turku_oid
-
-        salt = Rails.application.secrets.secret_key_base
-        Digest::MD5.hexdigest("OID:#{turku_oid}:#{salt}")
+        if turku_oid
+          salt = Rails.application.secrets.secret_key_base
+          Digest::MD5.hexdigest("OID:#{turku_oid}:#{salt}")
+        end
       end
     end
   end

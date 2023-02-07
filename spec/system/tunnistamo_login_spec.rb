@@ -27,6 +27,7 @@ describe "Tunnistamo login", type: :system do
     let(:oid) { Faker::Internet.uuid }
 
     before do
+      allow(Decidim::User).to receive(:allow_unconfirmed_access_for).and_return(1000.days)
       OmniAuth.config.test_mode = true
       OmniAuth.config.mock_auth[:tunnistamo] = omniauth_hash
       switch_to_host(organization.host)

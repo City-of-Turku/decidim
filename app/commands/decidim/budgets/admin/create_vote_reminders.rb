@@ -25,7 +25,7 @@ module Decidim
         def send_remind?(reminder)
           return true if reminder.times.empty?
 
-          reminder.times.last < Time.current - 24.hours
+          reminder.times.last < 24.hours.ago
         end
 
         def reminders
