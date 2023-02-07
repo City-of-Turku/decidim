@@ -17,6 +17,10 @@ Decidim.configure do |config|
     }
   end
 
+  # By default in Decidim this is set as 0. We need to have unconfirmed
+  # access so that participant can verify his/her email.
+  config.unconfirmed_access_for = 1000.days
+
   # Geocoder configurations if you want to customize the default geocoding
   # settings. The maps configuration will manage which geocoding service to use,
   # so that does not need any additional configuration here. Use this only for
