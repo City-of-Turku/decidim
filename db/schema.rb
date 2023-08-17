@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_02_07_103935) do
+ActiveRecord::Schema.define(version: 2023_08_17_074520) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -1588,6 +1588,8 @@ ActiveRecord::Schema.define(version: 2023_02_07_103935) do
     t.datetime "digest_sent_at"
     t.datetime "password_updated_at"
     t.string "previous_passwords", default: [], array: true
+    t.datetime "published_at"
+    t.boolean "allow_private_messaging", default: true
     t.index ["confirmation_token"], name: "index_decidim_users_on_confirmation_token", unique: true
     t.index ["decidim_organization_id"], name: "index_decidim_users_on_decidim_organization_id"
     t.index ["email", "decidim_organization_id"], name: "index_decidim_users_on_email_and_decidim_organization_id", unique: true, where: "((deleted_at IS NULL) AND (managed = false) AND ((type)::text = 'Decidim::User'::text))"
