@@ -10,6 +10,7 @@ gem "decidim", DECIDIM_VERSION
 
 gem "decidim-antivirus", github: "mainio/decidim-module-antivirus", branch: "main"
 gem "decidim-apiauth", github: "mainio/decidim-module-apiauth", branch: "main"
+gem "decidim-privacy", github: "mainio/decidim-module-privacy", branch: "main"
 gem "decidim-term_customizer", github: "mainio/decidim-module-term_customizer", branch: "master"
 gem "decidim-tunnistamo", github: "mainio/decidim-module-tunnistamo", branch: "main"
 gem "omniauth-tunnistamo", github: "mainio/omniauth-tunnistamo", branch: "develop"

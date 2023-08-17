@@ -19,6 +19,14 @@ GIT
       devise-jwt (~> 0.11.0)
 
 GIT
+  remote: https://github.com/mainio/decidim-module-privacy.git
+  revision: dc84995acdd562bde4fc46732eaa95f284e61d38
+  branch: main
+  specs:
+    decidim-privacy (0.27.0)
+      decidim-core (~> 0.27.0)
+
+GIT
   remote: https://github.com/mainio/decidim-module-term_customizer.git
   revision: abbf0c69e1bcaafebc5aa4f8da22fdb64ce62149
   branch: master
@@ -959,6 +967,7 @@ DEPENDENCIES
   decidim-antivirus!
   decidim-apiauth!
   decidim-dev (~> 0.27.0)
+  decidim-privacy!
   decidim-term_customizer!
   decidim-tunnistamo!
   dotenv-rails (~> 2.1, >= 2.1.1)
