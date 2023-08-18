@@ -9,12 +9,39 @@ Decidim.configure do |config|
   config.available_locales = [:fi, :sv, :en]
 
   # Maps configuration
-  unless Rails.application.secrets.maps[:api_key].nil?
+  if Rails.application.secrets.maps.present? && Rails.application.secrets.maps[:static_provider].present?
+    static_provider = Rails.application.secrets.maps[:static_provider]
+    dynamic_provider = Rails.application.secrets.maps[:dynamic_provider]
+    dynamic_url = Rails.application.secrets.maps[:dynamic_url]
+    static_url = Rails.application.secrets.maps[:static_url]
+    static_url = "https://image.maps.ls.hereapi.com/mia/1.6/mapview" if static_provider == "here" && static_url.blank?
     config.maps = {
-      provider: :here,
-      api_key: Rails.application.secrets.maps[:api_key],
-      static: { url: "https://image.maps.ls.hereapi.com/mia/1.6/mapview" }
+      provider: static_provider,
+      api_key: Rails.application.secrets.maps[:static_api_key],
+      static: { url: static_url },
+      dynamic: {
+        provider: dynamic_provider,
+        api_key: Rails.application.secrets.maps[:dynamic_api_key]
+      }
     }
+    config.maps[:geocoding] = { host: Rails.application.secrets.maps[:geocoding_host], use_https: true } if Rails.application.secrets.maps[:geocoding_host]
+    config.maps[:dynamic][:tile_layer] = {}
+    config.maps[:dynamic][:tile_layer][:url] = dynamic_url if dynamic_url
+    config.maps[:dynamic][:tile_layer][:attribution] = Rails.application.secrets.maps[:attribution] if Rails.application.secrets.maps[:attribution]
+    if Rails.application.secrets.maps[:extra_vars].present?
+      vars = URI.decode_www_form(Rails.application.secrets.maps[:extra_vars])
+      vars.each do |key, value|
+        # perform a naive type conversion
+        config.maps[:dynamic][:tile_layer][key] = case value
+                                                  when /^true$|^false$/i
+                                                    value.downcase == "true"
+                                                  when /\A[-+]?\d+\z/
+                                                    value.to_i
+                                                  else
+                                                    value
+                                                  end
+      end
+    end
   end
 
   # By default in Decidim this is set as 0. We need to have unconfirmed
