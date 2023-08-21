@@ -1,6 +1,5 @@
 import "src/decidim/geocoding"
 import formatAddress from "src/decidim/geocoding/format_address"
-console.log("LOADED")
 /**
  * For the available address format keys, refer to:
  * https://developer.here.com/documentation/geocoder-autocomplete/dev_guide/topics/resource-type-response-suggest.html
@@ -47,7 +46,6 @@ $(() => {
           },
           dataType: "json"
         }).done((resp) => {
-          console.log("The response is:", resp)
           if (resp.items) {
             return callback(resp.items.map((item) => {
               const label = generateAddressLabel(item.address, addressFormat);
@@ -67,30 +65,24 @@ $(() => {
     $input.on("geocoder-suggest-select.decidim", (_ev, selectedItem) => {
       $.ajax({
         method: "GET",
-        url: "https://autocomplete.search.hereapi.com/v1/autocomplete",
+        url: "https://lookup.search.hereapi.com/v1/lookup",
         data: {
           apiKey: config.apiKey,
-          gen: 9,
-          jsonattributes: 1,
-          locationid: selectedItem.locationId
+          id: selectedItem.locationId
         },
         dataType: "json"
       }).done((resp) => {
-        if (!resp.response || !Array.isArray(resp.response.view) ||
-          resp.response.view.length < 1
+        if (!resp || Object.keys(resp).length < 1
         ) {
           return;
         }
-
-        const view = resp.response.view[0];
-        if (!Array.isArray(view.result) || view.result.length < 1) {
-          return;
+        const position = resp.position;
+        if (!position || !position.lat || !position.lng) {
+          return
         }
-
-        const result = view.result[0];
         const coordinates = [
-          result.location.displayPosition.latitude,
-          result.location.displayPosition.longitude
+          position.lat,
+          position.lng
         ];
 
         $input.trigger(
