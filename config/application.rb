@@ -86,7 +86,6 @@ module DecidimTurku
         )
 
         # Model extensions
-        ::Decidim::User.include(UserExtensions)
         ::Decidim::ActionLog.include(ActionLogExtensions)
 
         # Controller extensions
