@@ -23,7 +23,7 @@ module ActionAuthorizationHelperExtensions
       if !current_user
         html_options = clean_authorized_to_data_open(html_options)
 
-        html_options[:method] ||= :get
+        html_options[:method] ||= :post
         html_options.delete(:remote)
         url = ::Decidim::Core::Engine.routes.url_helpers.user_tunnistamo_omniauth_authorize_path
       elsif action && !action_authorized_to(action, resource: resource).ok?
