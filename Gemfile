@@ -14,6 +14,7 @@ gem "decidim-privacy", github: "mainio/decidim-module-privacy", branch: "main"
 gem "decidim-term_customizer", github: "mainio/decidim-module-term_customizer", branch: "master"
 gem "decidim-tunnistamo", github: "mainio/decidim-module-tunnistamo", branch: "main"
 gem "omniauth-tunnistamo", github: "mainio/omniauth-tunnistamo", branch: "develop"
+
 gem "bootsnap", "~> 1.4"
 
 gem "puma", "~> 5.6.4"
