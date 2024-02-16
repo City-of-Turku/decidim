@@ -32,6 +32,12 @@ $card-padding: 1.5rem;
   }
 }
 
+// The .comment-thread extends the .card class above. This would hide the
+// context menu for the element.
+.comment-thread{
+  overflow: visible;
+}
+
 a.card{
   text-decoration: none;
 }
