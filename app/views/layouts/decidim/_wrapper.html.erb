@@ -9,7 +9,7 @@ if respond_to?(:current_component) && current_component && can_be_managed?(curre
   )
 end
 
-visit_tunnistamo = ::Decidim::Core::Engine.routes.url_helpers.user_tunnistamo_omniauth_authorize_path
+visit_tunnistamo = ::Decidim::Core::Engine.routes.url_helpers.user_tunnistamo_omniauth_authorize_path(locale: current_locale)
 %>
 
 <div class="off-canvas-wrapper">
