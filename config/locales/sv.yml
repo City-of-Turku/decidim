@@ -246,6 +246,16 @@ sv:
         what: Rösta
         when: september
     title: Boendebudget
+  turku:
+    content_blocks:
+      video:
+        name: Video
+        video_not_supported: Din webbläsare stöder inte inbäddade videor.
+      video_settings_form:
+        description: Beskrivning
+        poster: Förhandsgranska bild
+        title: Titel
+        video: Video
   turku_tunnistamo_action_authorizer:
     restrictions:
       disallowed_municipality: Röstningen är endast begränsad till invånare i Åbo.

@@ -1,0 +1,20 @@
+<section class="extended home-section">
+  <div class="wrapper-home">
+    <div class="row">
+      <div class="columns small-centered large-10 text-center">
+        <% if has_title? %>
+          <h2 class="heading2"><%= title %></h2>
+        <% end %>
+
+        <%== description if has_description? %>
+
+        <div class="video-wrapper">
+          <%= content_tag :video, controls: true, poster: poster_image do %>
+            <source src="<%= video %>" type="video/mp4">
+            <%= t(".video_not_supported") %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

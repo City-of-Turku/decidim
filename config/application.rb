@@ -57,6 +57,32 @@ module DecidimTurku
       Decidim::Budgets.workflows[:asukasbudjetti] = Turku::Budgets::Workflows::Asukasbudjetti
     end
 
+    initializer "turku.homepage_content_blocks" do
+      Decidim.content_blocks.register(:homepage, :video) do |content_block|
+        content_block.cell = "turku/content_blocks/video"
+        content_block.settings_form_cell = "turku/content_blocks/video_settings_form"
+        content_block.public_name_key = "turku.content_blocks.video.name"
+
+        content_block.settings do |settings|
+          settings.attribute :title, type: :text, translated: true
+          settings.attribute :description, type: :text, translated: true
+        end
+
+        content_block.images = [
+          {
+            name: :video,
+            uploader: "Turku::VideoUploader"
+          },
+          {
+            name: :poster,
+            uploader: "Turku::VideoPosterUploader"
+          }
+        ]
+
+        content_block.default!
+      end
+    end
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading

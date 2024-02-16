@@ -246,6 +246,16 @@ en:
         what: Vote
         when: September
     title: Resident Budget
+  turku:
+    content_blocks:
+      video:
+        name: Video
+        video_not_supported: Your browser does not support embedded videos.
+      video_settings_form:
+        description: Description
+        poster: Preview image
+        title: Title
+        video: Video
   turku_tunnistamo_action_authorizer:
     restrictions:
       disallowed_municipality: Voting is limited only to Turku residents.

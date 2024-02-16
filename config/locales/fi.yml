@@ -246,6 +246,16 @@ fi:
         what: Äänestä
         when: syyskuu
     title: Asukasbudjetti
+  turku:
+    content_blocks:
+      video:
+        name: Video
+        video_not_supported: Selaimesi ei tue upotettuja videoita.
+      video_settings_form:
+        description: Kuvaus
+        poster: Esikatselukuva
+        title: Otsikko
+        video: Video
   turku_tunnistamo_action_authorizer:
     restrictions:
       disallowed_municipality: Äänestys on rajattu vain Turun asukkaille.
