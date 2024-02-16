@@ -8,12 +8,12 @@ DECIDIM_VERSION = "~> 0.27.0"
 
 gem "decidim", DECIDIM_VERSION
 
-gem "decidim-antivirus", github: "mainio/decidim-module-antivirus", branch: "main"
+gem "decidim-antivirus", github: "mainio/decidim-module-antivirus", branch: "release/0.27-stable"
 gem "decidim-apiauth", github: "mainio/decidim-module-apiauth", branch: "main"
 gem "decidim-privacy", github: "mainio/decidim-module-privacy", branch: "main"
-gem "decidim-term_customizer", github: "mainio/decidim-module-term_customizer", branch: "master"
+gem "decidim-term_customizer", github: "mainio/decidim-module-term_customizer", branch: "release/0.27-stable"
 gem "decidim-tunnistamo", github: "mainio/decidim-module-tunnistamo", branch: "main"
-gem "omniauth-tunnistamo", github: "mainio/omniauth-tunnistamo", branch: "develop"
+gem "omniauth-tunnistamo", github: "mainio/omniauth-tunnistamo", branch: "main"
 
 gem "bootsnap", "~> 1.4"
 
