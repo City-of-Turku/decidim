@@ -15,37 +15,36 @@ gem "decidim-term_customizer", github: "mainio/decidim-module-term_customizer", 
 gem "decidim-tunnistamo", github: "mainio/decidim-module-tunnistamo", branch: "main"
 gem "omniauth-tunnistamo", github: "mainio/omniauth-tunnistamo", branch: "main"
 
-gem "bootsnap", "~> 1.4"
+gem "bootsnap", "~> 1.18"
 
-gem "puma", "~> 5.6.4"
-gem "uglifier", "~> 4.1"
+gem "puma", "~> 5.6.8"
 
-gem "faker", "~> 2.14"
+gem "faker", "~> 2.23"
 
 # For the documents authorization handler
 gem "henkilotunnus"
 
 group :development, :test do
-  gem "byebug", "~> 11.0", platform: :mri
+  gem "byebug", "~> 11.1", platform: :mri
 
   gem "decidim-dev", DECIDIM_VERSION
 end
 
 group :development do
-  gem "letter_opener_web", "~> 1.3"
-  gem "listen", "~> 3.1"
+  gem "letter_opener_web", "~> 2.0"
+  gem "listen", "~> 3.8"
   gem "rubocop-faker"
-  gem "spring", "~> 2.0"
-  gem "spring-watcher-listen", "~> 2.0"
-  gem "web-console", "~> 4.0"
+  gem "spring", "~> 4.1"
+  gem "spring-watcher-listen", "~> 2.1"
+  gem "web-console", "~> 4.2"
 end
 
 group :production, :staging do
-  gem "dotenv-rails", "~> 2.1", ">= 2.1.1"
+  gem "dotenv-rails", "~> 3.0"
   gem "rack-ssl-enforcer", "~> 0.2.9"
 
-  gem "resque", "~> 2.2.0"
-  gem "resque-scheduler", "~> 4.4"
+  gem "resque", "~> 2.6.0"
+  gem "resque-scheduler", "~> 4.10"
 
   # Cronjobs
   gem "whenever", require: false

@@ -147,7 +147,7 @@ GEM
       parser (>= 2.4)
       smart_properties
     bigdecimal (3.1.6)
-    bindata (2.4.15)
+    bindata (2.5.0)
     bindex (0.8.1)
     bootsnap (1.18.3)
       msgpack (~> 1.2)
@@ -413,10 +413,10 @@ GEM
     doorkeeper (5.6.9)
       railties (>= 5)
     doorkeeper-i18n (4.0.1)
-    dotenv (2.8.1)
-    dotenv-rails (2.8.1)
-      dotenv (= 2.8.1)
-      railties (>= 3.2)
+    dotenv (3.0.2)
+    dotenv-rails (3.0.2)
+      dotenv (= 3.0.2)
+      railties (>= 6.1)
     dry-auto_inject (1.0.1)
       dry-core (~> 1.0)
       zeitwerk (~> 2.6)
@@ -554,10 +554,11 @@ GEM
       addressable (~> 2.8)
     letter_opener (1.9.0)
       launchy (>= 2.2, < 3)
-    letter_opener_web (1.4.1)
-      actionmailer (>= 3.2)
-      letter_opener (~> 1.0)
-      railties (>= 3.2)
+    letter_opener_web (2.0.0)
+      actionmailer (>= 5.2)
+      letter_opener (~> 1.7)
+      railties (>= 5.2)
+      rexml
     listen (3.8.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -767,7 +768,7 @@ GEM
     responders (3.1.1)
       actionpack (>= 5.2)
       railties (>= 5.2)
-    resque (2.2.1)
+    resque (2.6.0)
       mono_logger (~> 1.0)
       multi_json (~> 1.0)
       redis-namespace (~> 1.6)
@@ -870,10 +871,10 @@ GEM
       version_gem (~> 1.1, >= 1.1.1)
     social-share-button (1.2.4)
       coffee-rails
-    spring (2.1.1)
-    spring-watcher-listen (2.0.1)
+    spring (4.1.3)
+    spring-watcher-listen (2.1.0)
       listen (>= 2.7, < 4.0)
-      spring (>= 1.2, < 3.0)
+      spring (>= 4)
     sprockets (4.2.1)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -898,8 +899,6 @@ GEM
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     uber (0.1.0)
-    uglifier (4.2.0)
-      execjs (>= 0.3.0, < 3)
     unicode-display_width (2.5.0)
     uri (0.13.0)
     valid_email2 (2.3.1)
@@ -967,8 +966,8 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  bootsnap (~> 1.4)
-  byebug (~> 11.0)
+  bootsnap (~> 1.18)
+  byebug (~> 11.1)
   database_cleaner
   decidim (~> 0.27.0)
   decidim-antivirus!
@@ -977,22 +976,21 @@ DEPENDENCIES
   decidim-privacy!
   decidim-term_customizer!
   decidim-tunnistamo!
-  dotenv-rails (~> 2.1, >= 2.1.1)
-  faker (~> 2.14)
+  dotenv-rails (~> 3.0)
+  faker (~> 2.23)
   henkilotunnus
-  letter_opener_web (~> 1.3)
-  listen (~> 3.1)
+  letter_opener_web (~> 2.0)
+  listen (~> 3.8)
   omniauth-tunnistamo!
-  puma (~> 5.6.4)
+  puma (~> 5.6.8)
   rack-ssl-enforcer (~> 0.2.9)
-  resque (~> 2.2.0)
-  resque-scheduler (~> 4.4)
+  resque (~> 2.6.0)
+  resque-scheduler (~> 4.10)
   rspec-rails
   rubocop-faker
-  spring (~> 2.0)
-  spring-watcher-listen (~> 2.0)
-  uglifier (~> 4.1)
-  web-console (~> 4.0)
+  spring (~> 4.1)
+  spring-watcher-listen (~> 2.1)
+  web-console (~> 4.2)
   whenever
 
 RUBY VERSION
