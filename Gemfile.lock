@@ -20,7 +20,7 @@ GIT
 
 GIT
   remote: https://github.com/mainio/decidim-module-privacy.git
-  revision: 099b88467dc3d6a7ed3aa916e2a4033ffe7a5171
+  revision: 80b6089663ce805547a72a2d03f287566b389d24
   branch: main
   specs:
     decidim-privacy (0.27.0)
@@ -533,7 +533,8 @@ GEM
       bindata
       faraday (~> 2.0)
       faraday-follow_redirects
-    jwt (2.7.1)
+    jwt (2.8.0)
+      base64
     kaminari (1.2.2)
       activesupport (>= 4.1.0)
       kaminari-actionview (= 1.2.2)
