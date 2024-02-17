@@ -212,7 +212,57 @@ fi:
         sign_in_with_omniauth: Kirjaudu tilillesi sosiaalisen median tunnuksilla (äänestys ei ole mahdollista)
   layouts:
     decidim:
+      data_consent:
+        details:
+          columns:
+            description: Kuvaus
+            name: Nimi
+            service: Palvelu
+            type: Tyyppi
+          items:
+            _session_id:
+              description: Mahdollistaa verkkosivuston muistavan käyttäjän, kun käyttäjä liikkuu sivuston eri sivujen välillä.
+              service: Tämä sivusto
+            decidim-consent:
+              description: Tallentaa tietoja sallimistasi evästeistä tällä sivustolla.
+              service: Tämä sivusto
+            pwaInstallPromptSeen:
+              description: Tallentaa tiedon siitä, onko progressiivisen verkkosovelluksen (PWA) asennusilmoitus jo nähty käyttäjän toimesta.
+              service: Tämä sivusto
+          types:
+            cookie: Eväste
+            local_storage: Paikallinen tietovarasto
+        dialog:
+          accept_all: Hyväksy kaikki
+          accept_only_essential: Vain välttämättömät
+          description: Käytämme sivustollamme evästeitä sivuston suorituskyvyn ja sisällön parantamiseksi. Evästeiden avulla voimme tarjota yksilöllisemmän käyttäjäkokemuksen ja sisältöjä sosiaalisen median kanavista.
+          settings: Asetukset
+          title: Tietoa verkkosivustolla käytetyistä evästeistä
+        modal:
+          accept_all: Hyväksy kaikki
+          accept_only_essential: Vain välttämättömät
+          analytics:
+            description: Näitä evästeitä käytetään sivuston kävijätilastojen mittaamiseen ja analysointiin, jotta sivustoa voidaan parantaa.
+            title: Analytiikka ja tilastot
+          description: Käytämme evästeitä varmistaaksemme sivuston perustoiminnot ja parantaaksemme sen käyttökokemusta. Voit määrittää sallimiesi evästeiden käytön ja muokata näitä asetuksia milloin tahansa.
+          essential:
+            description: Nämä evästeet mahdollistavat sivuston perustoiminnot ja auttavat pitämään sen käyttäjät suojattuina. Ne tallennetaan automaattisesti selaimeen, eikä sivusto toimi ilman niitä, minkä takia ne ovat pakollisia.
+            title: Välttämättömät
+          marketing:
+            description: Nämä evästeet keräävät tietoa siitä, miten käytät verkkosivustoa, ja niitä voidaan hyödyntää personoidumman markkinoinnin tarjoamiseen eri sivustojen kautta.
+            title: Markkinointi
+          preferences:
+            description: Näiden evästeiden avulla verkkosivusto voi muistaa aiemmin tällä sivustolla tekemiäsi valintoja tarjotaksemme sinulle henkilökohtaisemman käyttökokemuksen tällä sivustolla.
+            title: Mieltymykset
+          save_settings: Tallenna asetukset
+          title: Evästeasetukset
+          toggle: Muuta tilaa kohteelle %{consent_category}
+        warning:
+          all_categories: kaikki evästeet
+          change_settings: Muuta evästeasetuksiasi
+          consent_required: Sinun täytyy sallia %{categories} nähdäksesi tämän sisällön.
       footer:
+        data_consent_settings: Evästeasetukset
         feedback_link: Anna palautetta
   placeholder:
     description: Asukasbudjetti tulee 1.4.2020
