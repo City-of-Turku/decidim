@@ -220,6 +220,7 @@ en:
             service: Service
             type: Type
           items:
+            # Decidim start
             _session_id:
               description: Allows websites to remember user within a website when they move between web pages.
               service: This website
@@ -229,6 +230,30 @@ en:
             pwaInstallPromptSeen:
               description: Stores status if the progressive web application (PWA) install notification has been already seen by the user.
               service: This website
+            # Decidim end
+            # YouTube start
+            __Secure-ENID:
+              description: Used to detect spam, fraud, and abuse to help ensure YouTube advertisers are not incorrectly charged for fraudulent or otherwise invalid impressions or interactions with ads, and that YouTube creators in the YouTube Partner Program are remunerated fairly.
+              service: YouTube embedded content
+            AEC:
+              description: Used to detect spam, fraud, and abuse to help ensure YouTube advertisers are not incorrectly charged for fraudulent or otherwise invalid impressions or interactions with ads, and that YouTube creators in the YouTube Partner Program are remunerated fairly.
+              service: YouTube embedded content
+            DV:
+              description: This cookie is used for the purpose of targeted advertising within the Google services.
+              service: YouTube embedded content
+            SOCS:
+              description: Google uses this cookie to store a user's state regarding their cookies choices within the Google services.
+              service: YouTube embedded content
+            VISITOR_INFO1_LIVE:
+              description: Used within YouTube videos for functionality, analytics, advertising, and personalization.
+              service: YouTube embedded content
+            VISITOR_PRIVACY_METADATA:
+              description: Stores the user's cookie consent state within YouTube videos for the current domain.
+              service: YouTube embedded content
+            YSC:
+              description: Used for security within YouTube videos. Used to ensure that requests within a browsing session are made by the user, and not by other sites. This cookie prevent malicious sites from acting on behalf of a user without that user's knowledge.
+              service: YouTube embedded content
+            # YouTube end
           types:
             cookie: Cookie
             local_storage: Local storage

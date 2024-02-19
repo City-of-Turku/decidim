@@ -220,6 +220,7 @@ sv:
             service: Tjänst
             type: Typ
           items:
+            # Decidim start
             _session_id:
               description: Tillåter webbplatser att komma ihåg användare på en webbplats när de flyttar mellan webbsidor.
               service: Denna webbplats
@@ -229,6 +230,30 @@ sv:
             pwaInstallPromptSeen:
               description: Lagrar status om den progressiva webbapplikationen (PWA) installationsmeddelandet har redan setts av användaren.
               service: Denna webbplats
+            # Decidim end
+            # YouTube start
+            __Secure-ENID:
+              description: Används för att upptäcka spam, bedrägerier och missbruk för att säkerställa att YouTube-annonsörer inte felaktigt debiteras för bedrägliga eller på annat sätt ogiltiga visningar eller interaktioner med annonser, och att YouTube-skapare i YouTubes partnerprogram får en rimlig ersättning.
+              service: YouTube inbäddat innehåll
+            AEC:
+              description: Används för att upptäcka spam, bedrägerier och missbruk för att säkerställa att YouTube-annonsörer inte felaktigt debiteras för bedrägliga eller på annat sätt ogiltiga visningar eller interaktioner med annonser, och att YouTube-skapare i YouTubes partnerprogram får en rimlig ersättning.
+              service: YouTube inbäddat innehåll
+            DV:
+              description: Denna cookie används i syfte att rikta reklam inom Googles tjänster.
+              service: YouTube inbäddat innehåll
+            SOCS:
+              description: Google använder denna cookie för att lagra en användares status angående deras val av cookies inom Googles tjänster.
+              service: YouTube inbäddat innehåll
+            VISITOR_INFO1_LIVE:
+              description: Används inom YouTube-videor för funktionalitet, analys, annonsering och anpassning.
+              service: YouTube inbäddat innehåll
+            VISITOR_PRIVACY_METADATA:
+              description: Lagrar användarens samtyckestillstånd för cookies i YouTube-videor för den aktuella domänen.
+              service: YouTube inbäddat innehåll
+            YSC:
+              description: Används för säkerhet i YouTube-videor. Används för att säkerställa att förfrågningar inom en surfsession görs av användaren och inte av andra webbplatser. Denna cookie förhindrar skadliga webbplatser från att agera på uppdrag av en användare utan användarens vetskap.
+              service: YouTube inbäddat innehåll
+            # YouTube end
           types:
             cookie: Cookie
             local_storage: Lokal lagring

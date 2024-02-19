@@ -44,6 +44,82 @@ Decidim.configure do |config|
     end
   end
 
+  # Cookie/data consent
+  config.consent_categories = [
+    {
+      slug: "essential",
+      mandatory: true,
+      items: [
+        {
+          type: "cookie",
+          name: "_session_id"
+        },
+        {
+          type: "cookie",
+          name: Decidim.consent_cookie_name
+        },
+        {
+          type: "local_storage",
+          name: "pwaInstallPromptSeen"
+        }
+      ]
+    },
+    {
+      slug: "preferences",
+      mandatory: false,
+      items: [
+        {
+          type: "cookie",
+          name: "SOCS"
+        },
+        {
+          type: "cookie",
+          name: "VISITOR_PRIVACY_METADATA"
+        },
+        {
+          type: "cookie",
+          name: "VISITOR_INFO1_LIVE"
+        },
+        {
+          type: "cookie",
+          name: "YSC"
+        }
+      ]
+    },
+    {
+      slug: "analytics",
+      mandatory: false,
+      items: [
+        {
+          type: "cookie",
+          name: "VISITOR_INFO1_LIVE"
+        }
+      ]
+    },
+    {
+      slug: "marketing",
+      mandatory: false,
+      items: [
+        {
+          type: "cookie",
+          name: "__Secure-ENID"
+        },
+        {
+          type: "cookie",
+          name: "AEC"
+        },
+        {
+          type: "cookie",
+          name: "DV"
+        },
+        {
+          type: "cookie",
+          name: "VISITOR_INFO1_LIVE"
+        }
+      ]
+    }
+  ]
+
   # By default in Decidim this is set as 0. We need to have unconfirmed
   # access so that participant can verify his/her email.
   config.unconfirmed_access_for = 1000.days

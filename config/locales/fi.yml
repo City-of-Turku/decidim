@@ -220,6 +220,7 @@ fi:
             service: Palvelu
             type: Tyyppi
           items:
+            # Decidim start
             _session_id:
               description: Mahdollistaa verkkosivuston muistavan käyttäjän, kun käyttäjä liikkuu sivuston eri sivujen välillä.
               service: Tämä sivusto
@@ -229,6 +230,30 @@ fi:
             pwaInstallPromptSeen:
               description: Tallentaa tiedon siitä, onko progressiivisen verkkosovelluksen (PWA) asennusilmoitus jo nähty käyttäjän toimesta.
               service: Tämä sivusto
+            # Decidim end
+            # YouTube start
+            __Secure-ENID:
+              description: Käytetään tunnistamaan roskapostitusta, huijausta ja väärinkäyttöä, jotta YouTube-videoiden mainostajia ei laskuteta väärinkäytösten tai virheellisten katselukertojen tai vuorovaikutusten takia. Huolehtii, että YouTube-sisällöntuottajille YouTuben kumppaniohjelmassa kompensoidaan heille oikeutettu tuotto.
+              service: Upotettu YouTube-sisältö
+            AEC:
+              description: Käytetään tunnistamaan roskapostitusta, huijausta ja väärinkäyttöä, jotta YouTube-videoiden mainostajia ei laskuteta väärinkäytösten tai virheellisten katselukertojen tai vuorovaikutusten takia. Huolehtii, että YouTube-sisällöntuottajille YouTuben kumppaniohjelmassa kompensoidaan heille oikeutettu tuotto.
+              service: Upotettu YouTube-sisältö
+            DV:
+              description: Tätä evästettä käytetään kohdennettua mainontaa varten Googlen palveluissa.
+              service: Upotettu YouTube-sisältö
+            SOCS:
+              description: Google käyttää tätä evästettä tallentaakseen tiedon käyttäjän evästevalinnoista Googlen palveluissa.
+              service: Upotettu YouTube-sisältö
+            VISITOR_INFO1_LIVE:
+              description: Käytetään YouTube-videoiden toiminnallisuuteen, analytiikkaan, mainontaan ja personointiin.
+              service: Upotettu YouTube-sisältö
+            VISITOR_PRIVACY_METADATA:
+              description: Tallentaa tiedon käyttäjän evästehyväksynnästä YouTube-videoissa tälle domainille.
+              service: Upotettu YouTube-sisältö
+            YSC:
+              description: Käytetään tietoturvan varmentamiseen YouTube-videoissa. Tällä evästeellä varmennetaan, että käyttäjän tekemät pyynnöt istunnon aikana ovat lähtöisin käyttäjältä itseltään, eikä ulkopuolisilta sivustoilta. Tämän evästeen avulla estetään haitallisten sivustojen esiintyminen käyttäjänä tai toimiminen käyttäjän puolesta käyttäjän tietämättä.
+              service: Upotettu YouTube-sisältö
+            # YouTube end
           types:
             cookie: Eväste
             local_storage: Paikallinen tietovarasto
