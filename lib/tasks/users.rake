@@ -19,9 +19,9 @@ namespace :users do
 
     user =
       if user_id.to_s.match?(/^[0-9]+$/)
-        Decidim::User.find_by(id: user_id)
+        Decidim::User.entire_collection.find_by(id: user_id)
       else
-        Decidim::User.find_by(email: user_id)
+        Decidim::User.entire_collection.find_by(email: user_id)
       end
     unless user
       puts "Unknown user ID or email: #{user_id}"
