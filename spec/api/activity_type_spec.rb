@@ -58,6 +58,8 @@ module Turku
           context "when current user is not admin" do
             let(:current_user) { create(:user, :confirmed, organization: current_organization) }
 
+            before { user.update!(published_at: Time.current) }
+
             it "doesnt return activityTypes" do
               expect(response["user"]["activityTypes"].count).to eq(0)
             end

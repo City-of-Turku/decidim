@@ -33,7 +33,7 @@ module Decidim
     end
 
     context "when the form is valid" do
-      let(:user) { Decidim::User.last }
+      let(:user) { Decidim::User.entire_collection.last }
 
       it "broadcasts ok" do
         expect { subject.call }.to broadcast(:ok)
@@ -43,7 +43,7 @@ module Decidim
         subject.call
         expect(user.email).to eq(form.email)
         expect(user.name).to eq(form.name)
-        expect(user.nickname).to eq(form.nickname)
+        expect(user.nickname).to match(/^u_\d+/)
         # The tos agreement should not be set, the `tos_agreement` is only
         # needed in order for the user record to be created but they should not
         # automatically accept the TOS.
@@ -64,7 +64,7 @@ module Decidim
 
         it "creates a confirmation token during the omniauth registration creation" do
           user.update!(confirmation_token: nil)
-          expect { subject.call }.not_to change(Decidim::User, :count)
+          expect { subject.call }.not_to change(Decidim::User.entire_collection, :count)
 
           user.reload
           expect(user.confirmation_token).not_to be_nil

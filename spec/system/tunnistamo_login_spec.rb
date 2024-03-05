@@ -45,7 +45,7 @@ describe "Tunnistamo login", type: :system do
   end
 
   def tunnistamo_login
-    click_link "Sign In"
-    click_button "I agree with these terms"
+    click_link "Kirjaudu sisään"
+    click_button "Hyväksyn nämä ehdot"
   end
 end
