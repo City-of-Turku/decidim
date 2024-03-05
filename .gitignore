@@ -52,3 +52,6 @@ bin/delayed_job
 yarn-debug.log*
 .yarn-integrity
 /public/decidim-packs
+
+public/sw.js
+public/sw.js.map
