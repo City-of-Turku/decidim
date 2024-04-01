@@ -70,7 +70,7 @@ class TurkuTunnistamoActionAuthorizer < Decidim::Verifications::DefaultActionAut
     return true unless authorization.user
 
     Decidim::Budgets::Order.where(
-      component: component,
+      budget: Decidim::Budgets::Budget.where(component: component),
       user: authorization.user
     ).where.not(checked_out_at: nil).count.zero?
   end
