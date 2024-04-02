@@ -15,8 +15,8 @@ class TurkuTunnistamoActionAuthorizer < Decidim::Verifications::DefaultActionAut
                           turku_suomifi_handler(options, status_code, data)
                         when "opas_adfs"
                           opas_adfs_handler(options, status_code, data)
-                        when "axiell_aurora"
-                          axiell_aurora_handler(options, status_code, data)
+                        when "koha", "axiell_aurora"
+                          library_handler(options, status_code, data)
                         else
                           # Turku employees / Tunnistamo other authorizations.
                           status_code = :unauthorized
@@ -143,7 +143,7 @@ class TurkuTunnistamoActionAuthorizer < Decidim::Verifications::DefaultActionAut
     [status_code, data]
   end
 
-  def axiell_aurora_handler(options, status_code, data)
+  def library_handler(options, status_code, data)
     minimum_age = options["minimum_age"].to_i || 0
 
     if options["allow_library_card"].to_i.zero?
