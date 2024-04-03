@@ -50,7 +50,12 @@ class TurkuDocumentsAuthorizationHandler < Decidim::AuthorizationHandler
     gender = nil
     date_of_birth = nil
     if hetu
-      gender = hetu.male? ? "m" : "f"
+      gender =
+        if hetu.gender_neutral?
+          nil
+        else
+          hetu.male? ? "m" : "f"
+        end
       date_of_birth = hetu.date_of_birth.to_s
     end
 
