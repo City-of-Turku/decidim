@@ -9,8 +9,7 @@
 env :PATH, ENV.fetch("PATH", nil)
 
 # Define how to run the rake task
-rvm_do = "/usr/local/rvm/bin/rvm #{RUBY_VERSION} do"
-job_type :rake, "cd :path && :environment_variable=:environment #{rvm_do} bundle exec rake :task --silent :output"
+job_type :rake, "cd :path && :environment_variable=:environment bundle exec rake :task --silent :output"
 
 # DEFINE THE SCHEDULED TASKS BELOW
 
