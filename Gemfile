@@ -9,7 +9,8 @@ DECIDIM_VERSION = "~> 0.27.0"
 gem "decidim", DECIDIM_VERSION
 
 gem "decidim-antivirus", github: "mainio/decidim-module-antivirus", branch: "release/0.27-stable"
-gem "decidim-apiauth", github: "mainio/decidim-module-apiauth", branch: "main"
+gem "decidim-apiext", github: "City-of-Turku/decidim-module-apiext", branch: "main"
+gem "decidim-apifiles", github: "mainio/decidim-module-apifiles", branch: "main"
 gem "decidim-privacy", github: "mainio/decidim-module-privacy", branch: "main"
 gem "decidim-term_customizer", github: "mainio/decidim-module-term_customizer", branch: "release/0.27-stable"
 gem "decidim-tunnistamo", github: "mainio/decidim-module-tunnistamo", branch: "main"

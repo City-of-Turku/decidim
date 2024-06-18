@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_02_16_121349) do
+ActiveRecord::Schema.define(version: 2024_06_18_042939) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -93,7 +93,7 @@ ActiveRecord::Schema.define(version: 2024_02_16_121349) do
 
   create_table "decidim_action_logs", force: :cascade do |t|
     t.bigint "decidim_organization_id", null: false
-    t.bigint "decidim_user_id", null: false
+    t.bigint "user_id", null: false
     t.bigint "decidim_component_id"
     t.string "resource_type", null: false
     t.bigint "resource_id", null: false
@@ -107,14 +107,16 @@ ActiveRecord::Schema.define(version: 2024_02_16_121349) do
     t.string "visibility", default: "admin-only"
     t.integer "decidim_scope_id"
     t.integer "decidim_area_id"
+    t.string "user_type", null: false
     t.index ["created_at"], name: "index_decidim_action_logs_on_created_at"
     t.index ["decidim_area_id"], name: "index_decidim_action_logs_on_decidim_area_id"
     t.index ["decidim_component_id"], name: "index_action_logs_on_component_id"
     t.index ["decidim_organization_id"], name: "index_action_logs_on_organization_id"
     t.index ["decidim_scope_id"], name: "index_decidim_action_logs_on_decidim_scope_id"
-    t.index ["decidim_user_id"], name: "index_action_logs_on_user_id"
     t.index ["participatory_space_type", "participatory_space_id"], name: "index_action_logs_on_space_type_and_id"
     t.index ["resource_type", "resource_id"], name: "index_action_logs_on_resource_type_and_id"
+    t.index ["user_id", "user_type"], name: "index_decidim_action_log_on_users"
+    t.index ["user_id"], name: "index_action_logs_on_user_id"
     t.index ["version_id"], name: "index_decidim_action_logs_on_version_id"
     t.index ["visibility"], name: "index_decidim_action_logs_on_visibility"
   end
@@ -135,10 +137,10 @@ ActiveRecord::Schema.define(version: 2024_02_16_121349) do
     t.index ["state"], name: "index_decidim_amendments_on_state"
   end
 
-  create_table "decidim_apiauth_jwt_blacklists", force: :cascade do |t|
+  create_table "decidim_apiext_jwt_blacklists", force: :cascade do |t|
     t.string "jti", null: false
     t.datetime "exp", null: false
-    t.index ["jti"], name: "index_decidim_apiauth_jwt_blacklists_on_jti"
+    t.index ["jti"], name: "index_decidim_apiext_jwt_blacklists_on_jti"
   end
 
   create_table "decidim_area_types", force: :cascade do |t|
@@ -265,7 +267,9 @@ ActiveRecord::Schema.define(version: 2024_02_16_121349) do
     t.integer "weight", default: 0, null: false
     t.string "collection_for_type", null: false
     t.bigint "collection_for_id", null: false
+    t.string "key"
     t.index ["collection_for_type", "collection_for_id"], name: "decidim_attachment_collections_collection_for_id_and_type"
+    t.index ["key"], name: "index_decidim_attachment_collections_on_key"
   end
 
   create_table "decidim_attachments", id: :serial, force: :cascade do |t|
@@ -1602,6 +1606,7 @@ ActiveRecord::Schema.define(version: 2024_02_16_121349) do
     t.string "previous_passwords", default: [], array: true
     t.datetime "published_at"
     t.boolean "allow_private_messaging", default: true
+    t.string "api_key"
     t.index ["confirmation_token"], name: "index_decidim_users_on_confirmation_token", unique: true
     t.index ["decidim_organization_id"], name: "index_decidim_users_on_decidim_organization_id"
     t.index ["email", "decidim_organization_id"], name: "index_decidim_users_on_email_and_decidim_organization_id", unique: true, where: "((deleted_at IS NULL) AND (managed = false) AND ((type)::text = 'Decidim::User'::text))"
