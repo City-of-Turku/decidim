@@ -1,26 +1,18 @@
 <div class="content"><h1>
-<a id="proposal" class="anchor" href="#proposal" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>proposal</h1>
-<p>A proposal</p>
+<a id="component" class="anchor" href="#component" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>component</h1>
 <h2>
 <a id="input-fields" class="anchor" href="#input-fields" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Input fields</h2>
 <div class="field-entry ">
   <span id="id" class="field-name anchored">id (<code><a href="/api/docs/scalar/id">ID!</a></code>)</span>
   <div class="description-wrapper">
-   <p>The proposal's id</p>
+   <p>The Comment's unique ID</p>
   </div>
 </div>
 <h2>
 <a id="return-fields" class="anchor" href="#return-fields" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Return fields</h2>
 <div class="field-entry ">
-  <span id="id" class="field-name anchored">id (<code><a href="/api/docs/scalar/id">ID!</a></code>)</span>
+  <span id="component" class="field-name anchored">component (<code><a href="/api/docs/union/componentmutation">ComponentMutation!</a></code>)</span>
   <div class="description-wrapper">
-   <p>Proposal's unique ID</p>
-  </div>
-</div>
-<div class="field-entry ">
-  <span id="answer" class="field-name anchored">answer (<code><a href="/api/docs/object/proposal">Proposal</a></code>)</span>
-  <div class="description-wrapper">
-   <p>Answer to a proposal</p>
      <table class="arguments">
   <thead>
   <tr>
@@ -31,48 +23,12 @@
   </thead>
   <tbody>
   <tr>
-  <td><code class="anchored">state</code></td>
+  <td><code class="anchored">id</code></td>
   <td>
-    <code><a href="/api/docs/scalar/string">String!</a></code>
+    <code><a href="/api/docs/scalar/id">ID!</a></code>
   </td>
   <td>
-    <p>The answer status in which the proposal is in. Can be one of 'accepted', 'rejected' or 'evaluating'</p>
-   </td>
-  </tr>
-  <tr>
-  <td><code class="anchored">answerContent</code></td>
-  <td>
-    <code><a href="/api/docs/scalar/json">JSON</a></code>
-  </td>
-  <td>
-    <p>The answer feedback for the status for this proposal</p>
-   </td>
-  </tr>
-  <tr>
-  <td><code class="anchored">cost</code></td>
-  <td>
-    <code><a href="/api/docs/scalar/float">Float</a></code>
-  </td>
-  <td>
-    <p>Estimated cost of the proposal</p>
-   </td>
-  </tr>
-  <tr>
-  <td><code class="anchored">costReport</code></td>
-  <td>
-    <code><a href="/api/docs/scalar/json">JSON</a></code>
-  </td>
-  <td>
-    <p>Report on expenses</p>
-   </td>
-  </tr>
-  <tr>
-  <td><code class="anchored">executionPeriod</code></td>
-  <td>
-    <code><a href="/api/docs/scalar/json">JSON</a></code>
-  </td>
-  <td>
-    <p>Report on the execution perioid</p>
+    <p>The Comment's unique ID</p>
    </td>
   </tr>
   </tbody>
@@ -111,6 +67,13 @@
       <li>
         <a href="/api/docs/object/accountability/" class="sidebar-link">
           Accountability
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/accountabilitymutation/" class="sidebar-link">
+          AccountabilityMutation
         </a>
       </li>
       
@@ -179,6 +142,27 @@
       
         
       <li>
+        <a href="/api/docs/object/attachmentcollection/" class="sidebar-link">
+          AttachmentCollection
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/blob/" class="sidebar-link">
+          Blob
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/blobmutation/" class="sidebar-link">
+          BlobMutation
+        </a>
+      </li>
+      
+        
+      <li>
         <a href="/api/docs/object/blogs/" class="sidebar-link">
           Blogs
         </a>
@@ -207,8 +191,22 @@
       
         
       <li>
+        <a href="/api/docs/object/budgetmutation/" class="sidebar-link">
+          BudgetMutation
+        </a>
+      </li>
+      
+        
+      <li>
         <a href="/api/docs/object/budgets/" class="sidebar-link">
           Budgets
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/budgetsmutation/" class="sidebar-link">
+          BudgetsMutation
         </a>
       </li>
       
@@ -417,6 +415,13 @@
       
         
       <li>
+        <a href="/api/docs/object/participantdetails/" class="sidebar-link">
+          ParticipantDetails
+        </a>
+      </li>
+      
+        
+      <li>
         <a href="/api/docs/object/participatoryprocess/" class="sidebar-link">
           ParticipatoryProcess
         </a>
@@ -522,6 +527,13 @@
       
         
       <li>
+        <a href="/api/docs/object/proposalsmutation/" class="sidebar-link">
+          ProposalsMutation
+        </a>
+      </li>
+      
+        
+      <li>
         <a href="/api/docs/object/question/" class="sidebar-link">
           Question
         </a>
@@ -552,6 +564,13 @@
       <li>
         <a href="/api/docs/object/resultedge/" class="sidebar-link">
           ResultEdge
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/resultmutation/" class="sidebar-link">
+          ResultMutation
         </a>
       </li>
       
@@ -725,6 +744,13 @@
       
       
       <li>
+        <a href="/api/docs/mutation/blob/" class="sidebar-link">
+          blob
+        </a>
+      </li>
+      
+      
+      <li>
         <a href="/api/docs/mutation/comment/" class="sidebar-link">
           comment
         </a>
@@ -739,8 +765,8 @@
       
       
       <li>
-        <a href="/api/docs/mutation/proposal/" class="sidebar-link">
-          proposal
+        <a href="/api/docs/mutation/component/" class="sidebar-link">
+          component
         </a>
       </li>
       
@@ -919,12 +945,26 @@
     <p><a href="/api/docs/union">Unions</a></p>
     <ul class="menu-root">
       
+      
+      <li>
+        <a href="/api/docs/union/componentmutation/" class="sidebar-link">
+          ComponentMutation
+        </a>
+      </li>
+      
     </ul>
   </li>
 
   <li>
     <p><a href="/api/docs/input_object">Input Objects</a></p>
     <ul class="menu-root">
+      
+      
+      <li>
+        <a href="/api/docs/input_object/budgetattributes/" class="sidebar-link">
+          BudgetAttributes
+        </a>
+      </li>
       
       
       <li>
@@ -944,6 +984,13 @@
       <li>
         <a href="/api/docs/input_object/componentsort/" class="sidebar-link">
           ComponentSort
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/input_object/fileattributes/" class="sidebar-link">
+          FileAttributes
         </a>
       </li>
       
@@ -977,6 +1024,20 @@
       
       
       <li>
+        <a href="/api/docs/input_object/projectattributes/" class="sidebar-link">
+          ProjectAttributes
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/input_object/projectlocationattributes/" class="sidebar-link">
+          ProjectLocationAttributes
+        </a>
+      </li>
+      
+      
+      <li>
         <a href="/api/docs/input_object/proposalfilter/" class="sidebar-link">
           ProposalFilter
         </a>
@@ -991,6 +1052,13 @@
       
       
       <li>
+        <a href="/api/docs/input_object/resultattributes/" class="sidebar-link">
+          ResultAttributes
+        </a>
+      </li>
+      
+      
+      <li>
         <a href="/api/docs/input_object/userentityfilter/" class="sidebar-link">
           UserEntityFilter
         </a>
@@ -1000,6 +1068,13 @@
       <li>
         <a href="/api/docs/input_object/userentitysort/" class="sidebar-link">
           UserEntitySort
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/input_object/timelineentryattributes/" class="sidebar-link">
+          timelineEntryAttributes
         </a>
       </li>
       
@@ -1042,6 +1117,20 @@
       <li>
         <a href="/api/docs/scalar/id/" class="sidebar-link">
           ID
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/scalar/iso8601date/" class="sidebar-link">
+          ISO8601Date
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/scalar/iso8601datetime/" class="sidebar-link">
+          ISO8601DateTime
         </a>
       </li>
       

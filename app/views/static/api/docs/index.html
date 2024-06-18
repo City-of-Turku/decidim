@@ -14,6 +14,7 @@
 <h3>
 <a id="using-the-graphql-api" class="anchor" href="#using-the-graphql-api" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Using the GraphQL APi</h3>
 <p>The GraphQL format is a JSON formatted text that is specified in a query. Response is a JSON object as well. For details about specification check the official <a href="https://graphql.org/learn/">GraphQL site</a>.</p>
+<p>Exercise caution when utilizing the output of this API, as it may include HTML that has not been escaped. Take particular care in handling this data, specially if you intend to render it on a webpage.</p>
 <p>For instance, you can check the version of a Decidim installation by using <code>curl</code> in the terminal:</p>
 <pre><code>curl -sSH "Content-Type: application/json" \
 -d '{"query": "{ decidim { version } }"}' \
@@ -536,6 +537,13 @@ If no language is specified, the configured as default in the organization will 
       
         
       <li>
+        <a href="/api/docs/object/accountabilitymutation/" class="sidebar-link">
+          AccountabilityMutation
+        </a>
+      </li>
+      
+        
+      <li>
         <a href="/api/docs/object/activity/" class="sidebar-link">
           Activity
         </a>
@@ -599,6 +607,27 @@ If no language is specified, the configured as default in the organization will 
       
         
       <li>
+        <a href="/api/docs/object/attachmentcollection/" class="sidebar-link">
+          AttachmentCollection
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/blob/" class="sidebar-link">
+          Blob
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/blobmutation/" class="sidebar-link">
+          BlobMutation
+        </a>
+      </li>
+      
+        
+      <li>
         <a href="/api/docs/object/blogs/" class="sidebar-link">
           Blogs
         </a>
@@ -627,8 +656,22 @@ If no language is specified, the configured as default in the organization will 
       
         
       <li>
+        <a href="/api/docs/object/budgetmutation/" class="sidebar-link">
+          BudgetMutation
+        </a>
+      </li>
+      
+        
+      <li>
         <a href="/api/docs/object/budgets/" class="sidebar-link">
           Budgets
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/budgetsmutation/" class="sidebar-link">
+          BudgetsMutation
         </a>
       </li>
       
@@ -837,6 +880,13 @@ If no language is specified, the configured as default in the organization will 
       
         
       <li>
+        <a href="/api/docs/object/participantdetails/" class="sidebar-link">
+          ParticipantDetails
+        </a>
+      </li>
+      
+        
+      <li>
         <a href="/api/docs/object/participatoryprocess/" class="sidebar-link">
           ParticipatoryProcess
         </a>
@@ -942,6 +992,13 @@ If no language is specified, the configured as default in the organization will 
       
         
       <li>
+        <a href="/api/docs/object/proposalsmutation/" class="sidebar-link">
+          ProposalsMutation
+        </a>
+      </li>
+      
+        
+      <li>
         <a href="/api/docs/object/question/" class="sidebar-link">
           Question
         </a>
@@ -972,6 +1029,13 @@ If no language is specified, the configured as default in the organization will 
       <li>
         <a href="/api/docs/object/resultedge/" class="sidebar-link">
           ResultEdge
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="/api/docs/object/resultmutation/" class="sidebar-link">
+          ResultMutation
         </a>
       </li>
       
@@ -1145,6 +1209,13 @@ If no language is specified, the configured as default in the organization will 
       
       
       <li>
+        <a href="/api/docs/mutation/blob/" class="sidebar-link">
+          blob
+        </a>
+      </li>
+      
+      
+      <li>
         <a href="/api/docs/mutation/comment/" class="sidebar-link">
           comment
         </a>
@@ -1159,8 +1230,8 @@ If no language is specified, the configured as default in the organization will 
       
       
       <li>
-        <a href="/api/docs/mutation/proposal/" class="sidebar-link">
-          proposal
+        <a href="/api/docs/mutation/component/" class="sidebar-link">
+          component
         </a>
       </li>
       
@@ -1339,12 +1410,26 @@ If no language is specified, the configured as default in the organization will 
     <p><a href="/api/docs/union">Unions</a></p>
     <ul class="menu-root">
       
+      
+      <li>
+        <a href="/api/docs/union/componentmutation/" class="sidebar-link">
+          ComponentMutation
+        </a>
+      </li>
+      
     </ul>
   </li>
 
   <li>
     <p><a href="/api/docs/input_object">Input Objects</a></p>
     <ul class="menu-root">
+      
+      
+      <li>
+        <a href="/api/docs/input_object/budgetattributes/" class="sidebar-link">
+          BudgetAttributes
+        </a>
+      </li>
       
       
       <li>
@@ -1364,6 +1449,13 @@ If no language is specified, the configured as default in the organization will 
       <li>
         <a href="/api/docs/input_object/componentsort/" class="sidebar-link">
           ComponentSort
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/input_object/fileattributes/" class="sidebar-link">
+          FileAttributes
         </a>
       </li>
       
@@ -1397,6 +1489,20 @@ If no language is specified, the configured as default in the organization will 
       
       
       <li>
+        <a href="/api/docs/input_object/projectattributes/" class="sidebar-link">
+          ProjectAttributes
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/input_object/projectlocationattributes/" class="sidebar-link">
+          ProjectLocationAttributes
+        </a>
+      </li>
+      
+      
+      <li>
         <a href="/api/docs/input_object/proposalfilter/" class="sidebar-link">
           ProposalFilter
         </a>
@@ -1411,6 +1517,13 @@ If no language is specified, the configured as default in the organization will 
       
       
       <li>
+        <a href="/api/docs/input_object/resultattributes/" class="sidebar-link">
+          ResultAttributes
+        </a>
+      </li>
+      
+      
+      <li>
         <a href="/api/docs/input_object/userentityfilter/" class="sidebar-link">
           UserEntityFilter
         </a>
@@ -1420,6 +1533,13 @@ If no language is specified, the configured as default in the organization will 
       <li>
         <a href="/api/docs/input_object/userentitysort/" class="sidebar-link">
           UserEntitySort
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/input_object/timelineentryattributes/" class="sidebar-link">
+          timelineEntryAttributes
         </a>
       </li>
       
@@ -1462,6 +1582,20 @@ If no language is specified, the configured as default in the organization will 
       <li>
         <a href="/api/docs/scalar/id/" class="sidebar-link">
           ID
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/scalar/iso8601date/" class="sidebar-link">
+          ISO8601Date
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/scalar/iso8601datetime/" class="sidebar-link">
+          ISO8601DateTime
         </a>
       </li>
       
