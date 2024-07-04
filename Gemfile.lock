@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/City-of-Turku/decidim-module-apiext.git
-  revision: 74ab9ca8aa0ec0856dcb09b7a46ca8be77620505
+  revision: bedd6c879b8c290dd0f38ac564f793b4975d37c5
   branch: main
   specs:
     decidim-apiext (0.27.0)
@@ -21,15 +21,15 @@ GIT
 GIT
   remote: https://github.com/mainio/decidim-module-apifiles.git
   revision: 00c578826fe3ccca7d411fca76683b4e85b22ebb
-  branch: main
+  branch: release/0.27-stable
   specs:
     decidim-apifiles (0.27.0)
       decidim-core (~> 0.27.0)
 
 GIT
   remote: https://github.com/mainio/decidim-module-privacy.git
-  revision: 938d336b0f14a42990b46b5dc78015bdd0a1637f
-  branch: main
+  revision: 73742afeabbe271b435a3c86c12598b9ad499997
+  branch: release/0.27-stable
   specs:
     decidim-privacy (0.27.0)
       decidim-core (~> 0.27.0)
@@ -427,7 +427,7 @@ GEM
     dry-auto_inject (1.0.1)
       dry-core (~> 1.0)
       zeitwerk (~> 2.6)
-    dry-configurable (1.1.0)
+    dry-configurable (1.2.0)
       dry-core (~> 1.0, < 2)
       zeitwerk (~> 2.6)
     dry-core (1.0.1)
@@ -933,7 +933,7 @@ GEM
       rexml (~> 3.2)
     warden (1.2.9)
       rack (>= 2.0.9)
-    warden-jwt_auth (0.8.0)
+    warden-jwt_auth (0.9.0)
       dry-auto_inject (>= 0.8, < 2)
       dry-configurable (>= 0.13, < 2)
       jwt (~> 2.1)
