@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/City-of-Turku/decidim-module-apiext.git
-  revision: 10a35d61c946b83a6d1c607dfbbcf4f5954de563
+  revision: e6c2d10de0478eda5d06aaae622bbd0900730b01
   branch: main
   specs:
     decidim-apiext (0.27.0)
@@ -573,7 +573,7 @@ GEM
     listen (3.9.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
-    logger (1.6.4)
+    logger (1.6.5)
     loofah (2.19.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -935,7 +935,7 @@ GEM
       rexml (~> 3.2)
     warden (1.2.9)
       rack (>= 2.0.9)
-    warden-jwt_auth (0.10.1)
+    warden-jwt_auth (0.11.0)
       dry-auto_inject (>= 0.8, < 2)
       dry-configurable (>= 0.13, < 2)
       jwt (~> 2.1)
