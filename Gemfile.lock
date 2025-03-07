@@ -27,6 +27,13 @@ GIT
       decidim-core (~> 0.27.0)
 
 GIT
+  remote: https://github.com/mainio/decidim-module-patches.git
+  revision: de211d66d64fab067c8d8dfbc47b29217bfb5d4d
+  specs:
+    decidim-patches (0.27.0)
+      decidim-core (~> 0.27.0)
+
+GIT
   remote: https://github.com/mainio/decidim-module-privacy.git
   revision: 90474c8071e2a37d99acfa46cb4e1072e54f33b9
   branch: release/0.27-stable
@@ -987,6 +994,7 @@ DEPENDENCIES
   decidim-apiext!
   decidim-apifiles!
   decidim-dev (~> 0.27.0)
+  decidim-patches!
   decidim-privacy!
   decidim-term_customizer!
   decidim-tunnistamo!

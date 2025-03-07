@@ -16,6 +16,9 @@ gem "decidim-term_customizer", github: "mainio/decidim-module-term_customizer", 
 gem "decidim-tunnistamo", github: "mainio/decidim-module-tunnistamo", branch: "main"
 gem "omniauth-tunnistamo", github: "mainio/omniauth-tunnistamo", branch: "main"
 
+# Maintenance patches required for 0.27
+gem "decidim-patches", github: "mainio/decidim-module-patches"
+
 gem "bootsnap", "~> 1.18"
 
 gem "puma", "~> 5.6.8"
