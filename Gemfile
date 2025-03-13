@@ -19,6 +19,9 @@ gem "omniauth-tunnistamo", github: "mainio/omniauth-tunnistamo", branch: "main"
 # Maintenance patches required for 0.27
 gem "decidim-patches", github: "mainio/decidim-module-patches"
 
+# Fix for: https://github.com/rails/rails/issues/54260
+gem "concurrent-ruby", "1.3.4"
+
 gem "bootsnap", "~> 1.18"
 
 gem "puma", "~> 5.6.8"
