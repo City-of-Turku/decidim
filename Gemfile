@@ -4,7 +4,7 @@ source "https://rubygems.org"
 
 ruby RUBY_VERSION
 
-DECIDIM_VERSION = "~> 0.27.0"
+DECIDIM_VERSION = "~> 0.27.9"
 
 gem "decidim", DECIDIM_VERSION
 
@@ -23,7 +23,7 @@ gem "bootsnap", "~> 1.18"
 
 gem "puma", "~> 5.6.8"
 
-gem "faker", "~> 2.23"
+gem "faker", "~> 2.19"
 
 # For the documents authorization handler
 gem "henkilotunnus"
@@ -47,8 +47,8 @@ group :production, :staging do
   gem "dotenv-rails", "~> 3.0"
   gem "rack-ssl-enforcer", "~> 0.2.9"
 
-  gem "resque", "~> 2.6.0"
-  gem "resque-scheduler", "~> 4.10"
+  gem "resque", "~> 2.7.0"
+  gem "resque-scheduler", "~> 4.11"
 
   # Cronjobs
   gem "whenever", require: false
