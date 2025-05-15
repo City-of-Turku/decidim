@@ -18,9 +18,9 @@
   </div>
 </div>
 <div class="field-entry ">
-  <span id="attachments" class="field-name anchored">attachments (<code><a href="/api/docs/object/attachment">[Attachment]!</a></code>)</span>
+  <span id="attachments" class="field-name anchored">attachments (<code><a href="/api/docs/object/attachment">[Attachment!]!</a></code>)</span>
   <div class="description-wrapper">
-   <p>This object's attachments</p>
+   <p>The attachments of a project</p>
   </div>
 </div>
 <div class="field-entry ">
@@ -151,6 +151,30 @@
   <span id="reference" class="field-name anchored">reference (<code><a href="/api/docs/scalar/string">String</a></code>)</span>
   <div class="description-wrapper">
    <p>The reference for this project</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="linkedresources" class="field-name anchored">linkedResources (<code><a href="/api/docs/union/projectlinkresource">[ProjectLinkResource!]</a></code>)</span>
+  <div class="description-wrapper">
+   <p>The linked resources for this project.</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="linkingresources" class="field-name anchored">linkingResources (<code><a href="/api/docs/union/projectlinkresource">[ProjectLinkResource!]</a></code>)</span>
+  <div class="description-wrapper">
+   <p>The linking resources for this project.</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="decidimbudgetsbudgetid" class="field-name anchored">decidimBudgetsBudgetId (<code><a href="/api/docs/scalar/id">ID!</a></code>)</span>
+  <div class="description-wrapper">
+   <p>The budget id which this project attached to</p>
+  </div>
+</div>
+<div class="field-entry ">
+  <span id="attachmentcollection" class="field-name anchored">attachmentCollection (<code><a href="/api/docs/object/attachmentcollection">[AttachmentCollection!]!</a></code>)</span>
+  <div class="description-wrapper">
+   <p>The attachments of a project</p>
   </div>
 </div></div>
 <div id="sidebar"><ul class="categories">
@@ -610,6 +634,13 @@
       
         
       <li>
+        <a href="/api/docs/object/projectmutation/" class="sidebar-link">
+          ProjectMutation
+        </a>
+      </li>
+      
+        
+      <li>
         <a href="/api/docs/object/proposal/" class="sidebar-link">
           Proposal
         </a>
@@ -918,6 +949,13 @@
       
         
         <li>
+          <a href="/api/docs/interface/attachablemutationsinterface/" class="sidebar-link">
+            AttachableMutationsInterface
+          </a>
+        </li>
+      
+        
+        <li>
           <a href="/api/docs/interface/author/" class="sidebar-link">
             Author
           </a>
@@ -1070,12 +1108,40 @@
         </a>
       </li>
       
+      
+      <li>
+        <a href="/api/docs/union/projectlinkresource/" class="sidebar-link">
+          ProjectLinkResource
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/union/resultlinkresource/" class="sidebar-link">
+          ResultLinkResource
+        </a>
+      </li>
+      
     </ul>
   </li>
 
   <li>
     <p><a href="/api/docs/input_object">Input Objects</a></p>
     <ul class="menu-root">
+      
+      
+      <li>
+        <a href="/api/docs/input_object/attachmentattributes/" class="sidebar-link">
+          AttachmentAttributes
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="/api/docs/input_object/attachmentcollectioninput/" class="sidebar-link">
+          AttachmentCollectionInput
+        </a>
+      </li>
       
       
       <li>
