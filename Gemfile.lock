@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/City-of-Turku/decidim-module-apiext.git
-  revision: e6c2d10de0478eda5d06aaae622bbd0900730b01
-  branch: main
+  revision: 7e105340cda3898bb6f006af317f26beb9b9f799
+  branch: release/0.27-stable
   specs:
     decidim-apiext (0.27.0)
       decidim-api (~> 0.27.0)
