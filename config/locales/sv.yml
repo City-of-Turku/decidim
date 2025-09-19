@@ -153,6 +153,10 @@ sv:
     participatory_processes:
       show:
         scope: Område
+    privacy:
+      partials:
+        privacy_consent:
+          profile_settings: Profilinställningar
     proposals:
       admin:
         proposal_answers:

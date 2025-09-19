@@ -153,6 +153,10 @@ en:
     participatory_processes:
       show:
         scope: Ward
+    privacy:
+      partials:
+        privacy_consent:
+          profile_settings: Profile settings
     proposals:
       admin:
         proposal_answers:

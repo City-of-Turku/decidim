@@ -153,6 +153,10 @@ fi:
     participatory_processes:
       show:
         scope: Suuralue
+    privacy:
+      partials:
+        privacy_consent:
+          profile_settings: Profiilin asetukset
     proposals:
       admin:
         proposal_answers:
