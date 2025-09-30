@@ -3,7 +3,7 @@
   "private": true,
   "dependencies": {
     "@decidim/browserslist-config": "^0.27.10",
-    "@decidim/core": "^0.27.10",
+    "@decidim/core": "^0.31.0-rc1",
     "@decidim/elections": "^0.27.10",
     "@decidim/webpacker": "^0.27.10"
   },
