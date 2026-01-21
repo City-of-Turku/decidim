@@ -100,6 +100,11 @@ module DecidimTurku
           BudgetsListCellExtensions
         )
 
+        # Form extensions
+        ::Decidim::Proposals::Admin::ProposalAnswerForm.include(
+          ProposalAnswerFormExtensions
+        )
+
         # Model extensions
         ::Decidim::ActionLog.include(ActionLogExtensions)
 
@@ -122,6 +127,7 @@ module DecidimTurku
           ActionAuthorizationHelperExtensions
         )
         ::Decidim::MetaTagsHelper.include(MetaTagsHelperExtensions)
+        ::Decidim::Proposals::ProposalsHelper.include(ProposalsHelperExtensions)
       end
     end
   end
