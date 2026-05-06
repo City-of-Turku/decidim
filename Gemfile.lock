@@ -28,7 +28,7 @@ GIT
 
 GIT
   remote: https://github.com/mainio/decidim-module-patches.git
-  revision: eb2763b017d28553bf0e2ec45a42f01cd4ec23e2
+  revision: 26fc1a19b702315a28e5f8dd7b4abf31ad209528
   specs:
     decidim-patches (0.27.0)
       decidim-core (~> 0.27.10)
